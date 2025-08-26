@@ -1,0 +1,40 @@
+# Virtual Environment
+.venv/
+
+# Environment Variables (keep .env.example but ignore actual .env)
+.env
+
+# Results and outputs
+results/
+outputs/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Temporary files
+tmp/
+temp/
+
+
+# Dataset (uncomment if you don't want to track images)
+Pay Slip/
+test png/
