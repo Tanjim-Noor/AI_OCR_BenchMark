@@ -1,0 +1,624 @@
+{
+  "processed_count": 2,
+  "average_score": 0.899,
+  "total_score": 1.798,
+  "image_scores": [
+    {
+      "image_name": "IMG_20250826_154308~2.jpg",
+      "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_154308~2.jpg",
+      "score": 0.952,
+      "breakdown": [
+        {
+          "path": "payment_details.supplier[0]",
+          "pred": "Star Tech Ltd.",
+          "actual": "Star Tech Ltd.",
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.payment_date[0]",
+          "pred": "02-Jun-2025",
+          "actual": "02-Jun-2025",
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.payment_account[0]",
+          "pred": null,
+          "actual": null,
+          "comparator": "embedding",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.payment_method[0]",
+          "pred": "Online Sales",
+          "actual": "Online Sales",
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.ref_no[0]",
+          "pred": "INV-STLBB-2025-009417",
+          "actual": "INV-STLBB-2025-009417",
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.tags[0]",
+          "pred": "Electronics",
+          "actual": "Electronics",
+          "comparator": "semantic",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.tags[1]",
+          "pred": "Computer Hardware",
+          "actual": "Computer Hardware",
+          "comparator": "semantic",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.tags[2]",
+          "pred": "Monitor",
+          "actual": "Monitor",
+          "comparator": "semantic",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.category[0]",
+          "pred": "Computer Hardware",
+          "actual": "Computer Hardware",
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.description[0]",
+          "pred": "MSI PRO MP225 21.5\" 100Hz IPS FHD Monitor (No Warranty For Adapter & Keep the BOX For Warranty) S/N - PC6M075104322, PC6M075100985",
+          "actual": "MSI PRO MP225 21.5\" 100Hz IPS FHD Monitor (No Warranty For Adapter & Keep the BOX For Warranty) S/N - PC6M075104322, PC6M075100985",
+          "comparator": "embedding",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[0]",
+          "pred": 2,
+          "actual": 2,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[0]",
+          "pred": 10500,
+          "actual": 10500,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[0]",
+          "pred": 21000,
+          "actual": 21000,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "attachment[0]",
+          "pred": null,
+          "actual": null,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "memo[0]",
+          "pred": "Warranty Policy: 1. Please keep the full box for warranty purpose. 2. Goods once sold will not be refunded & changed. 3. The products under warranty will be repaired or replaced by the manufacturer company. 4. Timing for the warranty process will be controlled by the manufacturer company. 5. Manufacturer does not give warranty to Remote Control, Software, Data, Password/BIOS password, Cartridge, Toner, Head, Roller, Drum, Element Cover, Maintenance kit, Cable supplied with product, Gift/Free items, GPU used in data mining, if Sticker-removed, Serial tempered, Compatible Toner/Ink used, Fungus and damp, Up-to 3 display dots, Liquid spillage, Burnt and Physically-damaged etc. 6. Customers must record an unboxing video outside the store to report any damage issues with the product. Warranty Complain receiving hour: 11.00 AM to 6.00 PM.",
+          "actual": "Warranty Policy: 1. Please keep the full box for warranty purpose. 2. Goods once sold will not be refunded & changed. 3. The products under warranty will be repaired or replaced by the manufacturer company. 4. Timing for the warranty process will be controlled by the manufacturer company. 5. Manufacturer does not give warranty to Remote Control, Software, Data, Password/BIOS password, Cartridge, Toner, Head, Roller, Drum, Element Cover, Maintenance kit, Cable supplied with product, Gift/Free items, GPU used in data mining, if Sticker-removed, Serial tempered, Compatible Toner/Ink used, Fungus and damp, Up-to 3 display dots, Liquid spillage, Burnt and Physically-damaged etc. 6. Customers must record an unboxing video outside the store to report any damage issues with the product. Warranty Complain receiving hour: 11.00 AM to 6.00 PM.",
+          "comparator": "embedding",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.sub_total[0]",
+          "pred": 21000,
+          "actual": 21000,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.sales_tax.is_percentage[0]",
+          "pred": false,
+          "actual": false,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.sales_tax.tax[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.sales_tax.amount[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.discount.is_percentage[0]",
+          "pred": false,
+          "actual": false,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.discount.discount[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.discount.calculated_amount[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.total_amount[0]",
+          "pred": 21000,
+          "actual": 21000,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        }
+      ]
+    },
+    {
+      "image_name": "IMG_20250826_155754.jpg",
+      "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_155754.jpg",
+      "score": 0.846,
+      "breakdown": [
+        {
+          "path": "payment_details.supplier[0]",
+          "pred": "RoBenDevs",
+          "actual": "RoBenDevs",
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.payment_date[0]",
+          "pred": "2023-06-25",
+          "actual": "23-06-25",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.payment_account[0]",
+          "pred": null,
+          "actual": null,
+          "comparator": "embedding",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.payment_method[0]",
+          "pred": "Cash",
+          "actual": "Cash",
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.ref_no[0]",
+          "pred": null,
+          "actual": null,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.tags[0]",
+          "pred": "Groceries",
+          "actual": "Groceries",
+          "comparator": "semantic",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.tags[1]",
+          "pred": "Food",
+          "actual": "Food",
+          "comparator": "semantic",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.tags[2]",
+          "pred": "Snacks",
+          "actual": "Snacks",
+          "comparator": "semantic",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.tags[3]",
+          "pred": "Miscellaneous",
+          "actual": "Miscellaneous",
+          "comparator": "semantic",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.category[0]",
+          "pred": "Groceries",
+          "actual": "Groceries",
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.category[1]",
+          "pred": "Food",
+          "actual": "Food",
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.category[2]",
+          "pred": "Groceries",
+          "actual": "Groceries",
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.category[3]",
+          "pred": "Food",
+          "actual": "Food",
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.category[4]",
+          "pred": "Miscellaneous",
+          "actual": "Miscellaneous",
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.description[0]",
+          "pred": "bajar khoroch",
+          "actual": "bajar rickshaw",
+          "comparator": "embedding",
+          "score": 0.801,
+          "weight": 1,
+          "weighted": 0.801
+        },
+        {
+          "path": "item_details.description[1]",
+          "pred": "tiffin",
+          "actual": "rickshaw",
+          "comparator": "embedding",
+          "score": 0.639,
+          "weight": 1,
+          "weighted": 0.639
+        },
+        {
+          "path": "item_details.description[2]",
+          "pred": "bajar khoroch 22.06.25",
+          "actual": "bajar rickshaw 22.06.25",
+          "comparator": "embedding",
+          "score": 0.858,
+          "weight": 1,
+          "weighted": 0.858
+        },
+        {
+          "path": "item_details.description[3]",
+          "pred": "tiffin 22.06.25",
+          "actual": "rickshaw 22.06.25",
+          "comparator": "embedding",
+          "score": 0.738,
+          "weight": 1,
+          "weighted": 0.738
+        },
+        {
+          "path": "item_details.description[4]",
+          "pred": "sukna aati + 2ta + loj",
+          "actual": "sukna morich + shosha + lebu",
+          "comparator": "embedding",
+          "score": 0.803,
+          "weight": 1,
+          "weighted": 0.803
+        },
+        {
+          "path": "item_details.quantity[0]",
+          "pred": 1,
+          "actual": 1,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[1]",
+          "pred": 1,
+          "actual": 1,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[2]",
+          "pred": 1,
+          "actual": 1,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[3]",
+          "pred": 1,
+          "actual": 1,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[4]",
+          "pred": 1,
+          "actual": 1,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[0]",
+          "pred": 60,
+          "actual": 60,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[1]",
+          "pred": 80,
+          "actual": 80,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[2]",
+          "pred": 40,
+          "actual": 40,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[3]",
+          "pred": 120,
+          "actual": 120,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[4]",
+          "pred": 267,
+          "actual": 267,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[0]",
+          "pred": 60,
+          "actual": 60,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[1]",
+          "pred": 80,
+          "actual": 80,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[2]",
+          "pred": 40,
+          "actual": 40,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[3]",
+          "pred": 120,
+          "actual": 120,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[4]",
+          "pred": 267,
+          "actual": 267,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "attachment[0]",
+          "pred": null,
+          "actual": null,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "memo[0]",
+          "pred": null,
+          "actual": null,
+          "comparator": "embedding",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "totals.sub_total[0]",
+          "pred": 567,
+          "actual": 567,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.sales_tax.is_percentage[0]",
+          "pred": false,
+          "actual": false,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.sales_tax.tax[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.sales_tax.amount[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.discount.is_percentage[0]",
+          "pred": false,
+          "actual": false,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.discount.discount[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.discount.calculated_amount[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.total_amount[0]",
+          "pred": 567,
+          "actual": 567,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        }
+      ]
+    }
+  ]
+}
