@@ -10,11 +10,7 @@
         "payment_date": "02-Jun-2025",
         "payment_method": "Online Sales",
         "ref_no": "INV-STLBB-2025-009417",
-        "tags": [
-          "Electronics",
-          "Computer Hardware",
-          "Monitor"
-        ]
+        "tags": ["Electronics", "Computer Hardware", "Monitor"]
       },
       "item_details": [
         {
@@ -45,6 +41,304 @@
     "timestamp": "2025-08-27T15:06:18.054162"
   },
   {
+    "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_154831.jpg",
+    "model_used": "gemini",
+    "success": true,
+    "structured_data": {
+      "payment_details": {
+        "supplier": "Maa Fruits & Departmental Store",
+        "payment_account": null,
+        "payment_date": "20/06/2020",
+        "payment_method": "Cash",
+        "ref_no": null,
+        "tags": ["Fruits", "Departmental Store", "Grocery"]
+      },
+      "item_details": [
+        {
+          "category": "Fruits",
+          "description": "Khejur",
+          "quantity": 80,
+          "unit_price": 10,
+          "total": 800
+        }
+      ],
+      "attachment": null,
+      "memo": "Soles goods are not returnable. Welcome come again.",
+      "totals": {
+        "sub_total": 800,
+        "sales_tax": {
+          "is_percentage": false,
+          "tax": 0,
+          "amount": 0
+        },
+        "discount": {
+          "is_percentage": false,
+          "discount": 0,
+          "calculated_amount": 0
+        },
+        "total_amount": 600
+      }
+    },
+    "timestamp": "2025-08-27T18:14:21.034404"
+  },
+  {
+    "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_155237.jpg",
+    "model_used": "gemini",
+    "success": true,
+    "structured_data": {
+      "payment_details": {
+        "supplier": "SHWAPNO",
+        "payment_account": "DBBL Bank",
+        "payment_date": "2025-06-25",
+        "payment_method": "Bank Transfer/Card",
+        "ref_no": "D0612506250055",
+        "tags": ["Groceries", "Supermarket", "Retail", "Food"]
+      },
+      "item_details": [
+        {
+          "category": "Vegetables",
+          "description": "Bottle Gourd (Lau)",
+          "quantity": 1.0,
+          "unit_price": 80.0,
+          "total": 80.0
+        },
+        {
+          "category": "Meat",
+          "description": "Broiler Chicken Keema",
+          "quantity": 0.95,
+          "unit_price": 681.0,
+          "total": 643.55
+        },
+        {
+          "category": "Vegetables",
+          "description": "Cucumber (Shosha)",
+          "quantity": 2.37,
+          "unit_price": 55.0,
+          "total": 130.35
+        },
+        {
+          "category": "Vegetables",
+          "description": "Green Papaya (Kacha Pepe)",
+          "quantity": 1.79,
+          "unit_price": 45.0,
+          "total": 80.55
+        },
+        {
+          "category": "Dairy & Eggs",
+          "description": "KFK Branded Egg (12 Pcs)",
+          "quantity": 1.0,
+          "unit_price": 190.0,
+          "total": 190.0
+        },
+        {
+          "category": "Fruits",
+          "description": "Lemon Long (Lomba Lebu)",
+          "quantity": 8.0,
+          "unit_price": 6.0,
+          "total": 48.0
+        },
+        {
+          "category": "Vegetables",
+          "description": "Piyaj Deshi (Loose)",
+          "quantity": 2.21,
+          "unit_price": 58.0,
+          "total": 127.89
+        },
+        {
+          "category": "Vegetables",
+          "description": "Pointed Gourd (Potol)",
+          "quantity": 1.12,
+          "unit_price": 50.0,
+          "total": 56.0
+        },
+        {
+          "category": "Vegetables",
+          "description": "Pumpkin Sweet (Misti Kumra)",
+          "quantity": 2.63,
+          "unit_price": 35.0,
+          "total": 91.88
+        },
+        {
+          "category": "Meat",
+          "description": "Shonalika Dressed Classic",
+          "quantity": 7.89,
+          "unit_price": 645.0,
+          "total": 5089.05
+        },
+        {
+          "category": "Vegetables",
+          "description": "Snake Gourd (Chichinga)",
+          "quantity": 1.55,
+          "unit_price": 60.0,
+          "total": 93.0
+        },
+        {
+          "category": "Vegetables",
+          "description": "Tomato Red (Local)",
+          "quantity": 0.67,
+          "unit_price": 120.0,
+          "total": 80.4
+        },
+        {
+          "category": "Vegetables",
+          "description": "Water Spinach (Kolmishak)",
+          "quantity": 3.0,
+          "unit_price": 15.0,
+          "total": 45.0
+        },
+        {
+          "category": "Groceries",
+          "description": "Pran Hot Tomato Sauce Pet",
+          "quantity": 1.0,
+          "unit_price": 290.0,
+          "total": 290.0
+        }
+      ],
+      "attachment": null,
+      "memo": "Loyalty Points (as on 2025-06-25 10:33) Previous Points: 7,252 This Invoice: 70 Balance Points: 7,322. Earned points will expire within 6 months from the date of the transaction if not redeemed. VAT against this challan is payable through central registration. Prices inclusive of standard VAT except exempted items. VAT Payable TK.:37.83. Join the DREAM FACTORY at: FACEBOOK.COM/GROUPS/SHWAPNOHELP. Thank you for shopping with SHWAPNO. Please visit www.shwapno.com for home delivery. Purchase of defected item must be exchanged by 24 hours with invoice. For any queries, suggestions or complaints, please call 16469 (9:00 AM - 6:00 PM). Powered by MISBACI Limited.",
+      "totals": {
+        "sub_total": 7045.67,
+        "sales_tax": {
+          "is_percentage": false,
+          "tax": 0,
+          "amount": 37.83
+        },
+        "discount": {
+          "is_percentage": false,
+          "discount": 0,
+          "calculated_amount": 0
+        },
+        "total_amount": 7046.0
+      }
+    },
+    "timestamp": "2025-08-27T18:15:24.544559"
+  },
+  {
+    "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_154929.jpg",
+    "model_used": "gemini",
+    "success": true,
+    "structured_data": {
+      "payment_details": {
+        "supplier": "SHWAPNO",
+        "payment_account": "City Bank",
+        "payment_date": "2025-06-26",
+        "payment_method": "Bank Transfer/Card",
+        "ref_no": "D0612506260068",
+        "tags": ["Grocery", "Supermarket", "Retail", "Bangladesh"]
+      },
+      "item_details": [
+        {
+          "category": "Grocery",
+          "description": "Beef Premium Cube kg",
+          "quantity": 6.33,
+          "unit_price": 775.0,
+          "total": 4901.88
+        },
+        {
+          "category": "Grocery",
+          "description": "Broiler Chicken Breast Bon",
+          "quantity": 0.5,
+          "unit_price": 534.0,
+          "total": 267.0
+        },
+        {
+          "category": "Grocery",
+          "description": "Capsicum Green kg",
+          "quantity": 1.01,
+          "unit_price": 320.0,
+          "total": 321.6
+        },
+        {
+          "category": "Grocery",
+          "description": "Carrot China (China Gajor)K",
+          "quantity": 1.4,
+          "unit_price": 160.0,
+          "total": 224.0
+        },
+        {
+          "category": "Grocery",
+          "description": "Cucumber (Shosha)kg",
+          "quantity": 2.69,
+          "unit_price": 55.0,
+          "total": 147.68
+        },
+        {
+          "category": "Grocery",
+          "description": "Green Chili (Kacha Morich)",
+          "quantity": 0.67,
+          "unit_price": 100.0,
+          "total": 66.5
+        },
+        {
+          "category": "Grocery",
+          "description": "Green Papaya (Kacha Pepe)",
+          "quantity": 3.0,
+          "unit_price": 45.0,
+          "total": 134.78
+        },
+        {
+          "category": "Grocery",
+          "description": "Lemon Long (Lomba Lebu) PC",
+          "quantity": 8.0,
+          "unit_price": 6.0,
+          "total": 48.0
+        },
+        {
+          "category": "Grocery",
+          "description": "Long Bean (Borboti) KG",
+          "quantity": 1.83,
+          "unit_price": 90.0,
+          "total": 164.7
+        },
+        {
+          "category": "Grocery",
+          "description": "Piyaj Deshi Loose kg",
+          "quantity": 2.66,
+          "unit_price": 58.0,
+          "total": 154.28
+        },
+        {
+          "category": "Grocery",
+          "description": "Shonalika Dressed Classic",
+          "quantity": 1.65,
+          "unit_price": 667.0,
+          "total": 1097.22
+        },
+        {
+          "category": "Grocery",
+          "description": "ACI Pure Corn Flour 150g",
+          "quantity": 1.0,
+          "unit_price": 60.0,
+          "total": 60.0
+        },
+        {
+          "category": "Grocery",
+          "description": "Shwapno Black Pepper Powde",
+          "quantity": 1.0,
+          "unit_price": 129.0,
+          "total": 129.0
+        }
+      ],
+      "attachment": null,
+      "memo": null,
+      "totals": {
+        "sub_total": 7716.64,
+        "sales_tax": {
+          "is_percentage": false,
+          "tax": 0,
+          "amount": 7.17
+        },
+        "discount": {
+          "is_percentage": false,
+          "discount": 0,
+          "calculated_amount": 30.8
+        },
+        "total_amount": 7686.0
+      }
+    },
+    "timestamp": "2025-08-27T19:05:31.822204"
+  },
+  {
     "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_155754.jpg",
     "model_used": "gemini",
     "success": true,
@@ -55,12 +349,7 @@
         "payment_date": "23-06-25",
         "payment_method": "Cash",
         "ref_no": null,
-        "tags": [
-          "Groceries",
-          "Food",
-          "Snacks",
-          "Miscellaneous"
-        ]
+        "tags": ["Groceries", "Food", "Snacks", "Miscellaneous"]
       },
       "item_details": [
         {
@@ -117,5 +406,343 @@
       }
     },
     "timestamp": "2025-08-27T15:06:28.602432"
+  },
+  {
+    "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_160041.jpg",
+    "model_used": "gemini",
+    "success": true,
+    "structured_data": {
+      "payment_details": {
+        "supplier": "TULIP FLOWER CENTER",
+        "payment_account": null,
+        "payment_date": "23-3-25",
+        "payment_method": "Cash",
+        "ref_no": "373",
+        "tags": ["flowers", "decoration", "event management"]
+      },
+      "item_details": [
+        {
+          "category": "Flowers",
+          "description": "fuler buket",
+          "quantity": 1,
+          "unit_price": 280,
+          "total": 280
+        }
+      ],
+      "attachment": null,
+      "memo": null,
+      "totals": {
+        "sub_total": 280,
+        "sales_tax": {
+          "is_percentage": false,
+          "tax": 0,
+          "amount": 0
+        },
+        "discount": {
+          "is_percentage": false,
+          "discount": 0,
+          "calculated_amount": 0
+        },
+        "total_amount": 280
+      }
+    },
+    "timestamp": "2025-08-27T17:40:35.101896"
+  },
+  {
+    "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_160529.jpg",
+    "model_used": "gemini",
+    "success": true,
+    "structured_data": {
+      "payment_details": {
+        "supplier": "SHWAPNO",
+        "payment_account": "City Bank",
+        "payment_date": "2025-06-19",
+        "payment_method": "Card",
+        "ref_no": "D0612506190006",
+        "tags": ["Grocery", "Retail", "Supermarket", "Food"]
+      },
+      "item_details": [
+        {
+          "category": "Produce",
+          "description": "Green Chili (Kacha Morich)",
+          "quantity": 0.33,
+          "unit_price": 100.0,
+          "total": 32.5
+        },
+        {
+          "category": "Packaged Food",
+          "description": "Pran Fill Time White Sandwi",
+          "quantity": 5.0,
+          "unit_price": 80.0,
+          "total": 400.0
+        },
+        {
+          "category": "Packaged Food",
+          "description": "Pran Diabetic Orange Jelly",
+          "quantity": 1.0,
+          "unit_price": 270.0,
+          "total": 270.0
+        }
+      ],
+      "attachment": null,
+      "memo": "Loyalty points as on 2025-06-19: Previous 7,026, This Invoice 7, Balance 7,033. Earned points will expire within 6 months from the date of the transaction if not redeemed. VAT against this challan is payable through central registration. Prices inclusive of standard VAT except exempted items. For home delivery visit www.shwapno.com. Purchase of defected item must be exchanged by 24 hours with invoice. For any queries, suggestions or complaints, please call 16469 (9:00 AM - 6:00 PM). Powered by MISAACI Limited.",
+      "totals": {
+        "sub_total": 702.5,
+        "sales_tax": {
+          "is_percentage": false,
+          "tax": 0,
+          "amount": 35.22
+        },
+        "discount": {
+          "is_percentage": false,
+          "discount": 0,
+          "calculated_amount": 0.0
+        },
+        "total_amount": 702.5
+      }
+    },
+    "timestamp": "2025-08-27T18:16:10.074440"
+  },
+  {
+    "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_160644.jpg",
+    "model_used": "gemini",
+    "success": true,
+    "structured_data": {
+      "payment_details": {
+        "supplier": "Maa Fruits & Departmental Store",
+        "payment_account": null,
+        "payment_date": null,
+        "payment_method": null,
+        "ref_no": null,
+        "tags": ["Fruits", "Retail", "Wholesale"]
+      },
+      "item_details": [
+        {
+          "category": "Fruits",
+          "description": "Guava",
+          "quantity": 2.2005,
+          "unit_price": 120,
+          "total": 260
+        }
+      ],
+      "attachment": null,
+      "memo": null,
+      "totals": {
+        "sub_total": 260,
+        "sales_tax": {
+          "is_percentage": false,
+          "tax": 0,
+          "amount": 0
+        },
+        "discount": {
+          "is_percentage": false,
+          "discount": 0,
+          "calculated_amount": 0
+        },
+        "total_amount": 260
+      }
+    },
+    "timestamp": "2025-08-27T17:40:47.995413"
+  },
+  {
+    "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_160928.jpg",
+    "model_used": "gemini",
+    "success": true,
+    "structured_data": {
+      "payment_details": {
+        "supplier": "SHWAPNO",
+        "payment_account": "City Bank",
+        "payment_date": "2025-06-16",
+        "payment_method": "Card",
+        "ref_no": "D0612506160034",
+        "tags": ["Grocery", "Supermarket", "Retail", "Food"]
+      },
+      "item_details": [
+        {
+          "category": "Produce",
+          "description": "Bottle Gourd (Lau) PCS",
+          "quantity": 6.0,
+          "unit_price": 70.0,
+          "total": 420.0
+        },
+        {
+          "category": "Produce",
+          "description": "Cucumber (Shosha)kg",
+          "quantity": 2.01,
+          "unit_price": 55.0,
+          "total": 110.55
+        },
+        {
+          "category": "Produce",
+          "description": "Green Chili (Kacha Morich)",
+          "quantity": 0.57,
+          "unit_price": 100.0,
+          "total": 56.5
+        },
+        {
+          "category": "Snacks",
+          "description": "Horina loc sat cul RC",
+          "quantity": 0.54,
+          "unit_price": 850.0,
+          "total": 455.6
+        },
+        {
+          "category": "Food",
+          "description": "Ifad ED&Kaju 175g(B3 G120g",
+          "quantity": 1.0,
+          "unit_price": 200.0,
+          "total": 200.0
+        },
+        {
+          "category": "Dairy & Eggs",
+          "description": "KFK Branded Egg (12 Pcs)",
+          "quantity": 1.0,
+          "unit_price": 190.0,
+          "total": 190.0
+        },
+        {
+          "category": "Produce",
+          "description": "Lemon Long (Lomba Lebu) PC",
+          "quantity": 6.0,
+          "unit_price": 5.0,
+          "total": 30.0
+        },
+        {
+          "category": "Grains & Pulses",
+          "description": "Miniket Rice Loose-P(Jiras",
+          "quantity": 6.0,
+          "unit_price": 76.0,
+          "total": 456.0
+        },
+        {
+          "category": "Grains & Pulses",
+          "description": "Moshur Dal Loose (S)kg",
+          "quantity": 3.03,
+          "unit_price": 112,
+          "total": 338.8
+        },
+        {
+          "category": "Grains & Pulses",
+          "description": "Piyaj DeshiaLoosekg",
+          "quantity": 4.06,
+          "unit_price": 58,
+          "total": 235.48
+        },
+        {
+          "category": "Meat & Poultry",
+          "description": "Shonalika Dressed Classic(",
+          "quantity": 6.6,
+          "unit_price": 570.0,
+          "total": 3759.15
+        },
+        {
+          "category": "Household",
+          "description": "B. Badhara Kitchen Towel Doub",
+          "quantity": 2.0,
+          "unit_price": 160.0,
+          "total": 320.0
+        },
+        {
+          "category": "Household",
+          "description": "Bashundhara Paper Towel Wh",
+          "quantity": 6.0,
+          "unit_price": 105.0,
+          "total": 630.0
+        },
+        {
+          "category": "Cooking Oil",
+          "description": "Fresh Soyabean Oil 5 Ltr",
+          "quantity": 1.0,
+          "unit_price": 922.0,
+          "total": 922.0
+        },
+        {
+          "category": "Beverages",
+          "description": "Ispahani Mirzapore Tea Bag",
+          "quantity": 1.0,
+          "unit_price": 90.0,
+          "total": 90.0
+        },
+        {
+          "category": "Spices",
+          "description": "Maggi Masala Family Fan Pa",
+          "quantity": 1.0,
+          "unit_price": 340.0,
+          "total": 340.0
+        },
+        {
+          "category": "Spices",
+          "description": "Pure Cumin Powder 200g",
+          "quantity": 1.0,
+          "unit_price": 310.0,
+          "total": 310.0
+        },
+        {
+          "category": "Spices",
+          "description": "Radhuni Rademix Chicken Ma",
+          "quantity": 1.0,
+          "unit_price": 95.0,
+          "total": 95.0
+        }
+      ],
+      "attachment": null,
+      "memo": "VAT against this challan is payable through central registration. Prices inclusive of standard VAT except exempted items. VAT Payable TK.: 300.26. Join the DREAM FACTORY at: FACEBOOK.COM/GROUPS/SHWAPNOHELP. Thank you for shopping with SHWAPNO. Please visit www.shwapno.com for home delivery. Purchase of defected item must be exchanged by 24 hours with invoice. For any queries, suggestions or complaints, please call 16469 (9:00 AM - 6:00 PM).",
+      "totals": {
+        "sub_total": 8959.08,
+        "sales_tax": {
+          "is_percentage": false,
+          "tax": 0,
+          "amount": 300.26
+        },
+        "discount": {
+          "is_percentage": false,
+          "discount": 0,
+          "calculated_amount": 40.0
+        },
+        "total_amount": 8919.0
+      }
+    },
+    "timestamp": "2025-08-27T18:17:10.590515"
+  },
+  {
+    "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_160949.jpg",
+    "model_used": "gemini",
+    "success": true,
+    "structured_data": {
+      "payment_details": {
+        "supplier": "Messars Salam Enterprise",
+        "payment_account": null,
+        "payment_date": "6/6/25",
+        "payment_method": null,
+        "ref_no": "243",
+        "tags": ["gas", "LPG"]
+      },
+      "item_details": [
+        {
+          "category": "Gas",
+          "description": "GAS 35 KG",
+          "quantity": 1,
+          "unit_price": 4300,
+          "total": 4300
+        }
+      ],
+      "attachment": null,
+      "memo": null,
+      "totals": {
+        "sub_total": 4300,
+        "sales_tax": {
+          "is_percentage": false,
+          "tax": 0,
+          "amount": 0
+        },
+        "discount": {
+          "is_percentage": false,
+          "discount": 0,
+          "calculated_amount": 0
+        },
+        "total_amount": 4300
+      }
+    },
+    "timestamp": "2025-08-27T17:40:55.265885"
   }
 ]
