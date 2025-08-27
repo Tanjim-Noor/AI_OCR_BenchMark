@@ -1,0 +1,238 @@
+[
+  {
+    "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_154308~2.jpg",
+    "model_used": "gemini",
+    "prompt": "\nYou are an expert document processing assistant. Your task is to extract structured data from invoice/receipt images and return the information in a specific JSON format.\n\n## Instructions:\n1. Analyze the provided image carefully to identify all relevant financial information\n2. Extract the data according to the JSON schema provided below\n3. If any required field is not visible or unclear in the image, use reasonable defaults or null values\n4. For monetary amounts, use numbers without currency symbols\n5. For dates, use the format found in the document or convert to YYYY-MM-DD if possible\n6. Be precise with calculations - ensure totals match the extracted item details\n7. The document may contain text in both English and Bangla (Bengali). For Bangla text, provide English transliteration (not translation) - write the Bangla words using English letters to show how they sound. For Bangla numbers convert them to\n    English numerals (e.g., \"১২৩\" becomes \"123\").\n## Required JSON Schema:\nReturn your response as a valid JSON object following this exact structure:\n\n{\n  \"payment_details\": {\n    \"supplier\": \"string - Name of the supplier/vendor\",\n    \"payment_account\": \"string - Account used for payment\",\n    \"payment_date\": \"string - Date of payment\",\n    \"payment_method\": \"string - Mode of payment (cash, card, bank transfer, etc.)\",\n    \"ref_no\": \"string - Reference/invoice number\",\n    \"tags\": [\"array of relevant tags\"]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"string - Expense category\",\n      \"description\": \"string - Item description (optional)\",\n      \"quantity\": \"number - Quantity of items\",\n      \"unit_price\": \"number - Price per unit\",\n      \"total\": \"number - Total amount for this item\"\n    },\n    {\n      \"category\": \"string - Expense category for item 2\",\n      \"description\": \"string - Item description (optional)\",\n      \"quantity\": \"number - Quantity of items\",\n      \"unit_price\": \"number - Price per unit\", \n      \"total\": \"number - Total amount for this item\"\n    }\n    // ... additional items as found in the document\n  ],\n  \"attachment\": \"string - File reference if mentioned\",\n  \"memo\": \"string - Any additional notes or memo\",\n  \"totals\": {\n    \"sub_total\": \"number - Subtotal before tax and discount\",\n    \"sales_tax\": {\n      \"is_percentage\": \"boolean - true if tax/VAT is %, false if fixed amount\",\n      \"tax\": \"number - Tax/VAT rate (%)\", \n      \"amount\": \"number - Calculated tax/VAT amount\"\n    },\n    \"discount\": {\n      \"is_percentage\": \"boolean - true if discount is %, false if fixed amount\", \n      \"discount\": \"number - Discount rate (%)\",\n      \"calculated_amount\": \"number - Calculated discount amount\"\n    },\n    \"total_amount\": \"number - Final total amount\"\n  }\n}\n\n## Extraction Guidelines:\n- **Supplier**: Look for business name, vendor name, or \"Bill To\" information\n- **Payment Account**: Extract account numbers, card details, or payment method info\n- **Payment Date**: Find transaction date, invoice date, or payment date\n- **Payment Method**: Identify if paid by cash, card, check, bank transfer, etc.\n- **Reference Number**: Look for invoice #, receipt #, transaction ID, or reference number\n- **Tags**: Generate relevant tags based on the business type or expense category\n- **Item Details**: Extract ALL line items from the document - create a separate object for each item/product/service listed\n- **Categories**: Classify expenses (office supplies, travel, meals, equipment, etc.)\n- **Calculations**: Verify that item totals sum to subtotal, and final calculations are accurate\n- **Language Handling**: If you encounter Bangla/Bengali text, transliterate it into English letters (e.g., \"টাকা\" becomes \"taka\", \"নাম\" becomes \"naam\"). Do not translate the meaning, just write how the Bangla words sound in English.\n- **Tax/VAT Recognition**: Look for any tax-related terms including \"Tax\", \"VAT\", \"Sales Tax\", \"Service Tax\", \"GST\", or similar terms in both English and Bangla. Treat all of these as sales tax in the JSON structure.\n\n\n## Important Notes:\n- Return ONLY the JSON object, no additional text or explanations\n- If information is missing, use null for strings and 0 for numbers\n- Ensure all numbers are numeric values, not strings\n- **Extract every single line item** - the item_details array should contain one object for each product/service listed in the document\n- Double-check mathematical accuracy of totals and ensure all item totals sum to the subtotal\n- VAT and tax should be considered same.\n- If no tax/VAT or discount is present, set the respective amounts to 0\n\nNow please analyze the provided image and extract the data according to this schema.\n        ",
+    "success": true,
+    "timestamp": "2025-08-27T15:06:18.054162",
+    "processing_time_seconds": 12.049891471862793,
+    "extracted_data_parsed": {
+      "payment_details": {
+        "supplier": "Star Tech Ltd.",
+        "payment_account": null,
+        "payment_date": "02-Jun-2025",
+        "payment_method": "Online Sales",
+        "ref_no": "INV-STLBB-2025-009417",
+        "tags": [
+          "Electronics",
+          "Computer Hardware",
+          "Monitor"
+        ]
+      },
+      "item_details": [
+        {
+          "category": "Computer Hardware",
+          "description": "MSI PRO MP225 21.5\" 100Hz IPS FHD Monitor (No Warranty For Adapter & Keep the BOX For Warranty) S/N - PC6M075104322, PC6M075100985",
+          "quantity": 2,
+          "unit_price": 10500,
+          "total": 21000
+        }
+      ],
+      "attachment": null,
+      "memo": "Warranty Policy: 1. Please keep the full box for warranty purpose. 2. Goods once sold will not be refunded & changed. 3. The products under warranty will be repaired or replaced by the manufacturer company. 4. Timing for the warranty process will be controlled by the manufacturer company. 5. Manufacturer does not give warranty to Remote Control, Software, Data, Password/BIOS password, Cartridge, Toner, Head, Roller, Drum, Element Cover, Maintenance kit, Cable supplied with product, Gift/Free items, GPU used in data mining, if Sticker-removed, Serial tempered, Compatible Toner/Ink used, Fungus and damp, Up-to 3 display dots, Liquid spillage, Burnt and Physically-damaged etc. 6. Customers must record an unboxing video outside the store to report any damage issues with the product. Warranty Complain receiving hour: 11.00 AM to 6.00 PM.",
+      "totals": {
+        "sub_total": 21000,
+        "sales_tax": {
+          "is_percentage": false,
+          "tax": 0,
+          "amount": 0
+        },
+        "discount": {
+          "is_percentage": false,
+          "discount": 0,
+          "calculated_amount": 0
+        },
+        "total_amount": 21000
+      }
+    },
+    "extraction_format": "json",
+    "structured_data": {
+      "payment_details": {
+        "supplier": "Star Tech Ltd.",
+        "payment_account": null,
+        "payment_date": "02-Jun-2025",
+        "payment_method": "Online Sales",
+        "ref_no": "INV-STLBB-2025-009417",
+        "tags": [
+          "Electronics",
+          "Computer Hardware",
+          "Monitor"
+        ]
+      },
+      "item_details": [
+        {
+          "category": "Computer Hardware",
+          "description": "MSI PRO MP225 21.5\" 100Hz IPS FHD Monitor (No Warranty For Adapter & Keep the BOX For Warranty) S/N - PC6M075104322, PC6M075100985",
+          "quantity": 2,
+          "unit_price": 10500,
+          "total": 21000
+        }
+      ],
+      "attachment": null,
+      "memo": "Warranty Policy: 1. Please keep the full box for warranty purpose. 2. Goods once sold will not be refunded & changed. 3. The products under warranty will be repaired or replaced by the manufacturer company. 4. Timing for the warranty process will be controlled by the manufacturer company. 5. Manufacturer does not give warranty to Remote Control, Software, Data, Password/BIOS password, Cartridge, Toner, Head, Roller, Drum, Element Cover, Maintenance kit, Cable supplied with product, Gift/Free items, GPU used in data mining, if Sticker-removed, Serial tempered, Compatible Toner/Ink used, Fungus and damp, Up-to 3 display dots, Liquid spillage, Burnt and Physically-damaged etc. 6. Customers must record an unboxing video outside the store to report any damage issues with the product. Warranty Complain receiving hour: 11.00 AM to 6.00 PM.",
+      "totals": {
+        "sub_total": 21000,
+        "sales_tax": {
+          "is_percentage": false,
+          "tax": 0,
+          "amount": 0
+        },
+        "discount": {
+          "is_percentage": false,
+          "discount": 0,
+          "calculated_amount": 0
+        },
+        "total_amount": 21000
+      }
+    },
+    "extracted_data_preview": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"Star Tech Ltd.\",\n    \"payment_account\": null,\n    \"payment_date\": \"02-Jun-2025\",\n    \"payment_method\": \"Online Sales\",\n    \"ref_no\": \"INV-STLBB-2025-0...",
+    "extracted_data_full": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"Star Tech Ltd.\",\n    \"payment_account\": null,\n    \"payment_date\": \"02-Jun-2025\",\n    \"payment_method\": \"Online Sales\",\n    \"ref_no\": \"INV-STLBB-2025-009417\",\n    \"tags\": [\n      \"Electronics\",\n      \"Computer Hardware\",\n      \"Monitor\"\n    ]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"Computer Hardware\",\n      \"description\": \"MSI PRO MP225 21.5\\\" 100Hz IPS FHD Monitor (No Warranty For Adapter & Keep the BOX For Warranty) S/N - PC6M075104322, PC6M075100985\",\n      \"quantity\": 2,\n      \"unit_price\": 10500,\n      \"total\": 21000\n    }\n  ],\n  \"attachment\": null,\n  \"memo\": \"Warranty Policy: 1. Please keep the full box for warranty purpose. 2. Goods once sold will not be refunded & changed. 3. The products under warranty will be repaired or replaced by the manufacturer company. 4. Timing for the warranty process will be controlled by the manufacturer company. 5. Manufacturer does not give warranty to Remote Control, Software, Data, Password/BIOS password, Cartridge, Toner, Head, Roller, Drum, Element Cover, Maintenance kit, Cable supplied with product, Gift/Free items, GPU used in data mining, if Sticker-removed, Serial tempered, Compatible Toner/Ink used, Fungus and damp, Up-to 3 display dots, Liquid spillage, Burnt and Physically-damaged etc. 6. Customers must record an unboxing video outside the store to report any damage issues with the product. Warranty Complain receiving hour: 11.00 AM to 6.00 PM.\",\n  \"totals\": {\n    \"sub_total\": 21000,\n    \"sales_tax\": {\n      \"is_percentage\": false,\n      \"tax\": 0,\n      \"amount\": 0\n    },\n    \"discount\": {\n      \"is_percentage\": false,\n      \"discount\": 0,\n      \"calculated_amount\": 0\n    },\n    \"total_amount\": 21000\n  }\n}\n```"
+  },
+  {
+    "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_155754.jpg",
+    "model_used": "gemini",
+    "prompt": "\nYou are an expert document processing assistant. Your task is to extract structured data from invoice/receipt images and return the information in a specific JSON format.\n\n## Instructions:\n1. Analyze the provided image carefully to identify all relevant financial information\n2. Extract the data according to the JSON schema provided below\n3. If any required field is not visible or unclear in the image, use reasonable defaults or null values\n4. For monetary amounts, use numbers without currency symbols\n5. For dates, use the format found in the document or convert to YYYY-MM-DD if possible\n6. Be precise with calculations - ensure totals match the extracted item details\n7. The document may contain text in both English and Bangla (Bengali). For Bangla text, provide English transliteration (not translation) - write the Bangla words using English letters to show how they sound. For Bangla numbers convert them to\n    English numerals (e.g., \"১২৩\" becomes \"123\").\n## Required JSON Schema:\nReturn your response as a valid JSON object following this exact structure:\n\n{\n  \"payment_details\": {\n    \"supplier\": \"string - Name of the supplier/vendor\",\n    \"payment_account\": \"string - Account used for payment\",\n    \"payment_date\": \"string - Date of payment\",\n    \"payment_method\": \"string - Mode of payment (cash, card, bank transfer, etc.)\",\n    \"ref_no\": \"string - Reference/invoice number\",\n    \"tags\": [\"array of relevant tags\"]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"string - Expense category\",\n      \"description\": \"string - Item description (optional)\",\n      \"quantity\": \"number - Quantity of items\",\n      \"unit_price\": \"number - Price per unit\",\n      \"total\": \"number - Total amount for this item\"\n    },\n    {\n      \"category\": \"string - Expense category for item 2\",\n      \"description\": \"string - Item description (optional)\",\n      \"quantity\": \"number - Quantity of items\",\n      \"unit_price\": \"number - Price per unit\", \n      \"total\": \"number - Total amount for this item\"\n    }\n    // ... additional items as found in the document\n  ],\n  \"attachment\": \"string - File reference if mentioned\",\n  \"memo\": \"string - Any additional notes or memo\",\n  \"totals\": {\n    \"sub_total\": \"number - Subtotal before tax and discount\",\n    \"sales_tax\": {\n      \"is_percentage\": \"boolean - true if tax/VAT is %, false if fixed amount\",\n      \"tax\": \"number - Tax/VAT rate (%)\", \n      \"amount\": \"number - Calculated tax/VAT amount\"\n    },\n    \"discount\": {\n      \"is_percentage\": \"boolean - true if discount is %, false if fixed amount\", \n      \"discount\": \"number - Discount rate (%)\",\n      \"calculated_amount\": \"number - Calculated discount amount\"\n    },\n    \"total_amount\": \"number - Final total amount\"\n  }\n}\n\n## Extraction Guidelines:\n- **Supplier**: Look for business name, vendor name, or \"Bill To\" information\n- **Payment Account**: Extract account numbers, card details, or payment method info\n- **Payment Date**: Find transaction date, invoice date, or payment date\n- **Payment Method**: Identify if paid by cash, card, check, bank transfer, etc.\n- **Reference Number**: Look for invoice #, receipt #, transaction ID, or reference number\n- **Tags**: Generate relevant tags based on the business type or expense category\n- **Item Details**: Extract ALL line items from the document - create a separate object for each item/product/service listed\n- **Categories**: Classify expenses (office supplies, travel, meals, equipment, etc.)\n- **Calculations**: Verify that item totals sum to subtotal, and final calculations are accurate\n- **Language Handling**: If you encounter Bangla/Bengali text, transliterate it into English letters (e.g., \"টাকা\" becomes \"taka\", \"নাম\" becomes \"naam\"). Do not translate the meaning, just write how the Bangla words sound in English.\n- **Tax/VAT Recognition**: Look for any tax-related terms including \"Tax\", \"VAT\", \"Sales Tax\", \"Service Tax\", \"GST\", or similar terms in both English and Bangla. Treat all of these as sales tax in the JSON structure.\n\n\n## Important Notes:\n- Return ONLY the JSON object, no additional text or explanations\n- If information is missing, use null for strings and 0 for numbers\n- Ensure all numbers are numeric values, not strings\n- **Extract every single line item** - the item_details array should contain one object for each product/service listed in the document\n- Double-check mathematical accuracy of totals and ensure all item totals sum to the subtotal\n- VAT and tax should be considered same.\n- If no tax/VAT or discount is present, set the respective amounts to 0\n\nNow please analyze the provided image and extract the data according to this schema.\n        ",
+    "success": true,
+    "timestamp": "2025-08-27T15:06:28.602432",
+    "processing_time_seconds": 10.535226583480835,
+    "extracted_data_parsed": {
+      "payment_details": {
+        "supplier": "RoBenDevs",
+        "payment_account": null,
+        "payment_date": "2023-06-25",
+        "payment_method": "Cash",
+        "ref_no": null,
+        "tags": [
+          "Groceries",
+          "Food",
+          "Snacks",
+          "Miscellaneous"
+        ]
+      },
+      "item_details": [
+        {
+          "category": "Groceries",
+          "description": "bajar khoroch",
+          "quantity": 1,
+          "unit_price": 60,
+          "total": 60
+        },
+        {
+          "category": "Food",
+          "description": "tiffin",
+          "quantity": 1,
+          "unit_price": 80,
+          "total": 80
+        },
+        {
+          "category": "Groceries",
+          "description": "bajar khoroch 22.06.25",
+          "quantity": 1,
+          "unit_price": 40,
+          "total": 40
+        },
+        {
+          "category": "Food",
+          "description": "tiffin 22.06.25",
+          "quantity": 1,
+          "unit_price": 120,
+          "total": 120
+        },
+        {
+          "category": "Miscellaneous",
+          "description": "sukna aati + 2ta + loj",
+          "quantity": 1,
+          "unit_price": 267,
+          "total": 267
+        }
+      ],
+      "attachment": null,
+      "memo": null,
+      "totals": {
+        "sub_total": 567,
+        "sales_tax": {
+          "is_percentage": false,
+          "tax": 0,
+          "amount": 0
+        },
+        "discount": {
+          "is_percentage": false,
+          "discount": 0,
+          "calculated_amount": 0
+        },
+        "total_amount": 567
+      }
+    },
+    "extraction_format": "json",
+    "structured_data": {
+      "payment_details": {
+        "supplier": "RoBenDevs",
+        "payment_account": null,
+        "payment_date": "2023-06-25",
+        "payment_method": "Cash",
+        "ref_no": null,
+        "tags": [
+          "Groceries",
+          "Food",
+          "Snacks",
+          "Miscellaneous"
+        ]
+      },
+      "item_details": [
+        {
+          "category": "Groceries",
+          "description": "bajar khoroch",
+          "quantity": 1,
+          "unit_price": 60,
+          "total": 60
+        },
+        {
+          "category": "Food",
+          "description": "tiffin",
+          "quantity": 1,
+          "unit_price": 80,
+          "total": 80
+        },
+        {
+          "category": "Groceries",
+          "description": "bajar khoroch 22.06.25",
+          "quantity": 1,
+          "unit_price": 40,
+          "total": 40
+        },
+        {
+          "category": "Food",
+          "description": "tiffin 22.06.25",
+          "quantity": 1,
+          "unit_price": 120,
+          "total": 120
+        },
+        {
+          "category": "Miscellaneous",
+          "description": "sukna aati + 2ta + loj",
+          "quantity": 1,
+          "unit_price": 267,
+          "total": 267
+        }
+      ],
+      "attachment": null,
+      "memo": null,
+      "totals": {
+        "sub_total": 567,
+        "sales_tax": {
+          "is_percentage": false,
+          "tax": 0,
+          "amount": 0
+        },
+        "discount": {
+          "is_percentage": false,
+          "discount": 0,
+          "calculated_amount": 0
+        },
+        "total_amount": 567
+      }
+    },
+    "extracted_data_preview": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"RoBenDevs\",\n    \"payment_account\": null,\n    \"payment_date\": \"2023-06-25\",\n    \"payment_method\": \"Cash\",\n    \"ref_no\": null,\n    \"tags\": [\n      \"Groc...",
+    "extracted_data_full": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"RoBenDevs\",\n    \"payment_account\": null,\n    \"payment_date\": \"2023-06-25\",\n    \"payment_method\": \"Cash\",\n    \"ref_no\": null,\n    \"tags\": [\n      \"Groceries\",\n      \"Food\",\n      \"Snacks\",\n      \"Miscellaneous\"\n    ]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"Groceries\",\n      \"description\": \"bajar khoroch\",\n      \"quantity\": 1,\n      \"unit_price\": 60,\n      \"total\": 60\n    },\n    {\n      \"category\": \"Food\",\n      \"description\": \"tiffin\",\n      \"quantity\": 1,\n      \"unit_price\": 80,\n      \"total\": 80\n    },\n    {\n      \"category\": \"Groceries\",\n      \"description\": \"bajar khoroch 22.06.25\",\n      \"quantity\": 1,\n      \"unit_price\": 40,\n      \"total\": 40\n    },\n    {\n      \"category\": \"Food\",\n      \"description\": \"tiffin 22.06.25\",\n      \"quantity\": 1,\n      \"unit_price\": 120,\n      \"total\": 120\n    },\n    {\n      \"category\": \"Miscellaneous\",\n      \"description\": \"sukna aati + 2ta + loj\",\n      \"quantity\": 1,\n      \"unit_price\": 267,\n      \"total\": 267\n    }\n  ],\n  \"attachment\": null,\n  \"memo\": null,\n  \"totals\": {\n    \"sub_total\": 567,\n    \"sales_tax\": {\n      \"is_percentage\": false,\n      \"tax\": 0,\n      \"amount\": 0\n    },\n    \"discount\": {\n      \"is_percentage\": false,\n      \"discount\": 0,\n      \"calculated_amount\": 0\n    },\n    \"total_amount\": 567\n  }\n}\n```"
+  }
+]
