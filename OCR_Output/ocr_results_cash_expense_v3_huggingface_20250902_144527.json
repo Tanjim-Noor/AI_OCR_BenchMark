@@ -1,36 +1,35 @@
 [
   {
     "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_154308~2.jpg",
-    "model_used": "gemini",
+    "model_used": "huggingface",
     "prompt": "\nYou are an expert document processing assistant. Your task is to extract structured data from invoice/receipt images and return the information in a specific JSON format.\n\n## Instructions:\n1. Analyze the provided image carefully to identify all relevant financial information\n2. Extract the data according to the JSON schema provided below\n3. If any required field is not visible or unclear in the image, use reasonable defaults or null values\n4. For monetary amounts, use numbers without currency symbols\n5. For dates, use the format found in the document or convert to YYYY-MM-DD if possible\n6. Be precise with calculations - ensure totals match the extracted item details\n7. The document may contain text in both English and Bangla (Bengali). For Bangla text, provide English transliteration (not translation) - write the Bangla words using English letters to show how they sound. For Bangla numbers convert them to\n    English numerals (e.g., \"১২৩\" becomes \"123\").  \n8. Only extract information that is clearly visible in the image - never guess or infer missing data\n9. If text is unclear or partially obscured, use null rather than making assumptions\n10. Verify all mathematical calculations before finalizing the JSON response\n## Required JSON Schema:\nReturn your response as a valid JSON object following this exact structure:\n\n{\n  \"payment_details\": {\n    \"supplier\": \"string - Name of the supplier/vendor\",\n    \"payment_account\": \"string - Account used for payment\",\n    \"payment_date\": \"string - Date of payment\",\n    \"payment_method\": \"string - Mode of payment (cash, card, bank transfer, etc.)\",\n    \"ref_no\": \"string - Reference/invoice number\",\n    \"tags\": [\"array of relevant tags\"]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"string - Expense category\",\n      \"description\": \"string - Item description (optional)\",\n      \"quantity\": \"number - Quantity of items\",\n      \"unit_price\": \"number - Price per unit\",\n      \"total\": \"number - Total amount for this item\"\n    },\n    {\n      \"category\": \"string - Expense category for item 2\",\n      \"description\": \"string - Item description (optional)\",\n      \"quantity\": \"number - Quantity of items\",\n      \"unit_price\": \"number - Price per unit\", \n      \"total\": \"number - Total amount for this item\"\n    }\n    // ... additional items as found in the document\n  ],\n  \"attachment\": \"string - File reference if mentioned\",\n  \"memo\": \"string - Any additional notes or memo\",\n  \"totals\": {\n    \"sub_total\": \"number - Subtotal before tax and discount\",\n    \"sales_tax\": {\n      \"is_percentage\": \"boolean - true if tax/VAT is %, false if fixed amount\",\n      \"tax\": \"number - Tax/VAT rate (%)\", \n      \"amount\": \"number - Calculated tax/VAT amount\"\n    },\n    \"discount\": {\n      \"is_percentage\": \"boolean - true if discount is %, false if fixed amount\", \n      \"discount\": \"number - Discount rate (%)\",\n      \"calculated_amount\": \"number - Calculated discount amount\"\n    },\n    \"total_amount\": \"number - Final total amount\"\n  }\n}\n\n## Extraction Guidelines:\n- **Supplier**: Look for business name, vendor name, or \"Bill To\" information\n- **Payment Account**: Extract account numbers, card details, or payment method info\n- **Payment Date**: Find transaction date, invoice date, or payment date\n- **Payment Method**: Identify if paid by cash, card, check, bank transfer, etc.\n- **Reference Number**: Look for invoice #, receipt #, transaction ID, or reference number\n- **Tags**: Generate relevant tags based on the business type or expense category\n- **Item Details**: Extract ALL line items from the document - create a separate object for each item/product/service listed\n- **Categories**: Classify expenses (office supplies, travel, meals, equipment, etc.)\n- **Calculations**: Verify that item totals sum to subtotal, and final calculations are accurate\n- **Language Handling**: If you encounter Bangla/Bengali text, transliterate it into English letters (e.g., \"টাকা\" becomes \"taka\", \"নাম\" becomes \"naam\"). Do not translate the meaning, just write how the Bangla words sound in English.\n- **Tax/VAT Recognition**: Look for any tax-related terms including \"Tax\", \"VAT\", \"Sales Tax\", \"Service Tax\", \"GST\", or similar terms in both English and Bangla. Treat all of these as sales tax in the JSON structure.\n\n## Validation Rules:\n- **Mathematical Accuracy**: Ensure sum of all item totals equals subtotal\n- **Date Formats**: Only use dates that are clearly visible; don't assume date formats\n- **Number Precision**: Use exact numbers from the document, don't round unless specified\n- **Text Clarity**: If you cannot read text clearly due to image quality, use null\n- **Cross-Reference**: Verify supplier name appears consistently throughout the document\n- **Currency Consistency**: Ensure all amounts use the same currency basis\n\n## Important Notes:\n- Return ONLY the JSON object, no additional text or explanations\n- If information is missing, use null for strings and 0 for numbers\n- Ensure all numbers are numeric values, not strings\n- **Extract every single line item** - the item_details array should contain one object for each product/service listed in the document\n- Double-check mathematical accuracy of totals and ensure all item totals sum to the subtotal\n- VAT and tax should be considered same.\n- If no tax/VAT or discount is present, set the respective amounts to 0\n- Do not interpolate or guess missing information** - use null for unclear data\n- Double-check all calculations manually** before submitting the JSON\n- If image quality is poor and text is unreadable, explicitly use null values**\n- Verify that reference numbers and dates match standard formats for the region**\n- Cross-validate totals: item_totals → subtotal → (±tax/discount) → final_total**\n\n## Final Check:\nBefore responding, verify:\n1. All visible numbers are accurately transcribed\n2. Mathematical relationships are correct\n3. No information has been assumed or fabricated\n4. Bangla text is transliterated, not translated\n5. All required fields contain appropriate data types\n\nNow please analyze the provided image and extract the data according to this schema.\n        ",
     "success": true,
-    "timestamp": "2025-08-27T19:47:26.408826",
-    "processing_time_seconds": 16.061138153076172,
+    "timestamp": "2025-09-02T14:45:39.535478",
+    "processing_time_seconds": 11.440943956375122,
     "extracted_data_parsed": {
       "payment_details": {
         "supplier": "Star Tech Ltd.",
-        "payment_account": "Online Sales",
+        "payment_account": null,
         "payment_date": "2025-06-02",
         "payment_method": "Online Sales",
         "ref_no": "INV-STLBB-2025-009417",
         "tags": [
-          "Electronics",
-          "Computer Hardware",
-          "Monitor",
-          "IT Solutions"
+          "electronics",
+          "monitor",
+          "online sales"
         ]
       },
       "item_details": [
         {
-          "category": "Monitor",
-          "description": "MSI PRO MP225 21.5\" 100Hz IPS FHD Monitor(No Warranty For Adapter & Keep the BOX For Warranty) S/N - PC6M075104322 , PC6M075100985",
+          "category": "electronics",
+          "description": "MSI PRO MP225 21.5\" 100Hz IPS FHD Monitor(No Warranty For Adapter & Keep the BOX For Warranty)",
           "quantity": 2,
           "unit_price": 10500,
           "total": 21000
         }
       ],
       "attachment": null,
-      "memo": "1. PLEASE KEEP THE FULL BOX FOR WARRANTY PURPOSE.\n2. Goods once sold will not be refunded & changed.\n3. The products under warranty will be repaired or replaced by the manufacturer company.\n4. Timing for the warranty process will be controlled by the manufacturer company.\n5. Manufacturer does not give warranty to Remote Control, Software, Data, Password/BIOS password, Cartridge, Toner, Head, Roller, Drum, Element Cover, Maintenance kit, Cable supplied with product, Gift/Free items, GPU used in data mining, if Sticker-removed, Serial tempered, Compatible Toner/Ink used, Fungus and damp, Up-to 3 display dots, Liquid spillage, Burnt and Physically-damaged etc.\n6. Customers must record an unboxing video outside the store to report any damage issues with the product.",
+      "memo": "Word Taka TWENTY-ONE THOUSAND ONLY",
       "totals": {
         "sub_total": 21000,
         "sales_tax": {
@@ -50,28 +49,27 @@
     "structured_data": {
       "payment_details": {
         "supplier": "Star Tech Ltd.",
-        "payment_account": "Online Sales",
+        "payment_account": null,
         "payment_date": "2025-06-02",
         "payment_method": "Online Sales",
         "ref_no": "INV-STLBB-2025-009417",
         "tags": [
-          "Electronics",
-          "Computer Hardware",
-          "Monitor",
-          "IT Solutions"
+          "electronics",
+          "monitor",
+          "online sales"
         ]
       },
       "item_details": [
         {
-          "category": "Monitor",
-          "description": "MSI PRO MP225 21.5\" 100Hz IPS FHD Monitor(No Warranty For Adapter & Keep the BOX For Warranty) S/N - PC6M075104322 , PC6M075100985",
+          "category": "electronics",
+          "description": "MSI PRO MP225 21.5\" 100Hz IPS FHD Monitor(No Warranty For Adapter & Keep the BOX For Warranty)",
           "quantity": 2,
           "unit_price": 10500,
           "total": 21000
         }
       ],
       "attachment": null,
-      "memo": "1. PLEASE KEEP THE FULL BOX FOR WARRANTY PURPOSE.\n2. Goods once sold will not be refunded & changed.\n3. The products under warranty will be repaired or replaced by the manufacturer company.\n4. Timing for the warranty process will be controlled by the manufacturer company.\n5. Manufacturer does not give warranty to Remote Control, Software, Data, Password/BIOS password, Cartridge, Toner, Head, Roller, Drum, Element Cover, Maintenance kit, Cable supplied with product, Gift/Free items, GPU used in data mining, if Sticker-removed, Serial tempered, Compatible Toner/Ink used, Fungus and damp, Up-to 3 display dots, Liquid spillage, Burnt and Physically-damaged etc.\n6. Customers must record an unboxing video outside the store to report any damage issues with the product.",
+      "memo": "Word Taka TWENTY-ONE THOUSAND ONLY",
       "totals": {
         "sub_total": 21000,
         "sales_tax": {
@@ -87,41 +85,40 @@
         "total_amount": 21000
       }
     },
-    "extracted_data_preview": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"Star Tech Ltd.\",\n    \"payment_account\": \"Online Sales\",\n    \"payment_date\": \"2025-06-02\",\n    \"payment_method\": \"Online Sales\",\n    \"ref_no\": \"INV-STL...",
-    "extracted_data_full": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"Star Tech Ltd.\",\n    \"payment_account\": \"Online Sales\",\n    \"payment_date\": \"2025-06-02\",\n    \"payment_method\": \"Online Sales\",\n    \"ref_no\": \"INV-STLBB-2025-009417\",\n    \"tags\": [\"Electronics\", \"Computer Hardware\", \"Monitor\", \"IT Solutions\"]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"Monitor\",\n      \"description\": \"MSI PRO MP225 21.5\\\" 100Hz IPS FHD Monitor(No Warranty For Adapter & Keep the BOX For Warranty) S/N - PC6M075104322 , PC6M075100985\",\n      \"quantity\": 2,\n      \"unit_price\": 10500,\n      \"total\": 21000\n    }\n  ],\n  \"attachment\": null,\n  \"memo\": \"1. PLEASE KEEP THE FULL BOX FOR WARRANTY PURPOSE.\\n2. Goods once sold will not be refunded & changed.\\n3. The products under warranty will be repaired or replaced by the manufacturer company.\\n4. Timing for the warranty process will be controlled by the manufacturer company.\\n5. Manufacturer does not give warranty to Remote Control, Software, Data, Password/BIOS password, Cartridge, Toner, Head, Roller, Drum, Element Cover, Maintenance kit, Cable supplied with product, Gift/Free items, GPU used in data mining, if Sticker-removed, Serial tempered, Compatible Toner/Ink used, Fungus and damp, Up-to 3 display dots, Liquid spillage, Burnt and Physically-damaged etc.\\n6. Customers must record an unboxing video outside the store to report any damage issues with the product.\",\n  \"totals\": {\n    \"sub_total\": 21000,\n    \"sales_tax\": {\n      \"is_percentage\": false,\n      \"tax\": 0,\n      \"amount\": 0\n    },\n    \"discount\": {\n      \"is_percentage\": false,\n      \"discount\": 0,\n      \"calculated_amount\": 0\n    },\n    \"total_amount\": 21000\n  }\n}\n```"
+    "extracted_data_preview": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"Star Tech Ltd.\",\n    \"payment_account\": null,\n    \"payment_date\": \"2025-06-02\",\n    \"payment_method\": \"Online Sales\",\n    \"ref_no\": \"INV-STLBB-2025-00...",
+    "extracted_data_full": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"Star Tech Ltd.\",\n    \"payment_account\": null,\n    \"payment_date\": \"2025-06-02\",\n    \"payment_method\": \"Online Sales\",\n    \"ref_no\": \"INV-STLBB-2025-009417\",\n    \"tags\": [\"electronics\", \"monitor\", \"online sales\"]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"electronics\",\n      \"description\": \"MSI PRO MP225 21.5\\\" 100Hz IPS FHD Monitor(No Warranty For Adapter & Keep the BOX For Warranty)\",\n      \"quantity\": 2,\n      \"unit_price\": 10500,\n      \"total\": 21000\n    }\n  ],\n  \"attachment\": null,\n  \"memo\": \"Word Taka TWENTY-ONE THOUSAND ONLY\",\n  \"totals\": {\n    \"sub_total\": 21000,\n    \"sales_tax\": {\n      \"is_percentage\": false,\n      \"tax\": 0,\n      \"amount\": 0\n    },\n    \"discount\": {\n      \"is_percentage\": false,\n      \"discount\": 0,\n      \"calculated_amount\": 0\n    },\n    \"total_amount\": 21000\n  }\n}\n```"
   },
   {
     "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_154831.jpg",
-    "model_used": "gemini",
+    "model_used": "huggingface",
     "prompt": "\nYou are an expert document processing assistant. Your task is to extract structured data from invoice/receipt images and return the information in a specific JSON format.\n\n## Instructions:\n1. Analyze the provided image carefully to identify all relevant financial information\n2. Extract the data according to the JSON schema provided below\n3. If any required field is not visible or unclear in the image, use reasonable defaults or null values\n4. For monetary amounts, use numbers without currency symbols\n5. For dates, use the format found in the document or convert to YYYY-MM-DD if possible\n6. Be precise with calculations - ensure totals match the extracted item details\n7. The document may contain text in both English and Bangla (Bengali). For Bangla text, provide English transliteration (not translation) - write the Bangla words using English letters to show how they sound. For Bangla numbers convert them to\n    English numerals (e.g., \"১২৩\" becomes \"123\").  \n8. Only extract information that is clearly visible in the image - never guess or infer missing data\n9. If text is unclear or partially obscured, use null rather than making assumptions\n10. Verify all mathematical calculations before finalizing the JSON response\n## Required JSON Schema:\nReturn your response as a valid JSON object following this exact structure:\n\n{\n  \"payment_details\": {\n    \"supplier\": \"string - Name of the supplier/vendor\",\n    \"payment_account\": \"string - Account used for payment\",\n    \"payment_date\": \"string - Date of payment\",\n    \"payment_method\": \"string - Mode of payment (cash, card, bank transfer, etc.)\",\n    \"ref_no\": \"string - Reference/invoice number\",\n    \"tags\": [\"array of relevant tags\"]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"string - Expense category\",\n      \"description\": \"string - Item description (optional)\",\n      \"quantity\": \"number - Quantity of items\",\n      \"unit_price\": \"number - Price per unit\",\n      \"total\": \"number - Total amount for this item\"\n    },\n    {\n      \"category\": \"string - Expense category for item 2\",\n      \"description\": \"string - Item description (optional)\",\n      \"quantity\": \"number - Quantity of items\",\n      \"unit_price\": \"number - Price per unit\", \n      \"total\": \"number - Total amount for this item\"\n    }\n    // ... additional items as found in the document\n  ],\n  \"attachment\": \"string - File reference if mentioned\",\n  \"memo\": \"string - Any additional notes or memo\",\n  \"totals\": {\n    \"sub_total\": \"number - Subtotal before tax and discount\",\n    \"sales_tax\": {\n      \"is_percentage\": \"boolean - true if tax/VAT is %, false if fixed amount\",\n      \"tax\": \"number - Tax/VAT rate (%)\", \n      \"amount\": \"number - Calculated tax/VAT amount\"\n    },\n    \"discount\": {\n      \"is_percentage\": \"boolean - true if discount is %, false if fixed amount\", \n      \"discount\": \"number - Discount rate (%)\",\n      \"calculated_amount\": \"number - Calculated discount amount\"\n    },\n    \"total_amount\": \"number - Final total amount\"\n  }\n}\n\n## Extraction Guidelines:\n- **Supplier**: Look for business name, vendor name, or \"Bill To\" information\n- **Payment Account**: Extract account numbers, card details, or payment method info\n- **Payment Date**: Find transaction date, invoice date, or payment date\n- **Payment Method**: Identify if paid by cash, card, check, bank transfer, etc.\n- **Reference Number**: Look for invoice #, receipt #, transaction ID, or reference number\n- **Tags**: Generate relevant tags based on the business type or expense category\n- **Item Details**: Extract ALL line items from the document - create a separate object for each item/product/service listed\n- **Categories**: Classify expenses (office supplies, travel, meals, equipment, etc.)\n- **Calculations**: Verify that item totals sum to subtotal, and final calculations are accurate\n- **Language Handling**: If you encounter Bangla/Bengali text, transliterate it into English letters (e.g., \"টাকা\" becomes \"taka\", \"নাম\" becomes \"naam\"). Do not translate the meaning, just write how the Bangla words sound in English.\n- **Tax/VAT Recognition**: Look for any tax-related terms including \"Tax\", \"VAT\", \"Sales Tax\", \"Service Tax\", \"GST\", or similar terms in both English and Bangla. Treat all of these as sales tax in the JSON structure.\n\n## Validation Rules:\n- **Mathematical Accuracy**: Ensure sum of all item totals equals subtotal\n- **Date Formats**: Only use dates that are clearly visible; don't assume date formats\n- **Number Precision**: Use exact numbers from the document, don't round unless specified\n- **Text Clarity**: If you cannot read text clearly due to image quality, use null\n- **Cross-Reference**: Verify supplier name appears consistently throughout the document\n- **Currency Consistency**: Ensure all amounts use the same currency basis\n\n## Important Notes:\n- Return ONLY the JSON object, no additional text or explanations\n- If information is missing, use null for strings and 0 for numbers\n- Ensure all numbers are numeric values, not strings\n- **Extract every single line item** - the item_details array should contain one object for each product/service listed in the document\n- Double-check mathematical accuracy of totals and ensure all item totals sum to the subtotal\n- VAT and tax should be considered same.\n- If no tax/VAT or discount is present, set the respective amounts to 0\n- Do not interpolate or guess missing information** - use null for unclear data\n- Double-check all calculations manually** before submitting the JSON\n- If image quality is poor and text is unreadable, explicitly use null values**\n- Verify that reference numbers and dates match standard formats for the region**\n- Cross-validate totals: item_totals → subtotal → (±tax/discount) → final_total**\n\n## Final Check:\nBefore responding, verify:\n1. All visible numbers are accurately transcribed\n2. Mathematical relationships are correct\n3. No information has been assumed or fabricated\n4. Bangla text is transliterated, not translated\n5. All required fields contain appropriate data types\n\nNow please analyze the provided image and extract the data according to this schema.\n        ",
     "success": true,
-    "timestamp": "2025-08-27T19:47:37.876966",
-    "processing_time_seconds": 11.460104942321777,
+    "timestamp": "2025-09-02T14:45:49.365764",
+    "processing_time_seconds": 9.578511953353882,
     "extracted_data_parsed": {
       "payment_details": {
         "supplier": "Maa Fruits & Departmental Store",
         "payment_account": null,
-        "payment_date": "2020-06-20",
-        "payment_method": "Cash",
+        "payment_date": "2023-04-20",
+        "payment_method": "cash",
         "ref_no": null,
         "tags": [
-          "Fruits",
-          "Departmental Store",
-          "Grocery",
-          "Retail"
+          "fruits",
+          "retail",
+          "wholesale"
         ]
       },
       "item_details": [
         {
-          "category": "Fruits",
-          "description": "khejur",
-          "quantity": 80,
-          "unit_price": 7.5,
+          "category": "fruits",
+          "description": "Kachur",
+          "quantity": 60,
+          "unit_price": 10,
           "total": 600
         }
       ],
       "attachment": null,
-      "memo": "Soles goods are not returnable. Welcome come again.",
+      "memo": null,
       "totals": {
         "sub_total": 600,
         "sales_tax": {
@@ -142,27 +139,26 @@
       "payment_details": {
         "supplier": "Maa Fruits & Departmental Store",
         "payment_account": null,
-        "payment_date": "2020-06-20",
-        "payment_method": "Cash",
+        "payment_date": "2023-04-20",
+        "payment_method": "cash",
         "ref_no": null,
         "tags": [
-          "Fruits",
-          "Departmental Store",
-          "Grocery",
-          "Retail"
+          "fruits",
+          "retail",
+          "wholesale"
         ]
       },
       "item_details": [
         {
-          "category": "Fruits",
-          "description": "khejur",
-          "quantity": 80,
-          "unit_price": 7.5,
+          "category": "fruits",
+          "description": "Kachur",
+          "quantity": 60,
+          "unit_price": 10,
           "total": 600
         }
       ],
       "attachment": null,
-      "memo": "Soles goods are not returnable. Welcome come again.",
+      "memo": null,
       "totals": {
         "sub_total": 600,
         "sales_tax": {
@@ -178,400 +174,147 @@
         "total_amount": 600
       }
     },
-    "extracted_data_preview": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"Maa Fruits & Departmental Store\",\n    \"payment_account\": null,\n    \"payment_date\": \"2020-06-20\",\n    \"payment_method\": \"Cash\",\n    \"ref_no\": null,\n   ...",
-    "extracted_data_full": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"Maa Fruits & Departmental Store\",\n    \"payment_account\": null,\n    \"payment_date\": \"2020-06-20\",\n    \"payment_method\": \"Cash\",\n    \"ref_no\": null,\n    \"tags\": [\n      \"Fruits\",\n      \"Departmental Store\",\n      \"Grocery\",\n      \"Retail\"\n    ]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"Fruits\",\n      \"description\": \"khejur\",\n      \"quantity\": 80,\n      \"unit_price\": 7.5,\n      \"total\": 600\n    }\n  ],\n  \"attachment\": null,\n  \"memo\": \"Soles goods are not returnable. Welcome come again.\",\n  \"totals\": {\n    \"sub_total\": 600,\n    \"sales_tax\": {\n      \"is_percentage\": false,\n      \"tax\": 0,\n      \"amount\": 0\n    },\n    \"discount\": {\n      \"is_percentage\": false,\n      \"discount\": 0,\n      \"calculated_amount\": 0\n    },\n    \"total_amount\": 600\n  }\n}\n```"
+    "extracted_data_preview": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"Maa Fruits & Departmental Store\",\n    \"payment_account\": null,\n    \"payment_date\": \"2023-04-20\",\n    \"payment_method\": \"cash\",\n    \"ref_no\": null,\n   ...",
+    "extracted_data_full": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"Maa Fruits & Departmental Store\",\n    \"payment_account\": null,\n    \"payment_date\": \"2023-04-20\",\n    \"payment_method\": \"cash\",\n    \"ref_no\": null,\n    \"tags\": [\"fruits\", \"retail\", \"wholesale\"]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"fruits\",\n      \"description\": \"Kachur\",\n      \"quantity\": 60,\n      \"unit_price\": 10,\n      \"total\": 600\n    }\n  ],\n  \"attachment\": null,\n  \"memo\": null,\n  \"totals\": {\n    \"sub_total\": 600,\n    \"sales_tax\": {\n      \"is_percentage\": false,\n      \"tax\": 0,\n      \"amount\": 0\n    },\n    \"discount\": {\n      \"is_percentage\": false,\n      \"discount\": 0,\n      \"calculated_amount\": 0\n    },\n    \"total_amount\": 600\n  }\n}\n```"
   },
   {
     "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_154929.jpg",
-    "model_used": "gemini",
-    "prompt": "\nYou are an expert document processing assistant. Your task is to extract structured data from invoice/receipt images and return the information in a specific JSON format.\n\n## Instructions:\n1. Analyze the provided image carefully to identify all relevant financial information\n2. Extract the data according to the JSON schema provided below\n3. If any required field is not visible or unclear in the image, use reasonable defaults or null values\n4. For monetary amounts, use numbers without currency symbols\n5. For dates, use the format found in the document or convert to YYYY-MM-DD if possible\n6. Be precise with calculations - ensure totals match the extracted item details\n7. The document may contain text in both English and Bangla (Bengali). For Bangla text, provide English transliteration (not translation) - write the Bangla words using English letters to show how they sound. For Bangla numbers convert them to\n    English numerals (e.g., \"১২৩\" becomes \"123\").  \n8. Only extract information that is clearly visible in the image - never guess or infer missing data\n9. If text is unclear or partially obscured, use null rather than making assumptions\n10. Verify all mathematical calculations before finalizing the JSON response\n## Required JSON Schema:\nReturn your response as a valid JSON object following this exact structure:\n\n{\n  \"payment_details\": {\n    \"supplier\": \"string - Name of the supplier/vendor\",\n    \"payment_account\": \"string - Account used for payment\",\n    \"payment_date\": \"string - Date of payment\",\n    \"payment_method\": \"string - Mode of payment (cash, card, bank transfer, etc.)\",\n    \"ref_no\": \"string - Reference/invoice number\",\n    \"tags\": [\"array of relevant tags\"]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"string - Expense category\",\n      \"description\": \"string - Item description (optional)\",\n      \"quantity\": \"number - Quantity of items\",\n      \"unit_price\": \"number - Price per unit\",\n      \"total\": \"number - Total amount for this item\"\n    },\n    {\n      \"category\": \"string - Expense category for item 2\",\n      \"description\": \"string - Item description (optional)\",\n      \"quantity\": \"number - Quantity of items\",\n      \"unit_price\": \"number - Price per unit\", \n      \"total\": \"number - Total amount for this item\"\n    }\n    // ... additional items as found in the document\n  ],\n  \"attachment\": \"string - File reference if mentioned\",\n  \"memo\": \"string - Any additional notes or memo\",\n  \"totals\": {\n    \"sub_total\": \"number - Subtotal before tax and discount\",\n    \"sales_tax\": {\n      \"is_percentage\": \"boolean - true if tax/VAT is %, false if fixed amount\",\n      \"tax\": \"number - Tax/VAT rate (%)\", \n      \"amount\": \"number - Calculated tax/VAT amount\"\n    },\n    \"discount\": {\n      \"is_percentage\": \"boolean - true if discount is %, false if fixed amount\", \n      \"discount\": \"number - Discount rate (%)\",\n      \"calculated_amount\": \"number - Calculated discount amount\"\n    },\n    \"total_amount\": \"number - Final total amount\"\n  }\n}\n\n## Extraction Guidelines:\n- **Supplier**: Look for business name, vendor name, or \"Bill To\" information\n- **Payment Account**: Extract account numbers, card details, or payment method info\n- **Payment Date**: Find transaction date, invoice date, or payment date\n- **Payment Method**: Identify if paid by cash, card, check, bank transfer, etc.\n- **Reference Number**: Look for invoice #, receipt #, transaction ID, or reference number\n- **Tags**: Generate relevant tags based on the business type or expense category\n- **Item Details**: Extract ALL line items from the document - create a separate object for each item/product/service listed\n- **Categories**: Classify expenses (office supplies, travel, meals, equipment, etc.)\n- **Calculations**: Verify that item totals sum to subtotal, and final calculations are accurate\n- **Language Handling**: If you encounter Bangla/Bengali text, transliterate it into English letters (e.g., \"টাকা\" becomes \"taka\", \"নাম\" becomes \"naam\"). Do not translate the meaning, just write how the Bangla words sound in English.\n- **Tax/VAT Recognition**: Look for any tax-related terms including \"Tax\", \"VAT\", \"Sales Tax\", \"Service Tax\", \"GST\", or similar terms in both English and Bangla. Treat all of these as sales tax in the JSON structure.\n\n## Validation Rules:\n- **Mathematical Accuracy**: Ensure sum of all item totals equals subtotal\n- **Date Formats**: Only use dates that are clearly visible; don't assume date formats\n- **Number Precision**: Use exact numbers from the document, don't round unless specified\n- **Text Clarity**: If you cannot read text clearly due to image quality, use null\n- **Cross-Reference**: Verify supplier name appears consistently throughout the document\n- **Currency Consistency**: Ensure all amounts use the same currency basis\n\n## Important Notes:\n- Return ONLY the JSON object, no additional text or explanations\n- If information is missing, use null for strings and 0 for numbers\n- Ensure all numbers are numeric values, not strings\n- **Extract every single line item** - the item_details array should contain one object for each product/service listed in the document\n- Double-check mathematical accuracy of totals and ensure all item totals sum to the subtotal\n- VAT and tax should be considered same.\n- If no tax/VAT or discount is present, set the respective amounts to 0\n- Do not interpolate or guess missing information** - use null for unclear data\n- Double-check all calculations manually** before submitting the JSON\n- If image quality is poor and text is unreadable, explicitly use null values**\n- Verify that reference numbers and dates match standard formats for the region**\n- Cross-validate totals: item_totals → subtotal → (±tax/discount) → final_total**\n\n## Final Check:\nBefore responding, verify:\n1. All visible numbers are accurately transcribed\n2. Mathematical relationships are correct\n3. No information has been assumed or fabricated\n4. Bangla text is transliterated, not translated\n5. All required fields contain appropriate data types\n\nNow please analyze the provided image and extract the data according to this schema.\n        ",
-    "success": true,
-    "timestamp": "2025-08-27T19:48:13.495191",
-    "processing_time_seconds": 35.610933780670166,
-    "extracted_data_parsed": {
-      "payment_details": {
-        "supplier": "SHWAPNO (ACI Logistics Limited)",
-        "payment_account": null,
-        "payment_date": "2025-06-26",
-        "payment_method": "City Bank",
-        "ref_no": "D0612506260068",
-        "tags": [
-          "Grocery",
-          "Supermarket",
-          "Retail"
-        ]
-      },
-      "item_details": [
-        {
-          "category": "Groceries",
-          "description": "Beef Premium Cube kg",
-          "quantity": 6.33,
-          "unit_price": 775.0,
-          "total": 4901.88
-        },
-        {
-          "category": "Groceries",
-          "description": "Broiler Chicken Breast Bon",
-          "quantity": 0.5,
-          "unit_price": 534.0,
-          "total": 267.0
-        },
-        {
-          "category": "Groceries",
-          "description": "Capsicum Green kg",
-          "quantity": 1.01,
-          "unit_price": 320.0,
-          "total": 321.6
-        },
-        {
-          "category": "Groceries",
-          "description": "Carrot China (China Gajor)K",
-          "quantity": 1.4,
-          "unit_price": 160.0,
-          "total": 224.0
-        },
-        {
-          "category": "Groceries",
-          "description": "Cucumber (Shosha)kg",
-          "quantity": 2.69,
-          "unit_price": 55.0,
-          "total": 147.68
-        },
-        {
-          "category": "Groceries",
-          "description": "Green Chili (Kacha Morich)",
-          "quantity": 0.67,
-          "unit_price": 100.0,
-          "total": 66.5
-        },
-        {
-          "category": "Groceries",
-          "description": "Green Papaya (Kacha Pepe)",
-          "quantity": 3.0,
-          "unit_price": 45.0,
-          "total": 134.78
-        },
-        {
-          "category": "Groceries",
-          "description": "Lemon Long (Lomba Lebu) PC",
-          "quantity": 8.0,
-          "unit_price": 6.0,
-          "total": 48.0
-        },
-        {
-          "category": "Groceries",
-          "description": "Long Bean (Borbori) KG",
-          "quantity": 1.83,
-          "unit_price": 90.0,
-          "total": 164.7
-        },
-        {
-          "category": "Groceries",
-          "description": "Piyaj Deshi Loose kg",
-          "quantity": 2.66,
-          "unit_price": 58.0,
-          "total": 154.28
-        },
-        {
-          "category": "Groceries",
-          "description": "Shonalika Dressed Classic",
-          "quantity": 1.65,
-          "unit_price": 667.0,
-          "total": 1097.22
-        },
-        {
-          "category": "Groceries",
-          "description": "ACI Pure Corn Flour 150g",
-          "quantity": 1.0,
-          "unit_price": 60.0,
-          "total": 60.0
-        },
-        {
-          "category": "Groceries",
-          "description": "Shwapno Black Pepper Powde",
-          "quantity": 1.0,
-          "unit_price": 129.0,
-          "total": 129.0
-        }
-      ],
-      "attachment": null,
-      "memo": "VAT against this challan is payable through central registration. Prices inclusive of standard VAT except exempted items. VAT Payable TK. :7.17. Purchase of defected item must be exchanged by 24 hours with invoice. For any queries, suggestions or complaints, please call 16469 (9:00 AM - 6:00 PM). Thank you for shopping with SHWAPNO. Please visit www.shwapno.com for home delivery. Join the DREAM FACTORY at: FACEBOOK.COM/GROUPS/SHWAPNOHELP. Earned points will expire within 6 months from the date of the transaction if not redeemed. Loyalty Points (as on 26-06-2025 10:25): Previous Points 7,335, This Invoice 76, Balance Points 7,411. Powered by MISBACI Limited.",
-      "totals": {
-        "sub_total": 7716.64,
-        "sales_tax": {
-          "is_percentage": false,
-          "tax": 0,
-          "amount": 0
-        },
-        "discount": {
-          "is_percentage": false,
-          "discount": 0,
-          "calculated_amount": 30.8
-        },
-        "total_amount": 7686.0
-      }
-    },
-    "extraction_format": "json",
-    "structured_data": {
-      "payment_details": {
-        "supplier": "SHWAPNO (ACI Logistics Limited)",
-        "payment_account": null,
-        "payment_date": "2025-06-26",
-        "payment_method": "City Bank",
-        "ref_no": "D0612506260068",
-        "tags": [
-          "Grocery",
-          "Supermarket",
-          "Retail"
-        ]
-      },
-      "item_details": [
-        {
-          "category": "Groceries",
-          "description": "Beef Premium Cube kg",
-          "quantity": 6.33,
-          "unit_price": 775.0,
-          "total": 4901.88
-        },
-        {
-          "category": "Groceries",
-          "description": "Broiler Chicken Breast Bon",
-          "quantity": 0.5,
-          "unit_price": 534.0,
-          "total": 267.0
-        },
-        {
-          "category": "Groceries",
-          "description": "Capsicum Green kg",
-          "quantity": 1.01,
-          "unit_price": 320.0,
-          "total": 321.6
-        },
-        {
-          "category": "Groceries",
-          "description": "Carrot China (China Gajor)K",
-          "quantity": 1.4,
-          "unit_price": 160.0,
-          "total": 224.0
-        },
-        {
-          "category": "Groceries",
-          "description": "Cucumber (Shosha)kg",
-          "quantity": 2.69,
-          "unit_price": 55.0,
-          "total": 147.68
-        },
-        {
-          "category": "Groceries",
-          "description": "Green Chili (Kacha Morich)",
-          "quantity": 0.67,
-          "unit_price": 100.0,
-          "total": 66.5
-        },
-        {
-          "category": "Groceries",
-          "description": "Green Papaya (Kacha Pepe)",
-          "quantity": 3.0,
-          "unit_price": 45.0,
-          "total": 134.78
-        },
-        {
-          "category": "Groceries",
-          "description": "Lemon Long (Lomba Lebu) PC",
-          "quantity": 8.0,
-          "unit_price": 6.0,
-          "total": 48.0
-        },
-        {
-          "category": "Groceries",
-          "description": "Long Bean (Borbori) KG",
-          "quantity": 1.83,
-          "unit_price": 90.0,
-          "total": 164.7
-        },
-        {
-          "category": "Groceries",
-          "description": "Piyaj Deshi Loose kg",
-          "quantity": 2.66,
-          "unit_price": 58.0,
-          "total": 154.28
-        },
-        {
-          "category": "Groceries",
-          "description": "Shonalika Dressed Classic",
-          "quantity": 1.65,
-          "unit_price": 667.0,
-          "total": 1097.22
-        },
-        {
-          "category": "Groceries",
-          "description": "ACI Pure Corn Flour 150g",
-          "quantity": 1.0,
-          "unit_price": 60.0,
-          "total": 60.0
-        },
-        {
-          "category": "Groceries",
-          "description": "Shwapno Black Pepper Powde",
-          "quantity": 1.0,
-          "unit_price": 129.0,
-          "total": 129.0
-        }
-      ],
-      "attachment": null,
-      "memo": "VAT against this challan is payable through central registration. Prices inclusive of standard VAT except exempted items. VAT Payable TK. :7.17. Purchase of defected item must be exchanged by 24 hours with invoice. For any queries, suggestions or complaints, please call 16469 (9:00 AM - 6:00 PM). Thank you for shopping with SHWAPNO. Please visit www.shwapno.com for home delivery. Join the DREAM FACTORY at: FACEBOOK.COM/GROUPS/SHWAPNOHELP. Earned points will expire within 6 months from the date of the transaction if not redeemed. Loyalty Points (as on 26-06-2025 10:25): Previous Points 7,335, This Invoice 76, Balance Points 7,411. Powered by MISBACI Limited.",
-      "totals": {
-        "sub_total": 7716.64,
-        "sales_tax": {
-          "is_percentage": false,
-          "tax": 0,
-          "amount": 0
-        },
-        "discount": {
-          "is_percentage": false,
-          "discount": 0,
-          "calculated_amount": 30.8
-        },
-        "total_amount": 7686.0
-      }
-    },
-    "extracted_data_preview": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"SHWAPNO (ACI Logistics Limited)\",\n    \"payment_account\": null,\n    \"payment_date\": \"2025-06-26\",\n    \"payment_method\": \"City Bank\",\n    \"ref_no\": \"D06...",
-    "extracted_data_full": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"SHWAPNO (ACI Logistics Limited)\",\n    \"payment_account\": null,\n    \"payment_date\": \"2025-06-26\",\n    \"payment_method\": \"City Bank\",\n    \"ref_no\": \"D0612506260068\",\n    \"tags\": [\"Grocery\", \"Supermarket\", \"Retail\"]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"Groceries\",\n      \"description\": \"Beef Premium Cube kg\",\n      \"quantity\": 6.33,\n      \"unit_price\": 775.00,\n      \"total\": 4901.88\n    },\n    {\n      \"category\": \"Groceries\",\n      \"description\": \"Broiler Chicken Breast Bon\",\n      \"quantity\": 0.50,\n      \"unit_price\": 534.00,\n      \"total\": 267.00\n    },\n    {\n      \"category\": \"Groceries\",\n      \"description\": \"Capsicum Green kg\",\n      \"quantity\": 1.01,\n      \"unit_price\": 320.00,\n      \"total\": 321.60\n    },\n    {\n      \"category\": \"Groceries\",\n      \"description\": \"Carrot China (China Gajor)K\",\n      \"quantity\": 1.40,\n      \"unit_price\": 160.00,\n      \"total\": 224.00\n    },\n    {\n      \"category\": \"Groceries\",\n      \"description\": \"Cucumber (Shosha)kg\",\n      \"quantity\": 2.69,\n      \"unit_price\": 55.00,\n      \"total\": 147.68\n    },\n    {\n      \"category\": \"Groceries\",\n      \"description\": \"Green Chili (Kacha Morich)\",\n      \"quantity\": 0.67,\n      \"unit_price\": 100.00,\n      \"total\": 66.50\n    },\n    {\n      \"category\": \"Groceries\",\n      \"description\": \"Green Papaya (Kacha Pepe)\",\n      \"quantity\": 3.00,\n      \"unit_price\": 45.00,\n      \"total\": 134.78\n    },\n    {\n      \"category\": \"Groceries\",\n      \"description\": \"Lemon Long (Lomba Lebu) PC\",\n      \"quantity\": 8.00,\n      \"unit_price\": 6.00,\n      \"total\": 48.00\n    },\n    {\n      \"category\": \"Groceries\",\n      \"description\": \"Long Bean (Borbori) KG\",\n      \"quantity\": 1.83,\n      \"unit_price\": 90.00,\n      \"total\": 164.70\n    },\n    {\n      \"category\": \"Groceries\",\n      \"description\": \"Piyaj Deshi Loose kg\",\n      \"quantity\": 2.66,\n      \"unit_price\": 58.00,\n      \"total\": 154.28\n    },\n    {\n      \"category\": \"Groceries\",\n      \"description\": \"Shonalika Dressed Classic\",\n      \"quantity\": 1.65,\n      \"unit_price\": 667.00,\n      \"total\": 1097.22\n    },\n    {\n      \"category\": \"Groceries\",\n      \"description\": \"ACI Pure Corn Flour 150g\",\n      \"quantity\": 1.00,\n      \"unit_price\": 60.00,\n      \"total\": 60.00\n    },\n    {\n      \"category\": \"Groceries\",\n      \"description\": \"Shwapno Black Pepper Powde\",\n      \"quantity\": 1.00,\n      \"unit_price\": 129.00,\n      \"total\": 129.00\n    }\n  ],\n  \"attachment\": null,\n  \"memo\": \"VAT against this challan is payable through central registration. Prices inclusive of standard VAT except exempted items. VAT Payable TK. :7.17. Purchase of defected item must be exchanged by 24 hours with invoice. For any queries, suggestions or complaints, please call 16469 (9:00 AM - 6:00 PM). Thank you for shopping with SHWAPNO. Please visit www.shwapno.com for home delivery. Join the DREAM FACTORY at: FACEBOOK.COM/GROUPS/SHWAPNOHELP. Earned points will expire within 6 months from the date of the transaction if not redeemed. Loyalty Points (as on 26-06-2025 10:25): Previous Points 7,335, This Invoice 76, Balance Points 7,411. Powered by MISBACI Limited.\",\n  \"totals\": {\n    \"sub_total\": 7716.64,\n    \"sales_tax\": {\n      \"is_percentage\": false,\n      \"tax\": 0,\n      \"amount\": 0\n    },\n    \"discount\": {\n      \"is_percentage\": false,\n      \"discount\": 0,\n      \"calculated_amount\": 30.80\n    },\n    \"total_amount\": 7686.00\n  }\n}\n```"
+    "error": "Error code: 413 - {'error': 'request entity too large'}",
+    "success": false,
+    "timestamp": "2025-09-02T14:45:50.458695"
   },
   {
     "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_155237.jpg",
-    "model_used": "gemini",
+    "model_used": "huggingface",
     "prompt": "\nYou are an expert document processing assistant. Your task is to extract structured data from invoice/receipt images and return the information in a specific JSON format.\n\n## Instructions:\n1. Analyze the provided image carefully to identify all relevant financial information\n2. Extract the data according to the JSON schema provided below\n3. If any required field is not visible or unclear in the image, use reasonable defaults or null values\n4. For monetary amounts, use numbers without currency symbols\n5. For dates, use the format found in the document or convert to YYYY-MM-DD if possible\n6. Be precise with calculations - ensure totals match the extracted item details\n7. The document may contain text in both English and Bangla (Bengali). For Bangla text, provide English transliteration (not translation) - write the Bangla words using English letters to show how they sound. For Bangla numbers convert them to\n    English numerals (e.g., \"১২৩\" becomes \"123\").  \n8. Only extract information that is clearly visible in the image - never guess or infer missing data\n9. If text is unclear or partially obscured, use null rather than making assumptions\n10. Verify all mathematical calculations before finalizing the JSON response\n## Required JSON Schema:\nReturn your response as a valid JSON object following this exact structure:\n\n{\n  \"payment_details\": {\n    \"supplier\": \"string - Name of the supplier/vendor\",\n    \"payment_account\": \"string - Account used for payment\",\n    \"payment_date\": \"string - Date of payment\",\n    \"payment_method\": \"string - Mode of payment (cash, card, bank transfer, etc.)\",\n    \"ref_no\": \"string - Reference/invoice number\",\n    \"tags\": [\"array of relevant tags\"]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"string - Expense category\",\n      \"description\": \"string - Item description (optional)\",\n      \"quantity\": \"number - Quantity of items\",\n      \"unit_price\": \"number - Price per unit\",\n      \"total\": \"number - Total amount for this item\"\n    },\n    {\n      \"category\": \"string - Expense category for item 2\",\n      \"description\": \"string - Item description (optional)\",\n      \"quantity\": \"number - Quantity of items\",\n      \"unit_price\": \"number - Price per unit\", \n      \"total\": \"number - Total amount for this item\"\n    }\n    // ... additional items as found in the document\n  ],\n  \"attachment\": \"string - File reference if mentioned\",\n  \"memo\": \"string - Any additional notes or memo\",\n  \"totals\": {\n    \"sub_total\": \"number - Subtotal before tax and discount\",\n    \"sales_tax\": {\n      \"is_percentage\": \"boolean - true if tax/VAT is %, false if fixed amount\",\n      \"tax\": \"number - Tax/VAT rate (%)\", \n      \"amount\": \"number - Calculated tax/VAT amount\"\n    },\n    \"discount\": {\n      \"is_percentage\": \"boolean - true if discount is %, false if fixed amount\", \n      \"discount\": \"number - Discount rate (%)\",\n      \"calculated_amount\": \"number - Calculated discount amount\"\n    },\n    \"total_amount\": \"number - Final total amount\"\n  }\n}\n\n## Extraction Guidelines:\n- **Supplier**: Look for business name, vendor name, or \"Bill To\" information\n- **Payment Account**: Extract account numbers, card details, or payment method info\n- **Payment Date**: Find transaction date, invoice date, or payment date\n- **Payment Method**: Identify if paid by cash, card, check, bank transfer, etc.\n- **Reference Number**: Look for invoice #, receipt #, transaction ID, or reference number\n- **Tags**: Generate relevant tags based on the business type or expense category\n- **Item Details**: Extract ALL line items from the document - create a separate object for each item/product/service listed\n- **Categories**: Classify expenses (office supplies, travel, meals, equipment, etc.)\n- **Calculations**: Verify that item totals sum to subtotal, and final calculations are accurate\n- **Language Handling**: If you encounter Bangla/Bengali text, transliterate it into English letters (e.g., \"টাকা\" becomes \"taka\", \"নাম\" becomes \"naam\"). Do not translate the meaning, just write how the Bangla words sound in English.\n- **Tax/VAT Recognition**: Look for any tax-related terms including \"Tax\", \"VAT\", \"Sales Tax\", \"Service Tax\", \"GST\", or similar terms in both English and Bangla. Treat all of these as sales tax in the JSON structure.\n\n## Validation Rules:\n- **Mathematical Accuracy**: Ensure sum of all item totals equals subtotal\n- **Date Formats**: Only use dates that are clearly visible; don't assume date formats\n- **Number Precision**: Use exact numbers from the document, don't round unless specified\n- **Text Clarity**: If you cannot read text clearly due to image quality, use null\n- **Cross-Reference**: Verify supplier name appears consistently throughout the document\n- **Currency Consistency**: Ensure all amounts use the same currency basis\n\n## Important Notes:\n- Return ONLY the JSON object, no additional text or explanations\n- If information is missing, use null for strings and 0 for numbers\n- Ensure all numbers are numeric values, not strings\n- **Extract every single line item** - the item_details array should contain one object for each product/service listed in the document\n- Double-check mathematical accuracy of totals and ensure all item totals sum to the subtotal\n- VAT and tax should be considered same.\n- If no tax/VAT or discount is present, set the respective amounts to 0\n- Do not interpolate or guess missing information** - use null for unclear data\n- Double-check all calculations manually** before submitting the JSON\n- If image quality is poor and text is unreadable, explicitly use null values**\n- Verify that reference numbers and dates match standard formats for the region**\n- Cross-validate totals: item_totals → subtotal → (±tax/discount) → final_total**\n\n## Final Check:\nBefore responding, verify:\n1. All visible numbers are accurately transcribed\n2. Mathematical relationships are correct\n3. No information has been assumed or fabricated\n4. Bangla text is transliterated, not translated\n5. All required fields contain appropriate data types\n\nNow please analyze the provided image and extract the data according to this schema.\n        ",
     "success": true,
-    "timestamp": "2025-08-27T19:48:44.300749",
-    "processing_time_seconds": 30.799428462982178,
+    "timestamp": "2025-09-02T14:46:25.412086",
+    "processing_time_seconds": 34.6916081905365,
     "extracted_data_parsed": {
       "payment_details": {
-        "supplier": "SHWAPNO",
-        "payment_account": "DBBL Bank",
-        "payment_date": "2025-06-25",
-        "payment_method": "Bank Transfer",
-        "ref_no": "D0612506250055",
+        "supplier": "RJ Logistics Limited",
+        "payment_account": null,
+        "payment_date": "25/06/2025",
+        "payment_method": "Cash",
+        "ref_no": "L45443",
         "tags": [
-          "Grocery",
-          "Supermarket",
-          "Retail",
-          "Food"
+          "groceries",
+          "retail"
         ]
       },
       "item_details": [
         {
-          "category": "Vegetables",
-          "description": "Bottle Gourd (Lau)",
+          "category": "groceries",
+          "description": "Bottle Guard (Lau) PCS",
           "quantity": 1.0,
           "unit_price": 80.0,
           "total": 80.0
         },
         {
-          "category": "Meat",
-          "description": "Broiler Chicken Keema Kg",
+          "category": "groceries",
+          "description": "Brother Chicken Keema Kg",
           "quantity": 0.95,
           "unit_price": 681.0,
-          "total": 643.55
+          "total": 646.95
         },
         {
-          "category": "Vegetables",
-          "description": "Cucumber (Shosha)kg",
+          "category": "groceries",
+          "description": "Cucumber (Shoshni) kg",
           "quantity": 2.37,
           "unit_price": 55.0,
           "total": 130.35
         },
         {
-          "category": "Fruits",
-          "description": "Green Papaya (Kacha Pepe)",
+          "category": "groceries",
+          "description": "Green Papaya (Kachha Pepe)",
           "quantity": 1.79,
           "unit_price": 45.0,
           "total": 80.55
         },
         {
-          "category": "Dairy & Eggs",
-          "description": "KFK Branded Egg (12 Pcs)",
+          "category": "groceries",
+          "description": "KFC Brandan Egg (12 Pcs)",
           "quantity": 1.0,
           "unit_price": 190.0,
           "total": 190.0
         },
         {
-          "category": "Fruits",
+          "category": "groceries",
           "description": "Lemon Long (Lomba Lebu) PC",
           "quantity": 8.0,
           "unit_price": 6.0,
           "total": 48.0
         },
         {
-          "category": "Vegetables",
-          "description": "Pivaia Deshia Loose kg",
+          "category": "groceries",
+          "description": "Piyel Deshiloseakg",
           "quantity": 2.21,
           "unit_price": 58.0,
           "total": 127.89
         },
         {
-          "category": "Vegetables",
-          "description": "Pointed Gourd (Potol) KG",
+          "category": "groceries",
+          "description": "Pointed Guard (Potol) KG",
           "quantity": 1.12,
           "unit_price": 50.0,
           "total": 56.0
         },
         {
-          "category": "Vegetables",
-          "description": "Pumpkin Sweet (Misti Kumra)",
+          "category": "groceries",
+          "description": "Pumpkin Swatt (Misti Kumra)",
           "quantity": 2.63,
           "unit_price": 35.0,
-          "total": 91.88
+          "total": 91.86
         },
         {
-          "category": "Meat",
-          "description": "Shonalika Dressed Classic",
+          "category": "groceries",
+          "description": "Shorolika Dressed Classic",
           "quantity": 7.89,
           "unit_price": 645.0,
           "total": 5089.05
         },
         {
-          "category": "Vegetables",
-          "description": "Snake Gourd (Chichinga) KG",
+          "category": "groceries",
+          "description": "Snake Guard (Chichinga) KG",
           "quantity": 1.55,
           "unit_price": 60.0,
           "total": 93.0
         },
         {
-          "category": "Vegetables",
-          "description": "Tomato Red (Local)kg",
+          "category": "groceries",
+          "description": "Tomato Red (Local) KG",
           "quantity": 0.67,
           "unit_price": 120.0,
           "total": 80.4
         },
         {
-          "category": "Vegetables",
-          "description": "Water Spinach (Kolmishak)PC",
+          "category": "groceries",
+          "description": "Water Spinach(Kolmisheak)PC",
           "quantity": 3.0,
           "unit_price": 15.0,
           "total": 45.0
         },
         {
-          "category": "Sauces & Condiments",
-          "description": "Pran Pot Tomato Sauce Pet",
+          "category": "groceries",
+          "description": "Pran Hot Tomato Sauce Pet",
           "quantity": 1.0,
           "unit_price": 290.0,
           "total": 290.0
         }
       ],
       "attachment": null,
-      "memo": "Thank you for shopping with SHWAPNO. Purchase of defected item must be exchanged by 24 hours with invoice. For any queries, suggestions or complaints, please call 16469 (9:00 AM - 6:00 PM).",
+      "memo": null,
       "totals": {
-        "sub_total": 7007.84,
+        "sub_total": 7045.67,
         "sales_tax": {
           "is_percentage": false,
           "tax": 0,
-          "amount": 37.83
+          "amount": 0
         },
         "discount": {
           "is_percentage": false,
           "discount": 0,
-          "calculated_amount": 0.0
+          "calculated_amount": 0
         },
         "total_amount": 7046.0
       }
@@ -579,191 +322,187 @@
     "extraction_format": "json",
     "structured_data": {
       "payment_details": {
-        "supplier": "SHWAPNO",
-        "payment_account": "DBBL Bank",
-        "payment_date": "2025-06-25",
-        "payment_method": "Bank Transfer",
-        "ref_no": "D0612506250055",
+        "supplier": "RJ Logistics Limited",
+        "payment_account": null,
+        "payment_date": "25/06/2025",
+        "payment_method": "Cash",
+        "ref_no": "L45443",
         "tags": [
-          "Grocery",
-          "Supermarket",
-          "Retail",
-          "Food"
+          "groceries",
+          "retail"
         ]
       },
       "item_details": [
         {
-          "category": "Vegetables",
-          "description": "Bottle Gourd (Lau)",
+          "category": "groceries",
+          "description": "Bottle Guard (Lau) PCS",
           "quantity": 1.0,
           "unit_price": 80.0,
           "total": 80.0
         },
         {
-          "category": "Meat",
-          "description": "Broiler Chicken Keema Kg",
+          "category": "groceries",
+          "description": "Brother Chicken Keema Kg",
           "quantity": 0.95,
           "unit_price": 681.0,
-          "total": 643.55
+          "total": 646.95
         },
         {
-          "category": "Vegetables",
-          "description": "Cucumber (Shosha)kg",
+          "category": "groceries",
+          "description": "Cucumber (Shoshni) kg",
           "quantity": 2.37,
           "unit_price": 55.0,
           "total": 130.35
         },
         {
-          "category": "Fruits",
-          "description": "Green Papaya (Kacha Pepe)",
+          "category": "groceries",
+          "description": "Green Papaya (Kachha Pepe)",
           "quantity": 1.79,
           "unit_price": 45.0,
           "total": 80.55
         },
         {
-          "category": "Dairy & Eggs",
-          "description": "KFK Branded Egg (12 Pcs)",
+          "category": "groceries",
+          "description": "KFC Brandan Egg (12 Pcs)",
           "quantity": 1.0,
           "unit_price": 190.0,
           "total": 190.0
         },
         {
-          "category": "Fruits",
+          "category": "groceries",
           "description": "Lemon Long (Lomba Lebu) PC",
           "quantity": 8.0,
           "unit_price": 6.0,
           "total": 48.0
         },
         {
-          "category": "Vegetables",
-          "description": "Pivaia Deshia Loose kg",
+          "category": "groceries",
+          "description": "Piyel Deshiloseakg",
           "quantity": 2.21,
           "unit_price": 58.0,
           "total": 127.89
         },
         {
-          "category": "Vegetables",
-          "description": "Pointed Gourd (Potol) KG",
+          "category": "groceries",
+          "description": "Pointed Guard (Potol) KG",
           "quantity": 1.12,
           "unit_price": 50.0,
           "total": 56.0
         },
         {
-          "category": "Vegetables",
-          "description": "Pumpkin Sweet (Misti Kumra)",
+          "category": "groceries",
+          "description": "Pumpkin Swatt (Misti Kumra)",
           "quantity": 2.63,
           "unit_price": 35.0,
-          "total": 91.88
+          "total": 91.86
         },
         {
-          "category": "Meat",
-          "description": "Shonalika Dressed Classic",
+          "category": "groceries",
+          "description": "Shorolika Dressed Classic",
           "quantity": 7.89,
           "unit_price": 645.0,
           "total": 5089.05
         },
         {
-          "category": "Vegetables",
-          "description": "Snake Gourd (Chichinga) KG",
+          "category": "groceries",
+          "description": "Snake Guard (Chichinga) KG",
           "quantity": 1.55,
           "unit_price": 60.0,
           "total": 93.0
         },
         {
-          "category": "Vegetables",
-          "description": "Tomato Red (Local)kg",
+          "category": "groceries",
+          "description": "Tomato Red (Local) KG",
           "quantity": 0.67,
           "unit_price": 120.0,
           "total": 80.4
         },
         {
-          "category": "Vegetables",
-          "description": "Water Spinach (Kolmishak)PC",
+          "category": "groceries",
+          "description": "Water Spinach(Kolmisheak)PC",
           "quantity": 3.0,
           "unit_price": 15.0,
           "total": 45.0
         },
         {
-          "category": "Sauces & Condiments",
-          "description": "Pran Pot Tomato Sauce Pet",
+          "category": "groceries",
+          "description": "Pran Hot Tomato Sauce Pet",
           "quantity": 1.0,
           "unit_price": 290.0,
           "total": 290.0
         }
       ],
       "attachment": null,
-      "memo": "Thank you for shopping with SHWAPNO. Purchase of defected item must be exchanged by 24 hours with invoice. For any queries, suggestions or complaints, please call 16469 (9:00 AM - 6:00 PM).",
+      "memo": null,
       "totals": {
-        "sub_total": 7007.84,
+        "sub_total": 7045.67,
         "sales_tax": {
           "is_percentage": false,
           "tax": 0,
-          "amount": 37.83
+          "amount": 0
         },
         "discount": {
           "is_percentage": false,
           "discount": 0,
-          "calculated_amount": 0.0
+          "calculated_amount": 0
         },
         "total_amount": 7046.0
       }
     },
-    "extracted_data_preview": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"SHWAPNO\",\n    \"payment_account\": \"DBBL Bank\",\n    \"payment_date\": \"2025-06-25\",\n    \"payment_method\": \"Bank Transfer\",\n    \"ref_no\": \"D0612506250055\",...",
-    "extracted_data_full": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"SHWAPNO\",\n    \"payment_account\": \"DBBL Bank\",\n    \"payment_date\": \"2025-06-25\",\n    \"payment_method\": \"Bank Transfer\",\n    \"ref_no\": \"D0612506250055\",\n    \"tags\": [\n      \"Grocery\",\n      \"Supermarket\",\n      \"Retail\",\n      \"Food\"\n    ]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"Vegetables\",\n      \"description\": \"Bottle Gourd (Lau)\",\n      \"quantity\": 1.00,\n      \"unit_price\": 80.00,\n      \"total\": 80.00\n    },\n    {\n      \"category\": \"Meat\",\n      \"description\": \"Broiler Chicken Keema Kg\",\n      \"quantity\": 0.95,\n      \"unit_price\": 681.00,\n      \"total\": 643.55\n    },\n    {\n      \"category\": \"Vegetables\",\n      \"description\": \"Cucumber (Shosha)kg\",\n      \"quantity\": 2.37,\n      \"unit_price\": 55.00,\n      \"total\": 130.35\n    },\n    {\n      \"category\": \"Fruits\",\n      \"description\": \"Green Papaya (Kacha Pepe)\",\n      \"quantity\": 1.79,\n      \"unit_price\": 45.00,\n      \"total\": 80.55\n    },\n    {\n      \"category\": \"Dairy & Eggs\",\n      \"description\": \"KFK Branded Egg (12 Pcs)\",\n      \"quantity\": 1.00,\n      \"unit_price\": 190.00,\n      \"total\": 190.00\n    },\n    {\n      \"category\": \"Fruits\",\n      \"description\": \"Lemon Long (Lomba Lebu) PC\",\n      \"quantity\": 8.00,\n      \"unit_price\": 6.00,\n      \"total\": 48.00\n    },\n    {\n      \"category\": \"Vegetables\",\n      \"description\": \"Pivaia Deshia Loose kg\",\n      \"quantity\": 2.21,\n      \"unit_price\": 58.00,\n      \"total\": 127.89\n    },\n    {\n      \"category\": \"Vegetables\",\n      \"description\": \"Pointed Gourd (Potol) KG\",\n      \"quantity\": 1.12,\n      \"unit_price\": 50.00,\n      \"total\": 56.00\n    },\n    {\n      \"category\": \"Vegetables\",\n      \"description\": \"Pumpkin Sweet (Misti Kumra)\",\n      \"quantity\": 2.63,\n      \"unit_price\": 35.00,\n      \"total\": 91.88\n    },\n    {\n      \"category\": \"Meat\",\n      \"description\": \"Shonalika Dressed Classic\",\n      \"quantity\": 7.89,\n      \"unit_price\": 645.00,\n      \"total\": 5089.05\n    },\n    {\n      \"category\": \"Vegetables\",\n      \"description\": \"Snake Gourd (Chichinga) KG\",\n      \"quantity\": 1.55,\n      \"unit_price\": 60.00,\n      \"total\": 93.00\n    },\n    {\n      \"category\": \"Vegetables\",\n      \"description\": \"Tomato Red (Local)kg\",\n      \"quantity\": 0.67,\n      \"unit_price\": 120.00,\n      \"total\": 80.40\n    },\n    {\n      \"category\": \"Vegetables\",\n      \"description\": \"Water Spinach (Kolmishak)PC\",\n      \"quantity\": 3.00,\n      \"unit_price\": 15.00,\n      \"total\": 45.00\n    },\n    {\n      \"category\": \"Sauces & Condiments\",\n      \"description\": \"Pran Pot Tomato Sauce Pet\",\n      \"quantity\": 1.00,\n      \"unit_price\": 290.00,\n      \"total\": 290.00\n    }\n  ],\n  \"attachment\": null,\n  \"memo\": \"Thank you for shopping with SHWAPNO. Purchase of defected item must be exchanged by 24 hours with invoice. For any queries, suggestions or complaints, please call 16469 (9:00 AM - 6:00 PM).\",\n  \"totals\": {\n    \"sub_total\": 7007.84,\n    \"sales_tax\": {\n      \"is_percentage\": false,\n      \"tax\": 0,\n      \"amount\": 37.83\n    },\n    \"discount\": {\n      \"is_percentage\": false,\n      \"discount\": 0,\n      \"calculated_amount\": 0.00\n    },\n    \"total_amount\": 7046.00\n  }\n}\n```"
+    "extracted_data_preview": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"RJ Logistics Limited\",\n    \"payment_account\": null,\n    \"payment_date\": \"25/06/2025\",\n    \"payment_method\": \"Cash\",\n    \"ref_no\": \"L45443\",\n    \"tags\"...",
+    "extracted_data_full": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"RJ Logistics Limited\",\n    \"payment_account\": null,\n    \"payment_date\": \"25/06/2025\",\n    \"payment_method\": \"Cash\",\n    \"ref_no\": \"L45443\",\n    \"tags\": [\"groceries\", \"retail\"]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"groceries\",\n      \"description\": \"Bottle Guard (Lau) PCS\",\n      \"quantity\": 1.00,\n      \"unit_price\": 80.00,\n      \"total\": 80.00\n    },\n    {\n      \"category\": \"groceries\",\n      \"description\": \"Brother Chicken Keema Kg\",\n      \"quantity\": 0.95,\n      \"unit_price\": 681.00,\n      \"total\": 646.95\n    },\n    {\n      \"category\": \"groceries\",\n      \"description\": \"Cucumber (Shoshni) kg\",\n      \"quantity\": 2.37,\n      \"unit_price\": 55.00,\n      \"total\": 130.35\n    },\n    {\n      \"category\": \"groceries\",\n      \"description\": \"Green Papaya (Kachha Pepe)\",\n      \"quantity\": 1.79,\n      \"unit_price\": 45.00,\n      \"total\": 80.55\n    },\n    {\n      \"category\": \"groceries\",\n      \"description\": \"KFC Brandan Egg (12 Pcs)\",\n      \"quantity\": 1.00,\n      \"unit_price\": 190.00,\n      \"total\": 190.00\n    },\n    {\n      \"category\": \"groceries\",\n      \"description\": \"Lemon Long (Lomba Lebu) PC\",\n      \"quantity\": 8.00,\n      \"unit_price\": 6.00,\n      \"total\": 48.00\n    },\n    {\n      \"category\": \"groceries\",\n      \"description\": \"Piyel Deshiloseakg\",\n      \"quantity\": 2.21,\n      \"unit_price\": 58.00,\n      \"total\": 127.89\n    },\n    {\n      \"category\": \"groceries\",\n      \"description\": \"Pointed Guard (Potol) KG\",\n      \"quantity\": 1.12,\n      \"unit_price\": 50.00,\n      \"total\": 56.00\n    },\n    {\n      \"category\": \"groceries\",\n      \"description\": \"Pumpkin Swatt (Misti Kumra)\",\n      \"quantity\": 2.63,\n      \"unit_price\": 35.00,\n      \"total\": 91.86\n    },\n    {\n      \"category\": \"groceries\",\n      \"description\": \"Shorolika Dressed Classic\",\n      \"quantity\": 7.89,\n      \"unit_price\": 645.00,\n      \"total\": 5089.05\n    },\n    {\n      \"category\": \"groceries\",\n      \"description\": \"Snake Guard (Chichinga) KG\",\n      \"quantity\": 1.55,\n      \"unit_price\": 60.00,\n      \"total\": 93.00\n    },\n    {\n      \"category\": \"groceries\",\n      \"description\": \"Tomato Red (Local) KG\",\n      \"quantity\": 0.67,\n      \"unit_price\": 120.00,\n      \"total\": 80.40\n    },\n    {\n      \"category\": \"groceries\",\n      \"description\": \"Water Spinach(Kolmisheak)PC\",\n      \"quantity\": 3.00,\n      \"unit_price\": 15.00,\n      \"total\": 45.00\n    },\n    {\n      \"category\": \"groceries\",\n      \"description\": \"Pran Hot Tomato Sauce Pet\",\n      \"quantity\": 1.00,\n      \"unit_price\": 290.00,\n      \"total\": 290.00\n    }\n  ],\n  \"attachment\": null,\n  \"memo\": null,\n  \"totals\": {\n    \"sub_total\": 7045.67,\n    \"sales_tax\": {\n      \"is_percentage\": false,\n      \"tax\": 0,\n      \"amount\": 0\n    },\n    \"discount\": {\n      \"is_percentage\": false,\n      \"discount\": 0,\n      \"calculated_amount\": 0\n    },\n    \"total_amount\": 7046.00\n  }\n}\n```"
   },
   {
     "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_155754.jpg",
-    "model_used": "gemini",
+    "model_used": "huggingface",
     "prompt": "\nYou are an expert document processing assistant. Your task is to extract structured data from invoice/receipt images and return the information in a specific JSON format.\n\n## Instructions:\n1. Analyze the provided image carefully to identify all relevant financial information\n2. Extract the data according to the JSON schema provided below\n3. If any required field is not visible or unclear in the image, use reasonable defaults or null values\n4. For monetary amounts, use numbers without currency symbols\n5. For dates, use the format found in the document or convert to YYYY-MM-DD if possible\n6. Be precise with calculations - ensure totals match the extracted item details\n7. The document may contain text in both English and Bangla (Bengali). For Bangla text, provide English transliteration (not translation) - write the Bangla words using English letters to show how they sound. For Bangla numbers convert them to\n    English numerals (e.g., \"১২৩\" becomes \"123\").  \n8. Only extract information that is clearly visible in the image - never guess or infer missing data\n9. If text is unclear or partially obscured, use null rather than making assumptions\n10. Verify all mathematical calculations before finalizing the JSON response\n## Required JSON Schema:\nReturn your response as a valid JSON object following this exact structure:\n\n{\n  \"payment_details\": {\n    \"supplier\": \"string - Name of the supplier/vendor\",\n    \"payment_account\": \"string - Account used for payment\",\n    \"payment_date\": \"string - Date of payment\",\n    \"payment_method\": \"string - Mode of payment (cash, card, bank transfer, etc.)\",\n    \"ref_no\": \"string - Reference/invoice number\",\n    \"tags\": [\"array of relevant tags\"]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"string - Expense category\",\n      \"description\": \"string - Item description (optional)\",\n      \"quantity\": \"number - Quantity of items\",\n      \"unit_price\": \"number - Price per unit\",\n      \"total\": \"number - Total amount for this item\"\n    },\n    {\n      \"category\": \"string - Expense category for item 2\",\n      \"description\": \"string - Item description (optional)\",\n      \"quantity\": \"number - Quantity of items\",\n      \"unit_price\": \"number - Price per unit\", \n      \"total\": \"number - Total amount for this item\"\n    }\n    // ... additional items as found in the document\n  ],\n  \"attachment\": \"string - File reference if mentioned\",\n  \"memo\": \"string - Any additional notes or memo\",\n  \"totals\": {\n    \"sub_total\": \"number - Subtotal before tax and discount\",\n    \"sales_tax\": {\n      \"is_percentage\": \"boolean - true if tax/VAT is %, false if fixed amount\",\n      \"tax\": \"number - Tax/VAT rate (%)\", \n      \"amount\": \"number - Calculated tax/VAT amount\"\n    },\n    \"discount\": {\n      \"is_percentage\": \"boolean - true if discount is %, false if fixed amount\", \n      \"discount\": \"number - Discount rate (%)\",\n      \"calculated_amount\": \"number - Calculated discount amount\"\n    },\n    \"total_amount\": \"number - Final total amount\"\n  }\n}\n\n## Extraction Guidelines:\n- **Supplier**: Look for business name, vendor name, or \"Bill To\" information\n- **Payment Account**: Extract account numbers, card details, or payment method info\n- **Payment Date**: Find transaction date, invoice date, or payment date\n- **Payment Method**: Identify if paid by cash, card, check, bank transfer, etc.\n- **Reference Number**: Look for invoice #, receipt #, transaction ID, or reference number\n- **Tags**: Generate relevant tags based on the business type or expense category\n- **Item Details**: Extract ALL line items from the document - create a separate object for each item/product/service listed\n- **Categories**: Classify expenses (office supplies, travel, meals, equipment, etc.)\n- **Calculations**: Verify that item totals sum to subtotal, and final calculations are accurate\n- **Language Handling**: If you encounter Bangla/Bengali text, transliterate it into English letters (e.g., \"টাকা\" becomes \"taka\", \"নাম\" becomes \"naam\"). Do not translate the meaning, just write how the Bangla words sound in English.\n- **Tax/VAT Recognition**: Look for any tax-related terms including \"Tax\", \"VAT\", \"Sales Tax\", \"Service Tax\", \"GST\", or similar terms in both English and Bangla. Treat all of these as sales tax in the JSON structure.\n\n## Validation Rules:\n- **Mathematical Accuracy**: Ensure sum of all item totals equals subtotal\n- **Date Formats**: Only use dates that are clearly visible; don't assume date formats\n- **Number Precision**: Use exact numbers from the document, don't round unless specified\n- **Text Clarity**: If you cannot read text clearly due to image quality, use null\n- **Cross-Reference**: Verify supplier name appears consistently throughout the document\n- **Currency Consistency**: Ensure all amounts use the same currency basis\n\n## Important Notes:\n- Return ONLY the JSON object, no additional text or explanations\n- If information is missing, use null for strings and 0 for numbers\n- Ensure all numbers are numeric values, not strings\n- **Extract every single line item** - the item_details array should contain one object for each product/service listed in the document\n- Double-check mathematical accuracy of totals and ensure all item totals sum to the subtotal\n- VAT and tax should be considered same.\n- If no tax/VAT or discount is present, set the respective amounts to 0\n- Do not interpolate or guess missing information** - use null for unclear data\n- Double-check all calculations manually** before submitting the JSON\n- If image quality is poor and text is unreadable, explicitly use null values**\n- Verify that reference numbers and dates match standard formats for the region**\n- Cross-validate totals: item_totals → subtotal → (±tax/discount) → final_total**\n\n## Final Check:\nBefore responding, verify:\n1. All visible numbers are accurately transcribed\n2. Mathematical relationships are correct\n3. No information has been assumed or fabricated\n4. Bangla text is transliterated, not translated\n5. All required fields contain appropriate data types\n\nNow please analyze the provided image and extract the data according to this schema.\n        ",
     "success": true,
-    "timestamp": "2025-08-27T19:48:57.246786",
-    "processing_time_seconds": 12.937691450119019,
+    "timestamp": "2025-09-02T14:46:41.183513",
+    "processing_time_seconds": 15.53297472000122,
     "extracted_data_parsed": {
       "payment_details": {
         "supplier": "RoBenDevs",
         "payment_account": null,
-        "payment_date": "2023-06-25",
+        "payment_date": "23.06.25",
         "payment_method": "Cash",
         "ref_no": null,
         "tags": [
-          "food",
-          "travel",
-          "snacks",
-          "groceries"
+          "invoice",
+          "cash-payment"
         ]
       },
       "item_details": [
         {
-          "category": "Groceries",
-          "description": "Bajar bil",
+          "category": "General Expenses",
+          "description": "golgappa",
           "quantity": 1,
           "unit_price": 60,
           "total": 60
         },
         {
-          "category": "Food",
-          "description": "Tiffin",
+          "category": "General Expenses",
+          "description": "laddu",
           "quantity": 1,
           "unit_price": 80,
           "total": 80
         },
         {
-          "category": "Travel",
-          "description": "Jatayat 22.06.25",
+          "category": "General Expenses",
+          "description": "from room - 22.06.25",
           "quantity": 1,
           "unit_price": 40,
           "total": 40
         },
         {
-          "category": "Food",
-          "description": "Tiffin 22.06.25",
+          "category": "General Expenses",
+          "description": "10 cmr",
           "quantity": 1,
           "unit_price": 120,
           "total": 120
         },
         {
-          "category": "Food/Snacks",
-          "description": "Sukna nasta + 2ta + lebu",
+          "category": "General Expenses",
+          "description": "sakunthala + roshni + rita",
           "quantity": 1,
           "unit_price": 267,
           "total": 267
@@ -791,48 +530,46 @@
       "payment_details": {
         "supplier": "RoBenDevs",
         "payment_account": null,
-        "payment_date": "2023-06-25",
+        "payment_date": "23.06.25",
         "payment_method": "Cash",
         "ref_no": null,
         "tags": [
-          "food",
-          "travel",
-          "snacks",
-          "groceries"
+          "invoice",
+          "cash-payment"
         ]
       },
       "item_details": [
         {
-          "category": "Groceries",
-          "description": "Bajar bil",
+          "category": "General Expenses",
+          "description": "golgappa",
           "quantity": 1,
           "unit_price": 60,
           "total": 60
         },
         {
-          "category": "Food",
-          "description": "Tiffin",
+          "category": "General Expenses",
+          "description": "laddu",
           "quantity": 1,
           "unit_price": 80,
           "total": 80
         },
         {
-          "category": "Travel",
-          "description": "Jatayat 22.06.25",
+          "category": "General Expenses",
+          "description": "from room - 22.06.25",
           "quantity": 1,
           "unit_price": 40,
           "total": 40
         },
         {
-          "category": "Food",
-          "description": "Tiffin 22.06.25",
+          "category": "General Expenses",
+          "description": "10 cmr",
           "quantity": 1,
           "unit_price": 120,
           "total": 120
         },
         {
-          "category": "Food/Snacks",
-          "description": "Sukna nasta + 2ta + lebu",
+          "category": "General Expenses",
+          "description": "sakunthala + roshni + rita",
           "quantity": 1,
           "unit_price": 267,
           "total": 267
@@ -855,33 +592,33 @@
         "total_amount": 567
       }
     },
-    "extracted_data_preview": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"RoBenDevs\",\n    \"payment_account\": null,\n    \"payment_date\": \"2023-06-25\",\n    \"payment_method\": \"Cash\",\n    \"ref_no\": null,\n    \"tags\": [\n      \"food...",
-    "extracted_data_full": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"RoBenDevs\",\n    \"payment_account\": null,\n    \"payment_date\": \"2023-06-25\",\n    \"payment_method\": \"Cash\",\n    \"ref_no\": null,\n    \"tags\": [\n      \"food\",\n      \"travel\",\n      \"snacks\",\n      \"groceries\"\n    ]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"Groceries\",\n      \"description\": \"Bajar bil\",\n      \"quantity\": 1,\n      \"unit_price\": 60,\n      \"total\": 60\n    },\n    {\n      \"category\": \"Food\",\n      \"description\": \"Tiffin\",\n      \"quantity\": 1,\n      \"unit_price\": 80,\n      \"total\": 80\n    },\n    {\n      \"category\": \"Travel\",\n      \"description\": \"Jatayat 22.06.25\",\n      \"quantity\": 1,\n      \"unit_price\": 40,\n      \"total\": 40\n    },\n    {\n      \"category\": \"Food\",\n      \"description\": \"Tiffin 22.06.25\",\n      \"quantity\": 1,\n      \"unit_price\": 120,\n      \"total\": 120\n    },\n    {\n      \"category\": \"Food/Snacks\",\n      \"description\": \"Sukna nasta + 2ta + lebu\",\n      \"quantity\": 1,\n      \"unit_price\": 267,\n      \"total\": 267\n    }\n  ],\n  \"attachment\": null,\n  \"memo\": null,\n  \"totals\": {\n    \"sub_total\": 567,\n    \"sales_tax\": {\n      \"is_percentage\": false,\n      \"tax\": 0,\n      \"amount\": 0\n    },\n    \"discount\": {\n      \"is_percentage\": false,\n      \"discount\": 0,\n      \"calculated_amount\": 0\n    },\n    \"total_amount\": 567\n  }\n}\n```"
+    "extracted_data_preview": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"RoBenDevs\",\n    \"payment_account\": null,\n    \"payment_date\": \"23.06.25\",\n    \"payment_method\": \"Cash\",\n    \"ref_no\": null,\n    \"tags\": [\"invoice\", \"ca...",
+    "extracted_data_full": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"RoBenDevs\",\n    \"payment_account\": null,\n    \"payment_date\": \"23.06.25\",\n    \"payment_method\": \"Cash\",\n    \"ref_no\": null,\n    \"tags\": [\"invoice\", \"cash-payment\"]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"General Expenses\",\n      \"description\": \"golgappa\",\n      \"quantity\": 1,\n      \"unit_price\": 60,\n      \"total\": 60\n    },\n    {\n      \"category\": \"General Expenses\",\n      \"description\": \"laddu\",\n      \"quantity\": 1,\n      \"unit_price\": 80,\n      \"total\": 80\n    },\n    {\n      \"category\": \"General Expenses\",\n      \"description\": \"from room - 22.06.25\",\n      \"quantity\": 1,\n      \"unit_price\": 40,\n      \"total\": 40\n    },\n    {\n      \"category\": \"General Expenses\",\n      \"description\": \"10 cmr\",\n      \"quantity\": 1,\n      \"unit_price\": 120,\n      \"total\": 120\n    },\n    {\n      \"category\": \"General Expenses\",\n      \"description\": \"sakunthala + roshni + rita\",\n      \"quantity\": 1,\n      \"unit_price\": 267,\n      \"total\": 267\n    }\n  ],\n  \"attachment\": null,\n  \"memo\": null,\n  \"totals\": {\n    \"sub_total\": 567,\n    \"sales_tax\": {\n      \"is_percentage\": false,\n      \"tax\": 0,\n      \"amount\": 0\n    },\n    \"discount\": {\n      \"is_percentage\": false,\n      \"discount\": 0,\n      \"calculated_amount\": 0\n    },\n    \"total_amount\": 567\n  }\n}\n```"
   },
   {
     "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_160041.jpg",
-    "model_used": "gemini",
+    "model_used": "huggingface",
     "prompt": "\nYou are an expert document processing assistant. Your task is to extract structured data from invoice/receipt images and return the information in a specific JSON format.\n\n## Instructions:\n1. Analyze the provided image carefully to identify all relevant financial information\n2. Extract the data according to the JSON schema provided below\n3. If any required field is not visible or unclear in the image, use reasonable defaults or null values\n4. For monetary amounts, use numbers without currency symbols\n5. For dates, use the format found in the document or convert to YYYY-MM-DD if possible\n6. Be precise with calculations - ensure totals match the extracted item details\n7. The document may contain text in both English and Bangla (Bengali). For Bangla text, provide English transliteration (not translation) - write the Bangla words using English letters to show how they sound. For Bangla numbers convert them to\n    English numerals (e.g., \"১২৩\" becomes \"123\").  \n8. Only extract information that is clearly visible in the image - never guess or infer missing data\n9. If text is unclear or partially obscured, use null rather than making assumptions\n10. Verify all mathematical calculations before finalizing the JSON response\n## Required JSON Schema:\nReturn your response as a valid JSON object following this exact structure:\n\n{\n  \"payment_details\": {\n    \"supplier\": \"string - Name of the supplier/vendor\",\n    \"payment_account\": \"string - Account used for payment\",\n    \"payment_date\": \"string - Date of payment\",\n    \"payment_method\": \"string - Mode of payment (cash, card, bank transfer, etc.)\",\n    \"ref_no\": \"string - Reference/invoice number\",\n    \"tags\": [\"array of relevant tags\"]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"string - Expense category\",\n      \"description\": \"string - Item description (optional)\",\n      \"quantity\": \"number - Quantity of items\",\n      \"unit_price\": \"number - Price per unit\",\n      \"total\": \"number - Total amount for this item\"\n    },\n    {\n      \"category\": \"string - Expense category for item 2\",\n      \"description\": \"string - Item description (optional)\",\n      \"quantity\": \"number - Quantity of items\",\n      \"unit_price\": \"number - Price per unit\", \n      \"total\": \"number - Total amount for this item\"\n    }\n    // ... additional items as found in the document\n  ],\n  \"attachment\": \"string - File reference if mentioned\",\n  \"memo\": \"string - Any additional notes or memo\",\n  \"totals\": {\n    \"sub_total\": \"number - Subtotal before tax and discount\",\n    \"sales_tax\": {\n      \"is_percentage\": \"boolean - true if tax/VAT is %, false if fixed amount\",\n      \"tax\": \"number - Tax/VAT rate (%)\", \n      \"amount\": \"number - Calculated tax/VAT amount\"\n    },\n    \"discount\": {\n      \"is_percentage\": \"boolean - true if discount is %, false if fixed amount\", \n      \"discount\": \"number - Discount rate (%)\",\n      \"calculated_amount\": \"number - Calculated discount amount\"\n    },\n    \"total_amount\": \"number - Final total amount\"\n  }\n}\n\n## Extraction Guidelines:\n- **Supplier**: Look for business name, vendor name, or \"Bill To\" information\n- **Payment Account**: Extract account numbers, card details, or payment method info\n- **Payment Date**: Find transaction date, invoice date, or payment date\n- **Payment Method**: Identify if paid by cash, card, check, bank transfer, etc.\n- **Reference Number**: Look for invoice #, receipt #, transaction ID, or reference number\n- **Tags**: Generate relevant tags based on the business type or expense category\n- **Item Details**: Extract ALL line items from the document - create a separate object for each item/product/service listed\n- **Categories**: Classify expenses (office supplies, travel, meals, equipment, etc.)\n- **Calculations**: Verify that item totals sum to subtotal, and final calculations are accurate\n- **Language Handling**: If you encounter Bangla/Bengali text, transliterate it into English letters (e.g., \"টাকা\" becomes \"taka\", \"নাম\" becomes \"naam\"). Do not translate the meaning, just write how the Bangla words sound in English.\n- **Tax/VAT Recognition**: Look for any tax-related terms including \"Tax\", \"VAT\", \"Sales Tax\", \"Service Tax\", \"GST\", or similar terms in both English and Bangla. Treat all of these as sales tax in the JSON structure.\n\n## Validation Rules:\n- **Mathematical Accuracy**: Ensure sum of all item totals equals subtotal\n- **Date Formats**: Only use dates that are clearly visible; don't assume date formats\n- **Number Precision**: Use exact numbers from the document, don't round unless specified\n- **Text Clarity**: If you cannot read text clearly due to image quality, use null\n- **Cross-Reference**: Verify supplier name appears consistently throughout the document\n- **Currency Consistency**: Ensure all amounts use the same currency basis\n\n## Important Notes:\n- Return ONLY the JSON object, no additional text or explanations\n- If information is missing, use null for strings and 0 for numbers\n- Ensure all numbers are numeric values, not strings\n- **Extract every single line item** - the item_details array should contain one object for each product/service listed in the document\n- Double-check mathematical accuracy of totals and ensure all item totals sum to the subtotal\n- VAT and tax should be considered same.\n- If no tax/VAT or discount is present, set the respective amounts to 0\n- Do not interpolate or guess missing information** - use null for unclear data\n- Double-check all calculations manually** before submitting the JSON\n- If image quality is poor and text is unreadable, explicitly use null values**\n- Verify that reference numbers and dates match standard formats for the region**\n- Cross-validate totals: item_totals → subtotal → (±tax/discount) → final_total**\n\n## Final Check:\nBefore responding, verify:\n1. All visible numbers are accurately transcribed\n2. Mathematical relationships are correct\n3. No information has been assumed or fabricated\n4. Bangla text is transliterated, not translated\n5. All required fields contain appropriate data types\n\nNow please analyze the provided image and extract the data according to this schema.\n        ",
     "success": true,
-    "timestamp": "2025-08-27T19:49:06.041371",
-    "processing_time_seconds": 8.788248062133789,
+    "timestamp": "2025-09-02T14:46:50.604332",
+    "processing_time_seconds": 9.189027070999146,
     "extracted_data_parsed": {
       "payment_details": {
         "supplier": "TULIP FLOWER CENTER",
         "payment_account": null,
-        "payment_date": "20/06/22",
-        "payment_method": "Cash",
+        "payment_date": "20/1/20",
+        "payment_method": "cash",
         "ref_no": "373",
         "tags": [
-          "Flowers",
-          "Decoration",
-          "Event Management"
+          "flowers",
+          "decoration",
+          "event management"
         ]
       },
       "item_details": [
         {
-          "category": "Flowers & Decoration",
-          "description": "Phul o Decoration",
+          "category": "flowers",
+          "description": "Flower Arrangement",
           "quantity": 1,
           "unit_price": 250,
           "total": 250
@@ -909,19 +646,19 @@
       "payment_details": {
         "supplier": "TULIP FLOWER CENTER",
         "payment_account": null,
-        "payment_date": "20/06/22",
-        "payment_method": "Cash",
+        "payment_date": "20/1/20",
+        "payment_method": "cash",
         "ref_no": "373",
         "tags": [
-          "Flowers",
-          "Decoration",
-          "Event Management"
+          "flowers",
+          "decoration",
+          "event management"
         ]
       },
       "item_details": [
         {
-          "category": "Flowers & Decoration",
-          "description": "Phul o Decoration",
+          "category": "flowers",
+          "description": "Flower Arrangement",
           "quantity": 1,
           "unit_price": 250,
           "total": 250
@@ -944,66 +681,65 @@
         "total_amount": 250
       }
     },
-    "extracted_data_preview": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"TULIP FLOWER CENTER\",\n    \"payment_account\": null,\n    \"payment_date\": \"20/06/22\",\n    \"payment_method\": \"Cash\",\n    \"ref_no\": \"373\",\n    \"tags\": [\n  ...",
-    "extracted_data_full": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"TULIP FLOWER CENTER\",\n    \"payment_account\": null,\n    \"payment_date\": \"20/06/22\",\n    \"payment_method\": \"Cash\",\n    \"ref_no\": \"373\",\n    \"tags\": [\n      \"Flowers\",\n      \"Decoration\",\n      \"Event Management\"\n    ]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"Flowers & Decoration\",\n      \"description\": \"Phul o Decoration\",\n      \"quantity\": 1,\n      \"unit_price\": 250,\n      \"total\": 250\n    }\n  ],\n  \"attachment\": null,\n  \"memo\": null,\n  \"totals\": {\n    \"sub_total\": 250,\n    \"sales_tax\": {\n      \"is_percentage\": false,\n      \"tax\": 0,\n      \"amount\": 0\n    },\n    \"discount\": {\n      \"is_percentage\": false,\n      \"discount\": 0,\n      \"calculated_amount\": 0\n    },\n    \"total_amount\": 250\n  }\n}\n```"
+    "extracted_data_preview": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"TULIP FLOWER CENTER\",\n    \"payment_account\": null,\n    \"payment_date\": \"20/1/20\",\n    \"payment_method\": \"cash\",\n    \"ref_no\": \"373\",\n    \"tags\": [\"flo...",
+    "extracted_data_full": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"TULIP FLOWER CENTER\",\n    \"payment_account\": null,\n    \"payment_date\": \"20/1/20\",\n    \"payment_method\": \"cash\",\n    \"ref_no\": \"373\",\n    \"tags\": [\"flowers\", \"decoration\", \"event management\"]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"flowers\",\n      \"description\": \"Flower Arrangement\",\n      \"quantity\": 1,\n      \"unit_price\": 250,\n      \"total\": 250\n    }\n  ],\n  \"attachment\": null,\n  \"memo\": null,\n  \"totals\": {\n    \"sub_total\": 250,\n    \"sales_tax\": {\n      \"is_percentage\": false,\n      \"tax\": 0,\n      \"amount\": 0\n    },\n    \"discount\": {\n      \"is_percentage\": false,\n      \"discount\": 0,\n      \"calculated_amount\": 0\n    },\n    \"total_amount\": 250\n  }\n}\n```"
   },
   {
     "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_160529.jpg",
-    "model_used": "gemini",
+    "model_used": "huggingface",
     "prompt": "\nYou are an expert document processing assistant. Your task is to extract structured data from invoice/receipt images and return the information in a specific JSON format.\n\n## Instructions:\n1. Analyze the provided image carefully to identify all relevant financial information\n2. Extract the data according to the JSON schema provided below\n3. If any required field is not visible or unclear in the image, use reasonable defaults or null values\n4. For monetary amounts, use numbers without currency symbols\n5. For dates, use the format found in the document or convert to YYYY-MM-DD if possible\n6. Be precise with calculations - ensure totals match the extracted item details\n7. The document may contain text in both English and Bangla (Bengali). For Bangla text, provide English transliteration (not translation) - write the Bangla words using English letters to show how they sound. For Bangla numbers convert them to\n    English numerals (e.g., \"১২৩\" becomes \"123\").  \n8. Only extract information that is clearly visible in the image - never guess or infer missing data\n9. If text is unclear or partially obscured, use null rather than making assumptions\n10. Verify all mathematical calculations before finalizing the JSON response\n## Required JSON Schema:\nReturn your response as a valid JSON object following this exact structure:\n\n{\n  \"payment_details\": {\n    \"supplier\": \"string - Name of the supplier/vendor\",\n    \"payment_account\": \"string - Account used for payment\",\n    \"payment_date\": \"string - Date of payment\",\n    \"payment_method\": \"string - Mode of payment (cash, card, bank transfer, etc.)\",\n    \"ref_no\": \"string - Reference/invoice number\",\n    \"tags\": [\"array of relevant tags\"]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"string - Expense category\",\n      \"description\": \"string - Item description (optional)\",\n      \"quantity\": \"number - Quantity of items\",\n      \"unit_price\": \"number - Price per unit\",\n      \"total\": \"number - Total amount for this item\"\n    },\n    {\n      \"category\": \"string - Expense category for item 2\",\n      \"description\": \"string - Item description (optional)\",\n      \"quantity\": \"number - Quantity of items\",\n      \"unit_price\": \"number - Price per unit\", \n      \"total\": \"number - Total amount for this item\"\n    }\n    // ... additional items as found in the document\n  ],\n  \"attachment\": \"string - File reference if mentioned\",\n  \"memo\": \"string - Any additional notes or memo\",\n  \"totals\": {\n    \"sub_total\": \"number - Subtotal before tax and discount\",\n    \"sales_tax\": {\n      \"is_percentage\": \"boolean - true if tax/VAT is %, false if fixed amount\",\n      \"tax\": \"number - Tax/VAT rate (%)\", \n      \"amount\": \"number - Calculated tax/VAT amount\"\n    },\n    \"discount\": {\n      \"is_percentage\": \"boolean - true if discount is %, false if fixed amount\", \n      \"discount\": \"number - Discount rate (%)\",\n      \"calculated_amount\": \"number - Calculated discount amount\"\n    },\n    \"total_amount\": \"number - Final total amount\"\n  }\n}\n\n## Extraction Guidelines:\n- **Supplier**: Look for business name, vendor name, or \"Bill To\" information\n- **Payment Account**: Extract account numbers, card details, or payment method info\n- **Payment Date**: Find transaction date, invoice date, or payment date\n- **Payment Method**: Identify if paid by cash, card, check, bank transfer, etc.\n- **Reference Number**: Look for invoice #, receipt #, transaction ID, or reference number\n- **Tags**: Generate relevant tags based on the business type or expense category\n- **Item Details**: Extract ALL line items from the document - create a separate object for each item/product/service listed\n- **Categories**: Classify expenses (office supplies, travel, meals, equipment, etc.)\n- **Calculations**: Verify that item totals sum to subtotal, and final calculations are accurate\n- **Language Handling**: If you encounter Bangla/Bengali text, transliterate it into English letters (e.g., \"টাকা\" becomes \"taka\", \"নাম\" becomes \"naam\"). Do not translate the meaning, just write how the Bangla words sound in English.\n- **Tax/VAT Recognition**: Look for any tax-related terms including \"Tax\", \"VAT\", \"Sales Tax\", \"Service Tax\", \"GST\", or similar terms in both English and Bangla. Treat all of these as sales tax in the JSON structure.\n\n## Validation Rules:\n- **Mathematical Accuracy**: Ensure sum of all item totals equals subtotal\n- **Date Formats**: Only use dates that are clearly visible; don't assume date formats\n- **Number Precision**: Use exact numbers from the document, don't round unless specified\n- **Text Clarity**: If you cannot read text clearly due to image quality, use null\n- **Cross-Reference**: Verify supplier name appears consistently throughout the document\n- **Currency Consistency**: Ensure all amounts use the same currency basis\n\n## Important Notes:\n- Return ONLY the JSON object, no additional text or explanations\n- If information is missing, use null for strings and 0 for numbers\n- Ensure all numbers are numeric values, not strings\n- **Extract every single line item** - the item_details array should contain one object for each product/service listed in the document\n- Double-check mathematical accuracy of totals and ensure all item totals sum to the subtotal\n- VAT and tax should be considered same.\n- If no tax/VAT or discount is present, set the respective amounts to 0\n- Do not interpolate or guess missing information** - use null for unclear data\n- Double-check all calculations manually** before submitting the JSON\n- If image quality is poor and text is unreadable, explicitly use null values**\n- Verify that reference numbers and dates match standard formats for the region**\n- Cross-validate totals: item_totals → subtotal → (±tax/discount) → final_total**\n\n## Final Check:\nBefore responding, verify:\n1. All visible numbers are accurately transcribed\n2. Mathematical relationships are correct\n3. No information has been assumed or fabricated\n4. Bangla text is transliterated, not translated\n5. All required fields contain appropriate data types\n\nNow please analyze the provided image and extract the data according to this schema.\n        ",
     "success": true,
-    "timestamp": "2025-08-27T19:49:26.113033",
-    "processing_time_seconds": 20.05756974220276,
+    "timestamp": "2025-09-02T14:47:04.634256",
+    "processing_time_seconds": 13.77009105682373,
     "extracted_data_parsed": {
       "payment_details": {
-        "supplier": "SHWAPNO",
+        "supplier": "ACI Logistics Limited",
         "payment_account": null,
-        "payment_date": "2025-06-19",
-        "payment_method": "Cash",
-        "ref_no": "D0612506190006",
+        "payment_date": "2023-06-19",
+        "payment_method": "Lily Bank",
+        "ref_no": "D06IP0S3M",
         "tags": [
-          "grocery",
-          "supermarket",
           "retail",
-          "Shwapno"
+          "grocery",
+          "food"
         ]
       },
       "item_details": [
         {
-          "category": "Groceries",
-          "description": "Green Chili (Kacha Morich)",
+          "category": "grocery",
+          "description": "Green Chili (Kacha Murich)",
           "quantity": 0.33,
           "unit_price": 100.0,
           "total": 32.5
         },
         {
-          "category": "Food",
-          "description": "Pran Fill Time White Sandwi",
+          "category": "grocery",
+          "description": "Pran FII Fine White Sandwi",
           "quantity": 5.0,
           "unit_price": 80.0,
           "total": 400.0
         },
         {
-          "category": "Food",
-          "description": "Pran Diabetic Orange Jelly",
+          "category": "grocery",
+          "description": "Pran Triabatic Orange Jelly",
           "quantity": 1.0,
           "unit_price": 270.0,
           "total": 270.0
         }
       ],
       "attachment": null,
-      "memo": "Loyalty points as of 2025-06-19 09:16: Previous Points: 7,026, This Invoice: 7, Balance Points: 7,033. Earned points will expire within 6 months from the date of the transaction if not redeemed. VAT against this challan is payable through central registration. Prices inclusive of standard VAT except exempted items. VAT Payable TK.:35.22. Thank you for shopping with SHWAPNO. Please visit www.shwapno.com for home delivery. Purchase of defected item must be exchanged by 24 hours with invoice. For any queries, suggestions or complaints, please call 16469 (9:00 AM - 6:00 PM). Powered by MISAACI Limited.",
+      "memo": null,
       "totals": {
         "sub_total": 702.5,
         "sales_tax": {
-          "is_percentage": false,
-          "tax": 0,
+          "is_percentage": true,
+          "tax": 35.22,
           "amount": 35.22
         },
         "discount": {
           "is_percentage": false,
           "discount": 0,
-          "calculated_amount": 0
+          "calculated_amount": 0.0
         },
         "total_amount": 702.5
       }
@@ -1011,95 +747,100 @@
     "extraction_format": "json",
     "structured_data": {
       "payment_details": {
-        "supplier": "SHWAPNO",
+        "supplier": "ACI Logistics Limited",
         "payment_account": null,
-        "payment_date": "2025-06-19",
-        "payment_method": "Cash",
-        "ref_no": "D0612506190006",
+        "payment_date": "2023-06-19",
+        "payment_method": "Lily Bank",
+        "ref_no": "D06IP0S3M",
         "tags": [
-          "grocery",
-          "supermarket",
           "retail",
-          "Shwapno"
+          "grocery",
+          "food"
         ]
       },
       "item_details": [
         {
-          "category": "Groceries",
-          "description": "Green Chili (Kacha Morich)",
+          "category": "grocery",
+          "description": "Green Chili (Kacha Murich)",
           "quantity": 0.33,
           "unit_price": 100.0,
           "total": 32.5
         },
         {
-          "category": "Food",
-          "description": "Pran Fill Time White Sandwi",
+          "category": "grocery",
+          "description": "Pran FII Fine White Sandwi",
           "quantity": 5.0,
           "unit_price": 80.0,
           "total": 400.0
         },
         {
-          "category": "Food",
-          "description": "Pran Diabetic Orange Jelly",
+          "category": "grocery",
+          "description": "Pran Triabatic Orange Jelly",
           "quantity": 1.0,
           "unit_price": 270.0,
           "total": 270.0
         }
       ],
       "attachment": null,
-      "memo": "Loyalty points as of 2025-06-19 09:16: Previous Points: 7,026, This Invoice: 7, Balance Points: 7,033. Earned points will expire within 6 months from the date of the transaction if not redeemed. VAT against this challan is payable through central registration. Prices inclusive of standard VAT except exempted items. VAT Payable TK.:35.22. Thank you for shopping with SHWAPNO. Please visit www.shwapno.com for home delivery. Purchase of defected item must be exchanged by 24 hours with invoice. For any queries, suggestions or complaints, please call 16469 (9:00 AM - 6:00 PM). Powered by MISAACI Limited.",
+      "memo": null,
       "totals": {
         "sub_total": 702.5,
         "sales_tax": {
-          "is_percentage": false,
-          "tax": 0,
+          "is_percentage": true,
+          "tax": 35.22,
           "amount": 35.22
         },
         "discount": {
           "is_percentage": false,
           "discount": 0,
-          "calculated_amount": 0
+          "calculated_amount": 0.0
         },
         "total_amount": 702.5
       }
     },
-    "extracted_data_preview": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"SHWAPNO\",\n    \"payment_account\": null,\n    \"payment_date\": \"2025-06-19\",\n    \"payment_method\": \"Cash\",\n    \"ref_no\": \"D0612506190006\",\n    \"tags\": [\n ...",
-    "extracted_data_full": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"SHWAPNO\",\n    \"payment_account\": null,\n    \"payment_date\": \"2025-06-19\",\n    \"payment_method\": \"Cash\",\n    \"ref_no\": \"D0612506190006\",\n    \"tags\": [\n      \"grocery\",\n      \"supermarket\",\n      \"retail\",\n      \"Shwapno\"\n    ]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"Groceries\",\n      \"description\": \"Green Chili (Kacha Morich)\",\n      \"quantity\": 0.33,\n      \"unit_price\": 100.00,\n      \"total\": 32.50\n    },\n    {\n      \"category\": \"Food\",\n      \"description\": \"Pran Fill Time White Sandwi\",\n      \"quantity\": 5.00,\n      \"unit_price\": 80.00,\n      \"total\": 400.00\n    },\n    {\n      \"category\": \"Food\",\n      \"description\": \"Pran Diabetic Orange Jelly\",\n      \"quantity\": 1.00,\n      \"unit_price\": 270.00,\n      \"total\": 270.00\n    }\n  ],\n  \"attachment\": null,\n  \"memo\": \"Loyalty points as of 2025-06-19 09:16: Previous Points: 7,026, This Invoice: 7, Balance Points: 7,033. Earned points will expire within 6 months from the date of the transaction if not redeemed. VAT against this challan is payable through central registration. Prices inclusive of standard VAT except exempted items. VAT Payable TK.:35.22. Thank you for shopping with SHWAPNO. Please visit www.shwapno.com for home delivery. Purchase of defected item must be exchanged by 24 hours with invoice. For any queries, suggestions or complaints, please call 16469 (9:00 AM - 6:00 PM). Powered by MISAACI Limited.\",\n  \"totals\": {\n    \"sub_total\": 702.50,\n    \"sales_tax\": {\n      \"is_percentage\": false,\n      \"tax\": 0,\n      \"amount\": 35.22\n    },\n    \"discount\": {\n      \"is_percentage\": false,\n      \"discount\": 0,\n      \"calculated_amount\": 0\n    },\n    \"total_amount\": 702.50\n  }\n}\n```"
+    "extracted_data_preview": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"ACI Logistics Limited\",\n    \"payment_account\": null,\n    \"payment_date\": \"2023-06-19\",\n    \"payment_method\": \"Lily Bank\",\n    \"ref_no\": \"D06IP0S3M\",\n ...",
+    "extracted_data_full": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"ACI Logistics Limited\",\n    \"payment_account\": null,\n    \"payment_date\": \"2023-06-19\",\n    \"payment_method\": \"Lily Bank\",\n    \"ref_no\": \"D06IP0S3M\",\n    \"tags\": [\"retail\", \"grocery\", \"food\"]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"grocery\",\n      \"description\": \"Green Chili (Kacha Murich)\",\n      \"quantity\": 0.33,\n      \"unit_price\": 100.00,\n      \"total\": 32.50\n    },\n    {\n      \"category\": \"grocery\",\n      \"description\": \"Pran FII Fine White Sandwi\",\n      \"quantity\": 5.00,\n      \"unit_price\": 80.00,\n      \"total\": 400.00\n    },\n    {\n      \"category\": \"grocery\",\n      \"description\": \"Pran Triabatic Orange Jelly\",\n      \"quantity\": 1.00,\n      \"unit_price\": 270.00,\n      \"total\": 270.00\n    }\n  ],\n  \"attachment\": null,\n  \"memo\": null,\n  \"totals\": {\n    \"sub_total\": 702.50,\n    \"sales_tax\": {\n      \"is_percentage\": true,\n      \"tax\": 35.22,\n      \"amount\": 35.22\n    },\n    \"discount\": {\n      \"is_percentage\": false,\n      \"discount\": 0,\n      \"calculated_amount\": 0.00\n    },\n    \"total_amount\": 702.50\n  }\n}\n```"
   },
   {
     "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_160644.jpg",
-    "model_used": "gemini",
+    "model_used": "huggingface",
     "prompt": "\nYou are an expert document processing assistant. Your task is to extract structured data from invoice/receipt images and return the information in a specific JSON format.\n\n## Instructions:\n1. Analyze the provided image carefully to identify all relevant financial information\n2. Extract the data according to the JSON schema provided below\n3. If any required field is not visible or unclear in the image, use reasonable defaults or null values\n4. For monetary amounts, use numbers without currency symbols\n5. For dates, use the format found in the document or convert to YYYY-MM-DD if possible\n6. Be precise with calculations - ensure totals match the extracted item details\n7. The document may contain text in both English and Bangla (Bengali). For Bangla text, provide English transliteration (not translation) - write the Bangla words using English letters to show how they sound. For Bangla numbers convert them to\n    English numerals (e.g., \"১২৩\" becomes \"123\").  \n8. Only extract information that is clearly visible in the image - never guess or infer missing data\n9. If text is unclear or partially obscured, use null rather than making assumptions\n10. Verify all mathematical calculations before finalizing the JSON response\n## Required JSON Schema:\nReturn your response as a valid JSON object following this exact structure:\n\n{\n  \"payment_details\": {\n    \"supplier\": \"string - Name of the supplier/vendor\",\n    \"payment_account\": \"string - Account used for payment\",\n    \"payment_date\": \"string - Date of payment\",\n    \"payment_method\": \"string - Mode of payment (cash, card, bank transfer, etc.)\",\n    \"ref_no\": \"string - Reference/invoice number\",\n    \"tags\": [\"array of relevant tags\"]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"string - Expense category\",\n      \"description\": \"string - Item description (optional)\",\n      \"quantity\": \"number - Quantity of items\",\n      \"unit_price\": \"number - Price per unit\",\n      \"total\": \"number - Total amount for this item\"\n    },\n    {\n      \"category\": \"string - Expense category for item 2\",\n      \"description\": \"string - Item description (optional)\",\n      \"quantity\": \"number - Quantity of items\",\n      \"unit_price\": \"number - Price per unit\", \n      \"total\": \"number - Total amount for this item\"\n    }\n    // ... additional items as found in the document\n  ],\n  \"attachment\": \"string - File reference if mentioned\",\n  \"memo\": \"string - Any additional notes or memo\",\n  \"totals\": {\n    \"sub_total\": \"number - Subtotal before tax and discount\",\n    \"sales_tax\": {\n      \"is_percentage\": \"boolean - true if tax/VAT is %, false if fixed amount\",\n      \"tax\": \"number - Tax/VAT rate (%)\", \n      \"amount\": \"number - Calculated tax/VAT amount\"\n    },\n    \"discount\": {\n      \"is_percentage\": \"boolean - true if discount is %, false if fixed amount\", \n      \"discount\": \"number - Discount rate (%)\",\n      \"calculated_amount\": \"number - Calculated discount amount\"\n    },\n    \"total_amount\": \"number - Final total amount\"\n  }\n}\n\n## Extraction Guidelines:\n- **Supplier**: Look for business name, vendor name, or \"Bill To\" information\n- **Payment Account**: Extract account numbers, card details, or payment method info\n- **Payment Date**: Find transaction date, invoice date, or payment date\n- **Payment Method**: Identify if paid by cash, card, check, bank transfer, etc.\n- **Reference Number**: Look for invoice #, receipt #, transaction ID, or reference number\n- **Tags**: Generate relevant tags based on the business type or expense category\n- **Item Details**: Extract ALL line items from the document - create a separate object for each item/product/service listed\n- **Categories**: Classify expenses (office supplies, travel, meals, equipment, etc.)\n- **Calculations**: Verify that item totals sum to subtotal, and final calculations are accurate\n- **Language Handling**: If you encounter Bangla/Bengali text, transliterate it into English letters (e.g., \"টাকা\" becomes \"taka\", \"নাম\" becomes \"naam\"). Do not translate the meaning, just write how the Bangla words sound in English.\n- **Tax/VAT Recognition**: Look for any tax-related terms including \"Tax\", \"VAT\", \"Sales Tax\", \"Service Tax\", \"GST\", or similar terms in both English and Bangla. Treat all of these as sales tax in the JSON structure.\n\n## Validation Rules:\n- **Mathematical Accuracy**: Ensure sum of all item totals equals subtotal\n- **Date Formats**: Only use dates that are clearly visible; don't assume date formats\n- **Number Precision**: Use exact numbers from the document, don't round unless specified\n- **Text Clarity**: If you cannot read text clearly due to image quality, use null\n- **Cross-Reference**: Verify supplier name appears consistently throughout the document\n- **Currency Consistency**: Ensure all amounts use the same currency basis\n\n## Important Notes:\n- Return ONLY the JSON object, no additional text or explanations\n- If information is missing, use null for strings and 0 for numbers\n- Ensure all numbers are numeric values, not strings\n- **Extract every single line item** - the item_details array should contain one object for each product/service listed in the document\n- Double-check mathematical accuracy of totals and ensure all item totals sum to the subtotal\n- VAT and tax should be considered same.\n- If no tax/VAT or discount is present, set the respective amounts to 0\n- Do not interpolate or guess missing information** - use null for unclear data\n- Double-check all calculations manually** before submitting the JSON\n- If image quality is poor and text is unreadable, explicitly use null values**\n- Verify that reference numbers and dates match standard formats for the region**\n- Cross-validate totals: item_totals → subtotal → (±tax/discount) → final_total**\n\n## Final Check:\nBefore responding, verify:\n1. All visible numbers are accurately transcribed\n2. Mathematical relationships are correct\n3. No information has been assumed or fabricated\n4. Bangla text is transliterated, not translated\n5. All required fields contain appropriate data types\n\nNow please analyze the provided image and extract the data according to this schema.\n        ",
     "success": true,
-    "timestamp": "2025-08-27T19:49:56.423072",
-    "processing_time_seconds": 30.30376172065735,
+    "timestamp": "2025-09-02T14:47:15.693777",
+    "processing_time_seconds": 10.809975385665894,
     "extracted_data_parsed": {
       "payment_details": {
         "supplier": "Maa Fruits & Departmental Store",
         "payment_account": null,
-        "payment_date": null,
-        "payment_method": null,
+        "payment_date": "2023-06-25",
+        "payment_method": "cash",
         "ref_no": null,
         "tags": [
-          "Fruits",
-          "Departmental Store",
-          "Retail",
-          "Wholesaler"
+          "fruits",
+          "retail",
+          "wholesale"
         ]
       },
       "item_details": [
         {
-          "category": "Fruits",
+          "category": "fruits",
+          "description": "Pomegranate",
+          "quantity": 2,
+          "unit_price": 60,
+          "total": 120
+        },
+        {
+          "category": "fruits",
           "description": "Guava",
-          "quantity": 2.2008,
-          "unit_price": 120,
-          "total": 264.096
+          "quantity": 2,
+          "unit_price": 70,
+          "total": 140
         }
       ],
       "attachment": null,
-      "memo": "Soles goods are not returnable. Welcome come again.",
+      "memo": null,
       "totals": {
-        "sub_total": 264.096,
+        "sub_total": 260,
         "sales_tax": {
           "is_percentage": false,
           "tax": 0,
@@ -1110,7 +851,7 @@
           "discount": 0,
           "calculated_amount": 0
         },
-        "total_amount": 264.096
+        "total_amount": 260
       }
     },
     "extraction_format": "json",
@@ -1118,29 +859,35 @@
       "payment_details": {
         "supplier": "Maa Fruits & Departmental Store",
         "payment_account": null,
-        "payment_date": null,
-        "payment_method": null,
+        "payment_date": "2023-06-25",
+        "payment_method": "cash",
         "ref_no": null,
         "tags": [
-          "Fruits",
-          "Departmental Store",
-          "Retail",
-          "Wholesaler"
+          "fruits",
+          "retail",
+          "wholesale"
         ]
       },
       "item_details": [
         {
-          "category": "Fruits",
+          "category": "fruits",
+          "description": "Pomegranate",
+          "quantity": 2,
+          "unit_price": 60,
+          "total": 120
+        },
+        {
+          "category": "fruits",
           "description": "Guava",
-          "quantity": 2.2008,
-          "unit_price": 120,
-          "total": 264.096
+          "quantity": 2,
+          "unit_price": 70,
+          "total": 140
         }
       ],
       "attachment": null,
-      "memo": "Soles goods are not returnable. Welcome come again.",
+      "memo": null,
       "totals": {
-        "sub_total": 264.096,
+        "sub_total": 260,
         "sales_tax": {
           "is_percentage": false,
           "tax": 0,
@@ -1151,377 +898,370 @@
           "discount": 0,
           "calculated_amount": 0
         },
-        "total_amount": 264.096
+        "total_amount": 260
       }
     },
-    "extracted_data_preview": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"Maa Fruits & Departmental Store\",\n    \"payment_account\": null,\n    \"payment_date\": null,\n    \"payment_method\": null,\n    \"ref_no\": null,\n    \"tags\": [...",
-    "extracted_data_full": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"Maa Fruits & Departmental Store\",\n    \"payment_account\": null,\n    \"payment_date\": null,\n    \"payment_method\": null,\n    \"ref_no\": null,\n    \"tags\": [\n      \"Fruits\",\n      \"Departmental Store\",\n      \"Retail\",\n      \"Wholesaler\"\n    ]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"Fruits\",\n      \"description\": \"Guava\",\n      \"quantity\": 2.2008,\n      \"unit_price\": 120,\n      \"total\": 264.096\n    }\n  ],\n  \"attachment\": null,\n  \"memo\": \"Soles goods are not returnable. Welcome come again.\",\n  \"totals\": {\n    \"sub_total\": 264.096,\n    \"sales_tax\": {\n      \"is_percentage\": false,\n      \"tax\": 0,\n      \"amount\": 0\n    },\n    \"discount\": {\n      \"is_percentage\": false,\n      \"discount\": 0,\n      \"calculated_amount\": 0\n    },\n    \"total_amount\": 264.096\n  }\n}\n```"
+    "extracted_data_preview": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"Maa Fruits & Departmental Store\",\n    \"payment_account\": null,\n    \"payment_date\": \"2023-06-25\",\n    \"payment_method\": \"cash\",\n    \"ref_no\": null,\n   ...",
+    "extracted_data_full": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"Maa Fruits & Departmental Store\",\n    \"payment_account\": null,\n    \"payment_date\": \"2023-06-25\",\n    \"payment_method\": \"cash\",\n    \"ref_no\": null,\n    \"tags\": [\"fruits\", \"retail\", \"wholesale\"]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"fruits\",\n      \"description\": \"Pomegranate\",\n      \"quantity\": 2,\n      \"unit_price\": 60,\n      \"total\": 120\n    },\n    {\n      \"category\": \"fruits\",\n      \"description\": \"Guava\",\n      \"quantity\": 2,\n      \"unit_price\": 70,\n      \"total\": 140\n    }\n  ],\n  \"attachment\": null,\n  \"memo\": null,\n  \"totals\": {\n    \"sub_total\": 260,\n    \"sales_tax\": {\n      \"is_percentage\": false,\n      \"tax\": 0,\n      \"amount\": 0\n    },\n    \"discount\": {\n      \"is_percentage\": false,\n      \"discount\": 0,\n      \"calculated_amount\": 0\n    },\n    \"total_amount\": 260\n  }\n}\n```"
   },
   {
     "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_160928.jpg",
-    "model_used": "gemini",
+    "model_used": "huggingface",
     "prompt": "\nYou are an expert document processing assistant. Your task is to extract structured data from invoice/receipt images and return the information in a specific JSON format.\n\n## Instructions:\n1. Analyze the provided image carefully to identify all relevant financial information\n2. Extract the data according to the JSON schema provided below\n3. If any required field is not visible or unclear in the image, use reasonable defaults or null values\n4. For monetary amounts, use numbers without currency symbols\n5. For dates, use the format found in the document or convert to YYYY-MM-DD if possible\n6. Be precise with calculations - ensure totals match the extracted item details\n7. The document may contain text in both English and Bangla (Bengali). For Bangla text, provide English transliteration (not translation) - write the Bangla words using English letters to show how they sound. For Bangla numbers convert them to\n    English numerals (e.g., \"১২৩\" becomes \"123\").  \n8. Only extract information that is clearly visible in the image - never guess or infer missing data\n9. If text is unclear or partially obscured, use null rather than making assumptions\n10. Verify all mathematical calculations before finalizing the JSON response\n## Required JSON Schema:\nReturn your response as a valid JSON object following this exact structure:\n\n{\n  \"payment_details\": {\n    \"supplier\": \"string - Name of the supplier/vendor\",\n    \"payment_account\": \"string - Account used for payment\",\n    \"payment_date\": \"string - Date of payment\",\n    \"payment_method\": \"string - Mode of payment (cash, card, bank transfer, etc.)\",\n    \"ref_no\": \"string - Reference/invoice number\",\n    \"tags\": [\"array of relevant tags\"]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"string - Expense category\",\n      \"description\": \"string - Item description (optional)\",\n      \"quantity\": \"number - Quantity of items\",\n      \"unit_price\": \"number - Price per unit\",\n      \"total\": \"number - Total amount for this item\"\n    },\n    {\n      \"category\": \"string - Expense category for item 2\",\n      \"description\": \"string - Item description (optional)\",\n      \"quantity\": \"number - Quantity of items\",\n      \"unit_price\": \"number - Price per unit\", \n      \"total\": \"number - Total amount for this item\"\n    }\n    // ... additional items as found in the document\n  ],\n  \"attachment\": \"string - File reference if mentioned\",\n  \"memo\": \"string - Any additional notes or memo\",\n  \"totals\": {\n    \"sub_total\": \"number - Subtotal before tax and discount\",\n    \"sales_tax\": {\n      \"is_percentage\": \"boolean - true if tax/VAT is %, false if fixed amount\",\n      \"tax\": \"number - Tax/VAT rate (%)\", \n      \"amount\": \"number - Calculated tax/VAT amount\"\n    },\n    \"discount\": {\n      \"is_percentage\": \"boolean - true if discount is %, false if fixed amount\", \n      \"discount\": \"number - Discount rate (%)\",\n      \"calculated_amount\": \"number - Calculated discount amount\"\n    },\n    \"total_amount\": \"number - Final total amount\"\n  }\n}\n\n## Extraction Guidelines:\n- **Supplier**: Look for business name, vendor name, or \"Bill To\" information\n- **Payment Account**: Extract account numbers, card details, or payment method info\n- **Payment Date**: Find transaction date, invoice date, or payment date\n- **Payment Method**: Identify if paid by cash, card, check, bank transfer, etc.\n- **Reference Number**: Look for invoice #, receipt #, transaction ID, or reference number\n- **Tags**: Generate relevant tags based on the business type or expense category\n- **Item Details**: Extract ALL line items from the document - create a separate object for each item/product/service listed\n- **Categories**: Classify expenses (office supplies, travel, meals, equipment, etc.)\n- **Calculations**: Verify that item totals sum to subtotal, and final calculations are accurate\n- **Language Handling**: If you encounter Bangla/Bengali text, transliterate it into English letters (e.g., \"টাকা\" becomes \"taka\", \"নাম\" becomes \"naam\"). Do not translate the meaning, just write how the Bangla words sound in English.\n- **Tax/VAT Recognition**: Look for any tax-related terms including \"Tax\", \"VAT\", \"Sales Tax\", \"Service Tax\", \"GST\", or similar terms in both English and Bangla. Treat all of these as sales tax in the JSON structure.\n\n## Validation Rules:\n- **Mathematical Accuracy**: Ensure sum of all item totals equals subtotal\n- **Date Formats**: Only use dates that are clearly visible; don't assume date formats\n- **Number Precision**: Use exact numbers from the document, don't round unless specified\n- **Text Clarity**: If you cannot read text clearly due to image quality, use null\n- **Cross-Reference**: Verify supplier name appears consistently throughout the document\n- **Currency Consistency**: Ensure all amounts use the same currency basis\n\n## Important Notes:\n- Return ONLY the JSON object, no additional text or explanations\n- If information is missing, use null for strings and 0 for numbers\n- Ensure all numbers are numeric values, not strings\n- **Extract every single line item** - the item_details array should contain one object for each product/service listed in the document\n- Double-check mathematical accuracy of totals and ensure all item totals sum to the subtotal\n- VAT and tax should be considered same.\n- If no tax/VAT or discount is present, set the respective amounts to 0\n- Do not interpolate or guess missing information** - use null for unclear data\n- Double-check all calculations manually** before submitting the JSON\n- If image quality is poor and text is unreadable, explicitly use null values**\n- Verify that reference numbers and dates match standard formats for the region**\n- Cross-validate totals: item_totals → subtotal → (±tax/discount) → final_total**\n\n## Final Check:\nBefore responding, verify:\n1. All visible numbers are accurately transcribed\n2. Mathematical relationships are correct\n3. No information has been assumed or fabricated\n4. Bangla text is transliterated, not translated\n5. All required fields contain appropriate data types\n\nNow please analyze the provided image and extract the data according to this schema.\n        ",
     "success": true,
-    "timestamp": "2025-08-27T19:50:21.305092",
-    "processing_time_seconds": 24.86045265197754,
+    "timestamp": "2025-09-02T14:47:57.575717",
+    "processing_time_seconds": 41.62867069244385,
     "extracted_data_parsed": {
       "payment_details": {
-        "supplier": "SHWAPNO",
-        "payment_account": "City Bank",
-        "payment_date": "2025-06-16",
-        "payment_method": "Bank Transfer/Card (via City Bank)",
-        "ref_no": "D0612506160034",
+        "supplier": "a2i Logistics Limited",
+        "payment_account": null,
+        "payment_date": "16/06/2025",
+        "payment_method": "Cash",
+        "ref_no": "14343",
         "tags": [
-          "grocery",
-          "supermarket",
-          "food",
-          "household"
+          "Groceries",
+          "Retail"
         ]
       },
       "item_details": [
         {
-          "category": "Vegetables",
-          "description": "Bottle Gourd (Lau) PCS",
-          "quantity": 6.0,
-          "unit_price": 70.0,
+          "category": "Food",
+          "description": "Boti Borod (Cow) PCS",
+          "quantity": 70.0,
+          "unit_price": 6.0,
           "total": 420.0
         },
         {
-          "category": "Vegetables",
-          "description": "Cucumber (Shosha) kg",
-          "quantity": 2.01,
-          "unit_price": 55.0,
+          "category": "Food",
+          "description": "Cucumbers (Shoshnika)",
+          "quantity": 55.0,
+          "unit_price": 2.01,
           "total": 110.55
         },
         {
-          "category": "Vegetables",
-          "description": "Green Chili (Kacha Morich) kg",
-          "quantity": 0.57,
-          "unit_price": 100.0,
+          "category": "Food",
+          "description": "Green Chili (Kachha Morich)",
+          "quantity": 100.0,
+          "unit_price": 0.57,
           "total": 56.5
         },
         {
-          "category": "Groceries",
-          "description": "Horlicks Jar 400g",
-          "quantity": 0.54,
-          "unit_price": 850.0,
-          "total": 455.6
+          "category": "Food",
+          "description": "Hotline Frs occ cutl RT",
+          "quantity": 850.0,
+          "unit_price": 0.54,
+          "total": 459.0
         },
         {
-          "category": "Groceries",
-          "description": "Ifad ED&Kaju 175g(B3 G120g)",
-          "quantity": 1.0,
-          "unit_price": 200.0,
+          "category": "Food",
+          "description": "Itad EDBKJn 175g(b3 6126g)",
+          "quantity": 200.0,
+          "unit_price": 1.0,
           "total": 200.0
         },
         {
-          "category": "Groceries",
-          "description": "KFK Branded Egg (12 Pcs)",
-          "quantity": 1.0,
-          "unit_price": 190.0,
+          "category": "Food",
+          "description": "KFX Brand Egg (12 Pcs)",
+          "quantity": 190.0,
+          "unit_price": 1.0,
           "total": 190.0
         },
         {
-          "category": "Vegetables",
-          "description": "Lemon Long (Lomba Lebu) PC",
-          "quantity": 6.0,
-          "unit_price": 5.0,
+          "category": "Food",
+          "description": "Lemon Long (Loiha Lebu) PC",
+          "quantity": 5.0,
+          "unit_price": 6.0,
           "total": 30.0
         },
         {
-          "category": "Groceries",
-          "description": "Miniket Rice Loose-P(Jiras) kg",
-          "quantity": 6.0,
-          "unit_price": 76.0,
+          "category": "Food",
+          "description": "Miniket Rice Loose P-Jutes",
+          "quantity": 76.0,
+          "unit_price": 6.0,
           "total": 456.0
         },
         {
-          "category": "Groceries",
-          "description": "P. Dal Loose(Masur) kg",
-          "quantity": 3.03,
-          "unit_price": 112.0,
-          "total": 338.8
+          "category": "Food",
+          "description": "Mushur Dal Loose (S) Kg",
+          "quantity": 112.0,
+          "unit_price": 3.03,
+          "total": 338.36
         },
         {
-          "category": "Groceries",
-          "description": "Shuvaj DeshiaLoose kg",
-          "quantity": 4.06,
-          "unit_price": 58.0,
-          "total": 235.48
+          "category": "Food",
+          "description": "Piyai Deshi Udoloutsakkg",
+          "quantity": 50.0,
+          "unit_price": 4.06,
+          "total": 203.0
         },
         {
-          "category": "Meat",
-          "description": "Monalika Dressed Classic( kg",
-          "quantity": 6.6,
-          "unit_price": 570.0,
-          "total": 3759.15
+          "category": "Food",
+          "description": "Shonarika Dressed Classic",
+          "quantity": 570.0,
+          "unit_price": 6.6,
+          "total": 3762.0
         },
         {
           "category": "Household",
-          "description": "B. Badhan Paper Towel Box",
-          "quantity": 2.0,
-          "unit_price": 160.0,
+          "description": "Dhata Kitchen Towel Doubl",
+          "quantity": 160.0,
+          "unit_price": 2.0,
           "total": 320.0
         },
         {
           "category": "Household",
-          "description": "Bashundhara Paper Towel Wh",
-          "quantity": 6.0,
-          "unit_price": 105.0,
+          "description": "Bestur dura Paper Towel (h)",
+          "quantity": 105.0,
+          "unit_price": 6.0,
           "total": 630.0
         },
         {
-          "category": "Groceries",
+          "category": "Food",
           "description": "Fresh Soyabean Oil 5 Ltr",
-          "quantity": 1.0,
-          "unit_price": 922.0,
+          "quantity": 922.0,
+          "unit_price": 1.0,
           "total": 922.0
         },
         {
-          "category": "Groceries",
-          "description": "Ispahani Mirzapore Tea Bag",
-          "quantity": 1.0,
-          "unit_price": 90.0,
+          "category": "Food",
+          "description": "Ispeani Firizone Tea Bag",
+          "quantity": 90.0,
+          "unit_price": 1.0,
           "total": 90.0
         },
         {
-          "category": "Groceries",
-          "description": "Maggi Masala Family Pack",
-          "quantity": 1.0,
-          "unit_price": 340.0,
+          "category": "Food",
+          "description": "Magsi Masala Family far fig",
+          "quantity": 340.0,
+          "unit_price": 1.0,
           "total": 340.0
         },
         {
-          "category": "Groceries",
+          "category": "Food",
           "description": "Pure Cumin Powder 200g",
-          "quantity": 1.0,
-          "unit_price": 310.0,
+          "quantity": 310.0,
+          "unit_price": 1.0,
           "total": 310.0
         },
         {
-          "category": "Groceries",
-          "description": "Radhuni Rademix Chicken Ma",
-          "quantity": 1.0,
-          "unit_price": 95.0,
+          "category": "Food",
+          "description": "Rohuri Radanix Chicken Ha",
+          "quantity": 95.0,
+          "unit_price": 1.0,
           "total": 95.0
         }
       ],
       "attachment": null,
-      "memo": "VAT against this challan is payable through central registration. Prices inclusive of standard VAT except exempted items. VAT Payable TK.: 300.26. Thank you for shopping with SHWAPNO. Please visit www.shwapno.com for home delivery. Purchase of defected item must be exchanged by 24 hours with invoice. For any queries, suggestions or complaints, please call 16469 (9:00 AM - 6:00 PM). Your total savings today TK. : 40.00. Earned points will expire within 6 months from the date of the transaction if not redeemed. Previous Points : 6786. This Invoice : 89. Balance Points : 6875.",
+      "memo": null,
       "totals": {
-        "sub_total": 8959.08,
+        "sub_total": 8959.0,
         "sales_tax": {
           "is_percentage": false,
           "tax": 0,
-          "amount": 300.26
+          "amount": 0
         },
         "discount": {
           "is_percentage": false,
           "discount": 0,
-          "calculated_amount": 40.0
+          "calculated_amount": 0
         },
-        "total_amount": 8919.0
+        "total_amount": 8959.0
       }
     },
     "extraction_format": "json",
     "structured_data": {
       "payment_details": {
-        "supplier": "SHWAPNO",
-        "payment_account": "City Bank",
-        "payment_date": "2025-06-16",
-        "payment_method": "Bank Transfer/Card (via City Bank)",
-        "ref_no": "D0612506160034",
+        "supplier": "a2i Logistics Limited",
+        "payment_account": null,
+        "payment_date": "16/06/2025",
+        "payment_method": "Cash",
+        "ref_no": "14343",
         "tags": [
-          "grocery",
-          "supermarket",
-          "food",
-          "household"
+          "Groceries",
+          "Retail"
         ]
       },
       "item_details": [
         {
-          "category": "Vegetables",
-          "description": "Bottle Gourd (Lau) PCS",
-          "quantity": 6.0,
-          "unit_price": 70.0,
+          "category": "Food",
+          "description": "Boti Borod (Cow) PCS",
+          "quantity": 70.0,
+          "unit_price": 6.0,
           "total": 420.0
         },
         {
-          "category": "Vegetables",
-          "description": "Cucumber (Shosha) kg",
-          "quantity": 2.01,
-          "unit_price": 55.0,
+          "category": "Food",
+          "description": "Cucumbers (Shoshnika)",
+          "quantity": 55.0,
+          "unit_price": 2.01,
           "total": 110.55
         },
         {
-          "category": "Vegetables",
-          "description": "Green Chili (Kacha Morich) kg",
-          "quantity": 0.57,
-          "unit_price": 100.0,
+          "category": "Food",
+          "description": "Green Chili (Kachha Morich)",
+          "quantity": 100.0,
+          "unit_price": 0.57,
           "total": 56.5
         },
         {
-          "category": "Groceries",
-          "description": "Horlicks Jar 400g",
-          "quantity": 0.54,
-          "unit_price": 850.0,
-          "total": 455.6
+          "category": "Food",
+          "description": "Hotline Frs occ cutl RT",
+          "quantity": 850.0,
+          "unit_price": 0.54,
+          "total": 459.0
         },
         {
-          "category": "Groceries",
-          "description": "Ifad ED&Kaju 175g(B3 G120g)",
-          "quantity": 1.0,
-          "unit_price": 200.0,
+          "category": "Food",
+          "description": "Itad EDBKJn 175g(b3 6126g)",
+          "quantity": 200.0,
+          "unit_price": 1.0,
           "total": 200.0
         },
         {
-          "category": "Groceries",
-          "description": "KFK Branded Egg (12 Pcs)",
-          "quantity": 1.0,
-          "unit_price": 190.0,
+          "category": "Food",
+          "description": "KFX Brand Egg (12 Pcs)",
+          "quantity": 190.0,
+          "unit_price": 1.0,
           "total": 190.0
         },
         {
-          "category": "Vegetables",
-          "description": "Lemon Long (Lomba Lebu) PC",
-          "quantity": 6.0,
-          "unit_price": 5.0,
+          "category": "Food",
+          "description": "Lemon Long (Loiha Lebu) PC",
+          "quantity": 5.0,
+          "unit_price": 6.0,
           "total": 30.0
         },
         {
-          "category": "Groceries",
-          "description": "Miniket Rice Loose-P(Jiras) kg",
-          "quantity": 6.0,
-          "unit_price": 76.0,
+          "category": "Food",
+          "description": "Miniket Rice Loose P-Jutes",
+          "quantity": 76.0,
+          "unit_price": 6.0,
           "total": 456.0
         },
         {
-          "category": "Groceries",
-          "description": "P. Dal Loose(Masur) kg",
-          "quantity": 3.03,
-          "unit_price": 112.0,
-          "total": 338.8
+          "category": "Food",
+          "description": "Mushur Dal Loose (S) Kg",
+          "quantity": 112.0,
+          "unit_price": 3.03,
+          "total": 338.36
         },
         {
-          "category": "Groceries",
-          "description": "Shuvaj DeshiaLoose kg",
-          "quantity": 4.06,
-          "unit_price": 58.0,
-          "total": 235.48
+          "category": "Food",
+          "description": "Piyai Deshi Udoloutsakkg",
+          "quantity": 50.0,
+          "unit_price": 4.06,
+          "total": 203.0
         },
         {
-          "category": "Meat",
-          "description": "Monalika Dressed Classic( kg",
-          "quantity": 6.6,
-          "unit_price": 570.0,
-          "total": 3759.15
+          "category": "Food",
+          "description": "Shonarika Dressed Classic",
+          "quantity": 570.0,
+          "unit_price": 6.6,
+          "total": 3762.0
         },
         {
           "category": "Household",
-          "description": "B. Badhan Paper Towel Box",
-          "quantity": 2.0,
-          "unit_price": 160.0,
+          "description": "Dhata Kitchen Towel Doubl",
+          "quantity": 160.0,
+          "unit_price": 2.0,
           "total": 320.0
         },
         {
           "category": "Household",
-          "description": "Bashundhara Paper Towel Wh",
-          "quantity": 6.0,
-          "unit_price": 105.0,
+          "description": "Bestur dura Paper Towel (h)",
+          "quantity": 105.0,
+          "unit_price": 6.0,
           "total": 630.0
         },
         {
-          "category": "Groceries",
+          "category": "Food",
           "description": "Fresh Soyabean Oil 5 Ltr",
-          "quantity": 1.0,
-          "unit_price": 922.0,
+          "quantity": 922.0,
+          "unit_price": 1.0,
           "total": 922.0
         },
         {
-          "category": "Groceries",
-          "description": "Ispahani Mirzapore Tea Bag",
-          "quantity": 1.0,
-          "unit_price": 90.0,
+          "category": "Food",
+          "description": "Ispeani Firizone Tea Bag",
+          "quantity": 90.0,
+          "unit_price": 1.0,
           "total": 90.0
         },
         {
-          "category": "Groceries",
-          "description": "Maggi Masala Family Pack",
-          "quantity": 1.0,
-          "unit_price": 340.0,
+          "category": "Food",
+          "description": "Magsi Masala Family far fig",
+          "quantity": 340.0,
+          "unit_price": 1.0,
           "total": 340.0
         },
         {
-          "category": "Groceries",
+          "category": "Food",
           "description": "Pure Cumin Powder 200g",
-          "quantity": 1.0,
-          "unit_price": 310.0,
+          "quantity": 310.0,
+          "unit_price": 1.0,
           "total": 310.0
         },
         {
-          "category": "Groceries",
-          "description": "Radhuni Rademix Chicken Ma",
-          "quantity": 1.0,
-          "unit_price": 95.0,
+          "category": "Food",
+          "description": "Rohuri Radanix Chicken Ha",
+          "quantity": 95.0,
+          "unit_price": 1.0,
           "total": 95.0
         }
       ],
       "attachment": null,
-      "memo": "VAT against this challan is payable through central registration. Prices inclusive of standard VAT except exempted items. VAT Payable TK.: 300.26. Thank you for shopping with SHWAPNO. Please visit www.shwapno.com for home delivery. Purchase of defected item must be exchanged by 24 hours with invoice. For any queries, suggestions or complaints, please call 16469 (9:00 AM - 6:00 PM). Your total savings today TK. : 40.00. Earned points will expire within 6 months from the date of the transaction if not redeemed. Previous Points : 6786. This Invoice : 89. Balance Points : 6875.",
+      "memo": null,
       "totals": {
-        "sub_total": 8959.08,
+        "sub_total": 8959.0,
         "sales_tax": {
           "is_percentage": false,
           "tax": 0,
-          "amount": 300.26
+          "amount": 0
         },
         "discount": {
           "is_percentage": false,
           "discount": 0,
-          "calculated_amount": 40.0
+          "calculated_amount": 0
         },
-        "total_amount": 8919.0
+        "total_amount": 8959.0
       }
     },
-    "extracted_data_preview": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"SHWAPNO\",\n    \"payment_account\": \"City Bank\",\n    \"payment_date\": \"2025-06-16\",\n    \"payment_method\": \"Bank Transfer/Card (via City Bank)\",\n    \"ref_n...",
-    "extracted_data_full": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"SHWAPNO\",\n    \"payment_account\": \"City Bank\",\n    \"payment_date\": \"2025-06-16\",\n    \"payment_method\": \"Bank Transfer/Card (via City Bank)\",\n    \"ref_no\": \"D0612506160034\",\n    \"tags\": [\n      \"grocery\",\n      \"supermarket\",\n      \"food\",\n      \"household\"\n    ]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"Vegetables\",\n      \"description\": \"Bottle Gourd (Lau) PCS\",\n      \"quantity\": 6.00,\n      \"unit_price\": 70.00,\n      \"total\": 420.00\n    },\n    {\n      \"category\": \"Vegetables\",\n      \"description\": \"Cucumber (Shosha) kg\",\n      \"quantity\": 2.01,\n      \"unit_price\": 55.00,\n      \"total\": 110.55\n    },\n    {\n      \"category\": \"Vegetables\",\n      \"description\": \"Green Chili (Kacha Morich) kg\",\n      \"quantity\": 0.57,\n      \"unit_price\": 100.00,\n      \"total\": 56.50\n    },\n    {\n      \"category\": \"Groceries\",\n      \"description\": \"Horlicks Jar 400g\",\n      \"quantity\": 0.54,\n      \"unit_price\": 850.00,\n      \"total\": 455.60\n    },\n    {\n      \"category\": \"Groceries\",\n      \"description\": \"Ifad ED&Kaju 175g(B3 G120g)\",\n      \"quantity\": 1.00,\n      \"unit_price\": 200.00,\n      \"total\": 200.00\n    },\n    {\n      \"category\": \"Groceries\",\n      \"description\": \"KFK Branded Egg (12 Pcs)\",\n      \"quantity\": 1.00,\n      \"unit_price\": 190.00,\n      \"total\": 190.00\n    },\n    {\n      \"category\": \"Vegetables\",\n      \"description\": \"Lemon Long (Lomba Lebu) PC\",\n      \"quantity\": 6.00,\n      \"unit_price\": 5.00,\n      \"total\": 30.00\n    },\n    {\n      \"category\": \"Groceries\",\n      \"description\": \"Miniket Rice Loose-P(Jiras) kg\",\n      \"quantity\": 6.00,\n      \"unit_price\": 76.00,\n      \"total\": 456.00\n    },\n    {\n      \"category\": \"Groceries\",\n      \"description\": \"P. Dal Loose(Masur) kg\",\n      \"quantity\": 3.03,\n      \"unit_price\": 112.00,\n      \"total\": 338.80\n    },\n    {\n      \"category\": \"Groceries\",\n      \"description\": \"Shuvaj DeshiaLoose kg\",\n      \"quantity\": 4.06,\n      \"unit_price\": 58.00,\n      \"total\": 235.48\n    },\n    {\n      \"category\": \"Meat\",\n      \"description\": \"Monalika Dressed Classic( kg\",\n      \"quantity\": 6.60,\n      \"unit_price\": 570.00,\n      \"total\": 3759.15\n    },\n    {\n      \"category\": \"Household\",\n      \"description\": \"B. Badhan Paper Towel Box\",\n      \"quantity\": 2.00,\n      \"unit_price\": 160.00,\n      \"total\": 320.00\n    },\n    {\n      \"category\": \"Household\",\n      \"description\": \"Bashundhara Paper Towel Wh\",\n      \"quantity\": 6.00,\n      \"unit_price\": 105.00,\n      \"total\": 630.00\n    },\n    {\n      \"category\": \"Groceries\",\n      \"description\": \"Fresh Soyabean Oil 5 Ltr\",\n      \"quantity\": 1.00,\n      \"unit_price\": 922.00,\n      \"total\": 922.00\n    },\n    {\n      \"category\": \"Groceries\",\n      \"description\": \"Ispahani Mirzapore Tea Bag\",\n      \"quantity\": 1.00,\n      \"unit_price\": 90.00,\n      \"total\": 90.00\n    },\n    {\n      \"category\": \"Groceries\",\n      \"description\": \"Maggi Masala Family Pack\",\n      \"quantity\": 1.00,\n      \"unit_price\": 340.00,\n      \"total\": 340.00\n    },\n    {\n      \"category\": \"Groceries\",\n      \"description\": \"Pure Cumin Powder 200g\",\n      \"quantity\": 1.00,\n      \"unit_price\": 310.00,\n      \"total\": 310.00\n    },\n    {\n      \"category\": \"Groceries\",\n      \"description\": \"Radhuni Rademix Chicken Ma\",\n      \"quantity\": 1.00,\n      \"unit_price\": 95.00,\n      \"total\": 95.00\n    }\n  ],\n  \"attachment\": null,\n  \"memo\": \"VAT against this challan is payable through central registration. Prices inclusive of standard VAT except exempted items. VAT Payable TK.: 300.26. Thank you for shopping with SHWAPNO. Please visit www.shwapno.com for home delivery. Purchase of defected item must be exchanged by 24 hours with invoice. For any queries, suggestions or complaints, please call 16469 (9:00 AM - 6:00 PM). Your total savings today TK. : 40.00. Earned points will expire within 6 months from the date of the transaction if not redeemed. Previous Points : 6786. This Invoice : 89. Balance Points : 6875.\",\n  \"totals\": {\n    \"sub_total\": 8959.08,\n    \"sales_tax\": {\n      \"is_percentage\": false,\n      \"tax\": 0,\n      \"amount\": 300.26\n    },\n    \"discount\": {\n      \"is_percentage\": false,\n      \"discount\": 0,\n      \"calculated_amount\": 40.00\n    },\n    \"total_amount\": 8919.00\n  }\n}\n```"
+    "extracted_data_preview": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"a2i Logistics Limited\",\n    \"payment_account\": null,\n    \"payment_date\": \"16/06/2025\",\n    \"payment_method\": \"Cash\",\n    \"ref_no\": \"14343\",\n    \"tags\"...",
+    "extracted_data_full": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"a2i Logistics Limited\",\n    \"payment_account\": null,\n    \"payment_date\": \"16/06/2025\",\n    \"payment_method\": \"Cash\",\n    \"ref_no\": \"14343\",\n    \"tags\": [\"Groceries\", \"Retail\"]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"Food\",\n      \"description\": \"Boti Borod (Cow) PCS\",\n      \"quantity\": 70.00,\n      \"unit_price\": 6.00,\n      \"total\": 420.00\n    },\n    {\n      \"category\": \"Food\",\n      \"description\": \"Cucumbers (Shoshnika)\",\n      \"quantity\": 55.00,\n      \"unit_price\": 2.01,\n      \"total\": 110.55\n    },\n    {\n      \"category\": \"Food\",\n      \"description\": \"Green Chili (Kachha Morich)\",\n      \"quantity\": 100.00,\n      \"unit_price\": 0.57,\n      \"total\": 56.50\n    },\n    {\n      \"category\": \"Food\",\n      \"description\": \"Hotline Frs occ cutl RT\",\n      \"quantity\": 850.00,\n      \"unit_price\": 0.54,\n      \"total\": 459.00\n    },\n    {\n      \"category\": \"Food\",\n      \"description\": \"Itad EDBKJn 175g(b3 6126g)\",\n      \"quantity\": 200.00,\n      \"unit_price\": 1.00,\n      \"total\": 200.00\n    },\n    {\n      \"category\": \"Food\",\n      \"description\": \"KFX Brand Egg (12 Pcs)\",\n      \"quantity\": 190.00,\n      \"unit_price\": 1.00,\n      \"total\": 190.00\n    },\n    {\n      \"category\": \"Food\",\n      \"description\": \"Lemon Long (Loiha Lebu) PC\",\n      \"quantity\": 5.00,\n      \"unit_price\": 6.00,\n      \"total\": 30.00\n    },\n    {\n      \"category\": \"Food\",\n      \"description\": \"Miniket Rice Loose P-Jutes\",\n      \"quantity\": 76.00,\n      \"unit_price\": 6.00,\n      \"total\": 456.00\n    },\n    {\n      \"category\": \"Food\",\n      \"description\": \"Mushur Dal Loose (S) Kg\",\n      \"quantity\": 112.00,\n      \"unit_price\": 3.03,\n      \"total\": 338.36\n    },\n    {\n      \"category\": \"Food\",\n      \"description\": \"Piyai Deshi Udoloutsakkg\",\n      \"quantity\": 50.00,\n      \"unit_price\": 4.06,\n      \"total\": 203.00\n    },\n    {\n      \"category\": \"Food\",\n      \"description\": \"Shonarika Dressed Classic\",\n      \"quantity\": 570.00,\n      \"unit_price\": 6.60,\n      \"total\": 3762.00\n    },\n    {\n      \"category\": \"Household\",\n      \"description\": \"Dhata Kitchen Towel Doubl\",\n      \"quantity\": 160.00,\n      \"unit_price\": 2.00,\n      \"total\": 320.00\n    },\n    {\n      \"category\": \"Household\",\n      \"description\": \"Bestur dura Paper Towel (h)\",\n      \"quantity\": 105.00,\n      \"unit_price\": 6.00,\n      \"total\": 630.00\n    },\n    {\n      \"category\": \"Food\",\n      \"description\": \"Fresh Soyabean Oil 5 Ltr\",\n      \"quantity\": 922.00,\n      \"unit_price\": 1.00,\n      \"total\": 922.00\n    },\n    {\n      \"category\": \"Food\",\n      \"description\": \"Ispeani Firizone Tea Bag\",\n      \"quantity\": 90.00,\n      \"unit_price\": 1.00,\n      \"total\": 90.00\n    },\n    {\n      \"category\": \"Food\",\n      \"description\": \"Magsi Masala Family far fig\",\n      \"quantity\": 340.00,\n      \"unit_price\": 1.00,\n      \"total\": 340.00\n    },\n    {\n      \"category\": \"Food\",\n      \"description\": \"Pure Cumin Powder 200g\",\n      \"quantity\": 310.00,\n      \"unit_price\": 1.00,\n      \"total\": 310.00\n    },\n    {\n      \"category\": \"Food\",\n      \"description\": \"Rohuri Radanix Chicken Ha\",\n      \"quantity\": 95.00,\n      \"unit_price\": 1.00,\n      \"total\": 95.00\n    }\n  ],\n  \"attachment\": null,\n  \"memo\": null,\n  \"totals\": {\n    \"sub_total\": 8959.00,\n    \"sales_tax\": {\n      \"is_percentage\": false,\n      \"tax\": 0,\n      \"amount\": 0\n    },\n    \"discount\": {\n      \"is_percentage\": false,\n      \"discount\": 0,\n      \"calculated_amount\": 0\n    },\n    \"total_amount\": 8959.00\n  }\n}\n```"
   },
   {
     "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_160949.jpg",
-    "model_used": "gemini",
+    "model_used": "huggingface",
     "prompt": "\nYou are an expert document processing assistant. Your task is to extract structured data from invoice/receipt images and return the information in a specific JSON format.\n\n## Instructions:\n1. Analyze the provided image carefully to identify all relevant financial information\n2. Extract the data according to the JSON schema provided below\n3. If any required field is not visible or unclear in the image, use reasonable defaults or null values\n4. For monetary amounts, use numbers without currency symbols\n5. For dates, use the format found in the document or convert to YYYY-MM-DD if possible\n6. Be precise with calculations - ensure totals match the extracted item details\n7. The document may contain text in both English and Bangla (Bengali). For Bangla text, provide English transliteration (not translation) - write the Bangla words using English letters to show how they sound. For Bangla numbers convert them to\n    English numerals (e.g., \"১২৩\" becomes \"123\").  \n8. Only extract information that is clearly visible in the image - never guess or infer missing data\n9. If text is unclear or partially obscured, use null rather than making assumptions\n10. Verify all mathematical calculations before finalizing the JSON response\n## Required JSON Schema:\nReturn your response as a valid JSON object following this exact structure:\n\n{\n  \"payment_details\": {\n    \"supplier\": \"string - Name of the supplier/vendor\",\n    \"payment_account\": \"string - Account used for payment\",\n    \"payment_date\": \"string - Date of payment\",\n    \"payment_method\": \"string - Mode of payment (cash, card, bank transfer, etc.)\",\n    \"ref_no\": \"string - Reference/invoice number\",\n    \"tags\": [\"array of relevant tags\"]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"string - Expense category\",\n      \"description\": \"string - Item description (optional)\",\n      \"quantity\": \"number - Quantity of items\",\n      \"unit_price\": \"number - Price per unit\",\n      \"total\": \"number - Total amount for this item\"\n    },\n    {\n      \"category\": \"string - Expense category for item 2\",\n      \"description\": \"string - Item description (optional)\",\n      \"quantity\": \"number - Quantity of items\",\n      \"unit_price\": \"number - Price per unit\", \n      \"total\": \"number - Total amount for this item\"\n    }\n    // ... additional items as found in the document\n  ],\n  \"attachment\": \"string - File reference if mentioned\",\n  \"memo\": \"string - Any additional notes or memo\",\n  \"totals\": {\n    \"sub_total\": \"number - Subtotal before tax and discount\",\n    \"sales_tax\": {\n      \"is_percentage\": \"boolean - true if tax/VAT is %, false if fixed amount\",\n      \"tax\": \"number - Tax/VAT rate (%)\", \n      \"amount\": \"number - Calculated tax/VAT amount\"\n    },\n    \"discount\": {\n      \"is_percentage\": \"boolean - true if discount is %, false if fixed amount\", \n      \"discount\": \"number - Discount rate (%)\",\n      \"calculated_amount\": \"number - Calculated discount amount\"\n    },\n    \"total_amount\": \"number - Final total amount\"\n  }\n}\n\n## Extraction Guidelines:\n- **Supplier**: Look for business name, vendor name, or \"Bill To\" information\n- **Payment Account**: Extract account numbers, card details, or payment method info\n- **Payment Date**: Find transaction date, invoice date, or payment date\n- **Payment Method**: Identify if paid by cash, card, check, bank transfer, etc.\n- **Reference Number**: Look for invoice #, receipt #, transaction ID, or reference number\n- **Tags**: Generate relevant tags based on the business type or expense category\n- **Item Details**: Extract ALL line items from the document - create a separate object for each item/product/service listed\n- **Categories**: Classify expenses (office supplies, travel, meals, equipment, etc.)\n- **Calculations**: Verify that item totals sum to subtotal, and final calculations are accurate\n- **Language Handling**: If you encounter Bangla/Bengali text, transliterate it into English letters (e.g., \"টাকা\" becomes \"taka\", \"নাম\" becomes \"naam\"). Do not translate the meaning, just write how the Bangla words sound in English.\n- **Tax/VAT Recognition**: Look for any tax-related terms including \"Tax\", \"VAT\", \"Sales Tax\", \"Service Tax\", \"GST\", or similar terms in both English and Bangla. Treat all of these as sales tax in the JSON structure.\n\n## Validation Rules:\n- **Mathematical Accuracy**: Ensure sum of all item totals equals subtotal\n- **Date Formats**: Only use dates that are clearly visible; don't assume date formats\n- **Number Precision**: Use exact numbers from the document, don't round unless specified\n- **Text Clarity**: If you cannot read text clearly due to image quality, use null\n- **Cross-Reference**: Verify supplier name appears consistently throughout the document\n- **Currency Consistency**: Ensure all amounts use the same currency basis\n\n## Important Notes:\n- Return ONLY the JSON object, no additional text or explanations\n- If information is missing, use null for strings and 0 for numbers\n- Ensure all numbers are numeric values, not strings\n- **Extract every single line item** - the item_details array should contain one object for each product/service listed in the document\n- Double-check mathematical accuracy of totals and ensure all item totals sum to the subtotal\n- VAT and tax should be considered same.\n- If no tax/VAT or discount is present, set the respective amounts to 0\n- Do not interpolate or guess missing information** - use null for unclear data\n- Double-check all calculations manually** before submitting the JSON\n- If image quality is poor and text is unreadable, explicitly use null values**\n- Verify that reference numbers and dates match standard formats for the region**\n- Cross-validate totals: item_totals → subtotal → (±tax/discount) → final_total**\n\n## Final Check:\nBefore responding, verify:\n1. All visible numbers are accurately transcribed\n2. Mathematical relationships are correct\n3. No information has been assumed or fabricated\n4. Bangla text is transliterated, not translated\n5. All required fields contain appropriate data types\n\nNow please analyze the provided image and extract the data according to this schema.\n        ",
     "success": true,
-    "timestamp": "2025-08-27T19:50:48.644820",
-    "processing_time_seconds": 27.330944538116455,
+    "timestamp": "2025-09-02T14:48:07.093460",
+    "processing_time_seconds": 9.271283388137817,
     "extracted_data_parsed": {
       "payment_details": {
-        "supplier": "Mesars Salam Enterprise",
+        "supplier": "Megasolom Enterprise",
         "payment_account": null,
-        "payment_date": "2020-06-15",
-        "payment_method": "Cash",
+        "payment_date": "2023-05-29",
+        "payment_method": "cash",
         "ref_no": "243",
         "tags": [
           "gas",
-          "LPG",
-          "stove",
-          "regulator",
-          "pipe",
-          "home appliances"
+          "equipment",
+          "utilities"
         ]
       },
       "item_details": [
         {
-          "category": "Gas",
-          "description": "GAS 35 KG",
-          "quantity": 2,
-          "unit_price": 2300,
-          "total": 4600
+          "category": "Gas Cylinder",
+          "description": "GAS 30 KG",
+          "quantity": 1,
+          "unit_price": 8000,
+          "total": 8000
         }
       ],
       "attachment": null,
-      "memo": "Customer Name: Tajul Islam, Customer Address: Banani, Dhaka-1213",
+      "memo": "Cash Memo",
       "totals": {
-        "sub_total": 4600,
+        "sub_total": 8000,
         "sales_tax": {
           "is_percentage": false,
           "tax": 0,
@@ -1532,39 +1272,36 @@
           "discount": 0,
           "calculated_amount": 0
         },
-        "total_amount": 4600
+        "total_amount": 8000
       }
     },
     "extraction_format": "json",
     "structured_data": {
       "payment_details": {
-        "supplier": "Mesars Salam Enterprise",
+        "supplier": "Megasolom Enterprise",
         "payment_account": null,
-        "payment_date": "2020-06-15",
-        "payment_method": "Cash",
+        "payment_date": "2023-05-29",
+        "payment_method": "cash",
         "ref_no": "243",
         "tags": [
           "gas",
-          "LPG",
-          "stove",
-          "regulator",
-          "pipe",
-          "home appliances"
+          "equipment",
+          "utilities"
         ]
       },
       "item_details": [
         {
-          "category": "Gas",
-          "description": "GAS 35 KG",
-          "quantity": 2,
-          "unit_price": 2300,
-          "total": 4600
+          "category": "Gas Cylinder",
+          "description": "GAS 30 KG",
+          "quantity": 1,
+          "unit_price": 8000,
+          "total": 8000
         }
       ],
       "attachment": null,
-      "memo": "Customer Name: Tajul Islam, Customer Address: Banani, Dhaka-1213",
+      "memo": "Cash Memo",
       "totals": {
-        "sub_total": 4600,
+        "sub_total": 8000,
         "sales_tax": {
           "is_percentage": false,
           "tax": 0,
@@ -1575,10 +1312,10 @@
           "discount": 0,
           "calculated_amount": 0
         },
-        "total_amount": 4600
+        "total_amount": 8000
       }
     },
-    "extracted_data_preview": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"Mesars Salam Enterprise\",\n    \"payment_account\": null,\n    \"payment_date\": \"2020-06-15\",\n    \"payment_method\": \"Cash\",\n    \"ref_no\": \"243\",\n    \"tags\"...",
-    "extracted_data_full": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"Mesars Salam Enterprise\",\n    \"payment_account\": null,\n    \"payment_date\": \"2020-06-15\",\n    \"payment_method\": \"Cash\",\n    \"ref_no\": \"243\",\n    \"tags\": [\n      \"gas\",\n      \"LPG\",\n      \"stove\",\n      \"regulator\",\n      \"pipe\",\n      \"home appliances\"\n    ]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"Gas\",\n      \"description\": \"GAS 35 KG\",\n      \"quantity\": 2,\n      \"unit_price\": 2300,\n      \"total\": 4600\n    }\n  ],\n  \"attachment\": null,\n  \"memo\": \"Customer Name: Tajul Islam, Customer Address: Banani, Dhaka-1213\",\n  \"totals\": {\n    \"sub_total\": 4600,\n    \"sales_tax\": {\n      \"is_percentage\": false,\n      \"tax\": 0,\n      \"amount\": 0\n    },\n    \"discount\": {\n      \"is_percentage\": false,\n      \"discount\": 0,\n      \"calculated_amount\": 0\n    },\n    \"total_amount\": 4600\n  }\n}\n```"
+    "extracted_data_preview": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"Megasolom Enterprise\",\n    \"payment_account\": null,\n    \"payment_date\": \"2023-05-29\",\n    \"payment_method\": \"cash\",\n    \"ref_no\": \"243\",\n    \"tags\": [...",
+    "extracted_data_full": "```json\n{\n  \"payment_details\": {\n    \"supplier\": \"Megasolom Enterprise\",\n    \"payment_account\": null,\n    \"payment_date\": \"2023-05-29\",\n    \"payment_method\": \"cash\",\n    \"ref_no\": \"243\",\n    \"tags\": [\"gas\", \"equipment\", \"utilities\"]\n  },\n  \"item_details\": [\n    {\n      \"category\": \"Gas Cylinder\",\n      \"description\": \"GAS 30 KG\",\n      \"quantity\": 1,\n      \"unit_price\": 8000,\n      \"total\": 8000\n    }\n  ],\n  \"attachment\": null,\n  \"memo\": \"Cash Memo\",\n  \"totals\": {\n    \"sub_total\": 8000,\n    \"sales_tax\": {\n      \"is_percentage\": false,\n      \"tax\": 0,\n      \"amount\": 0\n    },\n    \"discount\": {\n      \"is_percentage\": false,\n      \"discount\": 0,\n      \"calculated_amount\": 0\n    },\n    \"total_amount\": 8000\n  }\n}\n```"
   }
 ]

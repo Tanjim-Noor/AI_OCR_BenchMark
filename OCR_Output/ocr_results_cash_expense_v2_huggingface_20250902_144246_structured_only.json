@@ -1,0 +1,663 @@
+[
+  {
+    "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_154308~2.jpg",
+    "model_used": "huggingface",
+    "success": true,
+    "structured_data": {
+      "payment_details": {
+        "supplier": "Star Tech Ltd.",
+        "payment_account": null,
+        "payment_date": "2025-06-02",
+        "payment_method": "Online Sales",
+        "ref_no": "INV-STLBB-2025-009417",
+        "tags": [
+          "electronics",
+          "monitor",
+          "online-sales"
+        ]
+      },
+      "item_details": [
+        {
+          "category": "electronics",
+          "description": "MSI PRO MP225 21.5\" 100Hz IPS FHD Monitor(No Warranty For Adapter & Keep the BOX For Warranty)",
+          "quantity": 2,
+          "unit_price": 10500,
+          "total": 21000
+        }
+      ],
+      "attachment": null,
+      "memo": "S/N - PC6M075104322, PC6M075100905",
+      "totals": {
+        "sub_total": 21000,
+        "sales_tax": {
+          "is_percentage": false,
+          "tax": 0,
+          "amount": 0
+        },
+        "discount": {
+          "is_percentage": false,
+          "discount": 0,
+          "calculated_amount": 0
+        },
+        "total_amount": 21000
+      }
+    },
+    "timestamp": "2025-09-02T14:42:59.271176"
+  },
+  {
+    "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_154831.jpg",
+    "model_used": "huggingface",
+    "success": true,
+    "structured_data": {
+      "payment_details": {
+        "supplier": "Maa Fruits & Departmental Store",
+        "payment_account": null,
+        "payment_date": "2023-04-20",
+        "payment_method": "cash",
+        "ref_no": null,
+        "tags": [
+          "fruits",
+          "retail",
+          "wholesale"
+        ]
+      },
+      "item_details": [
+        {
+          "category": "fruits",
+          "description": "Amra",
+          "quantity": 60,
+          "unit_price": 10,
+          "total": 600
+        }
+      ],
+      "attachment": null,
+      "memo": null,
+      "totals": {
+        "sub_total": 600,
+        "sales_tax": {
+          "is_percentage": false,
+          "tax": 0,
+          "amount": 0
+        },
+        "discount": {
+          "is_percentage": false,
+          "discount": 0,
+          "calculated_amount": 0
+        },
+        "total_amount": 600
+      }
+    },
+    "timestamp": "2025-09-02T14:43:08.798365"
+  },
+  {
+    "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_155237.jpg",
+    "model_used": "huggingface",
+    "success": true,
+    "structured_data": {
+      "payment_details": {
+        "supplier": "RJ Logistics Limited",
+        "payment_account": null,
+        "payment_date": "25/06/2025",
+        "payment_method": "DBBL Bank",
+        "ref_no": "L45443",
+        "tags": [
+          "groceries",
+          "retail"
+        ]
+      },
+      "item_details": [
+        {
+          "category": "groceries",
+          "description": "Bottle Guard (Lau) PCS",
+          "quantity": 1.0,
+          "unit_price": 80.0,
+          "total": 80.0
+        },
+        {
+          "category": "groceries",
+          "description": "Brother Chicken Keema Kg",
+          "quantity": 0.95,
+          "unit_price": 681.0,
+          "total": 646.95
+        },
+        {
+          "category": "groceries",
+          "description": "Cucumber (Shoshni) kg",
+          "quantity": 2.37,
+          "unit_price": 55.0,
+          "total": 130.35
+        },
+        {
+          "category": "groceries",
+          "description": "Green Papaya (Kachha Pepe)",
+          "quantity": 1.79,
+          "unit_price": 45.0,
+          "total": 80.55
+        },
+        {
+          "category": "groceries",
+          "description": "KFC Brandan Egg (12 Pcs)",
+          "quantity": 1.0,
+          "unit_price": 190.0,
+          "total": 190.0
+        },
+        {
+          "category": "groceries",
+          "description": "Lemon Long (Lomba Lebu) PC",
+          "quantity": 8.0,
+          "unit_price": 6.0,
+          "total": 48.0
+        },
+        {
+          "category": "groceries",
+          "description": "Piyaji Deshilooseakg",
+          "quantity": 2.21,
+          "unit_price": 58.0,
+          "total": 127.89
+        },
+        {
+          "category": "groceries",
+          "description": "Pointed Guard (Potol) KG",
+          "quantity": 1.12,
+          "unit_price": 50.0,
+          "total": 56.0
+        },
+        {
+          "category": "groceries",
+          "description": "Pumpkin Swatt (Misti Kumra)",
+          "quantity": 2.63,
+          "unit_price": 35.0,
+          "total": 91.86
+        },
+        {
+          "category": "groceries",
+          "description": "Shorailka Dressed Classic",
+          "quantity": 7.89,
+          "unit_price": 645.0,
+          "total": 5089.05
+        },
+        {
+          "category": "groceries",
+          "description": "Snake Guard (Chichinga) KG",
+          "quantity": 1.55,
+          "unit_price": 60.0,
+          "total": 93.0
+        },
+        {
+          "category": "groceries",
+          "description": "Tomato Red (Local) KG",
+          "quantity": 0.67,
+          "unit_price": 120.0,
+          "total": 80.4
+        },
+        {
+          "category": "groceries",
+          "description": "Water Spinach(Kolmisheak)PC",
+          "quantity": 3.0,
+          "unit_price": 15.0,
+          "total": 45.0
+        },
+        {
+          "category": "groceries",
+          "description": "Pran Hot Tomato Sauce Pet",
+          "quantity": 1.0,
+          "unit_price": 290.0,
+          "total": 290.0
+        }
+      ],
+      "attachment": null,
+      "memo": null,
+      "totals": {
+        "sub_total": 7045.67,
+        "sales_tax": {
+          "is_percentage": false,
+          "tax": 0,
+          "amount": 0
+        },
+        "discount": {
+          "is_percentage": false,
+          "discount": 0,
+          "calculated_amount": 0
+        },
+        "total_amount": 7046.0
+      }
+    },
+    "timestamp": "2025-09-02T14:43:44.639714"
+  },
+  {
+    "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_155754.jpg",
+    "model_used": "huggingface",
+    "success": true,
+    "structured_data": {
+      "payment_details": {
+        "supplier": "RoBenDevs",
+        "payment_account": null,
+        "payment_date": "23.06.25",
+        "payment_method": "Cash",
+        "ref_no": null,
+        "tags": [
+          "invoice",
+          "cash-payment"
+        ]
+      },
+      "item_details": [
+        {
+          "category": "General Expenses",
+          "description": "golgappa",
+          "quantity": 1,
+          "unit_price": 60,
+          "total": 60
+        },
+        {
+          "category": "General Expenses",
+          "description": "laddu",
+          "quantity": 1,
+          "unit_price": 80,
+          "total": 80
+        },
+        {
+          "category": "General Expenses",
+          "description": "from room 22.06.25",
+          "quantity": 1,
+          "unit_price": 40,
+          "total": 40
+        },
+        {
+          "category": "General Expenses",
+          "description": "10 cmr 12.06.25",
+          "quantity": 1,
+          "unit_price": 120,
+          "total": 120
+        },
+        {
+          "category": "General Expenses",
+          "description": "skrno kha + ronj + roj",
+          "quantity": 1,
+          "unit_price": 267,
+          "total": 267
+        }
+      ],
+      "attachment": null,
+      "memo": null,
+      "totals": {
+        "sub_total": 567,
+        "sales_tax": {
+          "is_percentage": false,
+          "tax": 0,
+          "amount": 0
+        },
+        "discount": {
+          "is_percentage": false,
+          "discount": 0,
+          "calculated_amount": 0
+        },
+        "total_amount": 567
+      }
+    },
+    "timestamp": "2025-09-02T14:44:00.102334"
+  },
+  {
+    "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_160041.jpg",
+    "model_used": "huggingface",
+    "success": true,
+    "structured_data": {
+      "payment_details": {
+        "supplier": "TULIP FLOWER CENTER",
+        "payment_account": null,
+        "payment_date": "20/1/20",
+        "payment_method": "cash",
+        "ref_no": "373",
+        "tags": [
+          "flowers",
+          "decoration",
+          "event management"
+        ]
+      },
+      "item_details": [
+        {
+          "category": "flowers",
+          "description": "Flower arrangement",
+          "quantity": 1,
+          "unit_price": 250,
+          "total": 250
+        }
+      ],
+      "attachment": null,
+      "memo": null,
+      "totals": {
+        "sub_total": 250,
+        "sales_tax": {
+          "is_percentage": false,
+          "tax": 0,
+          "amount": 0
+        },
+        "discount": {
+          "is_percentage": false,
+          "discount": 0,
+          "calculated_amount": 0
+        },
+        "total_amount": 250
+      }
+    },
+    "timestamp": "2025-09-02T14:44:10.649251"
+  },
+  {
+    "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_160529.jpg",
+    "model_used": "huggingface",
+    "success": true,
+    "structured_data": {
+      "payment_details": {
+        "supplier": "ACI Logistics Limited",
+        "payment_account": null,
+        "payment_date": "2023-06-19",
+        "payment_method": "card",
+        "ref_no": "D06IP0S3N",
+        "tags": [
+          "retail",
+          "grocery",
+          "food"
+        ]
+      },
+      "item_details": [
+        {
+          "category": "grocery",
+          "description": "Green Chili (Kacha Murich)",
+          "quantity": 0.33,
+          "unit_price": 300.0,
+          "total": 100.0
+        },
+        {
+          "category": "grocery",
+          "description": "Pran FII Fine White Sandwi",
+          "quantity": 5.0,
+          "unit_price": 80.0,
+          "total": 400.0
+        },
+        {
+          "category": "grocery",
+          "description": "Pran Triabatic Orange Jelly",
+          "quantity": 1.0,
+          "unit_price": 270.0,
+          "total": 270.0
+        }
+      ],
+      "attachment": null,
+      "memo": null,
+      "totals": {
+        "sub_total": 702.5,
+        "sales_tax": {
+          "is_percentage": true,
+          "tax": 5.0,
+          "amount": 35.22
+        },
+        "discount": {
+          "is_percentage": false,
+          "discount": 0,
+          "calculated_amount": 0.0
+        },
+        "total_amount": 702.5
+      }
+    },
+    "timestamp": "2025-09-02T14:44:25.395050"
+  },
+  {
+    "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_160644.jpg",
+    "model_used": "huggingface",
+    "success": true,
+    "structured_data": {
+      "payment_details": {
+        "supplier": "Maa Fruits & Departmental Store",
+        "payment_account": null,
+        "payment_date": "2023-06-25",
+        "payment_method": "cash",
+        "ref_no": null,
+        "tags": [
+          "fruits",
+          "retail",
+          "wholesale"
+        ]
+      },
+      "item_details": [
+        {
+          "category": "fruits",
+          "description": "Pomegranate",
+          "quantity": 2,
+          "unit_price": 60,
+          "total": 120
+        },
+        {
+          "category": "fruits",
+          "description": "Guava",
+          "quantity": 2,
+          "unit_price": 70,
+          "total": 140
+        }
+      ],
+      "attachment": null,
+      "memo": null,
+      "totals": {
+        "sub_total": 260,
+        "sales_tax": {
+          "is_percentage": false,
+          "tax": 0,
+          "amount": 0
+        },
+        "discount": {
+          "is_percentage": false,
+          "discount": 0,
+          "calculated_amount": 0
+        },
+        "total_amount": 260
+      }
+    },
+    "timestamp": "2025-09-02T14:44:36.455703"
+  },
+  {
+    "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_160928.jpg",
+    "model_used": "huggingface",
+    "success": true,
+    "structured_data": {
+      "payment_details": {
+        "supplier": "a2i Logistics Limited",
+        "payment_account": null,
+        "payment_date": "16/06/2025",
+        "payment_method": "Cash",
+        "ref_no": "14343",
+        "tags": [
+          "Groceries",
+          "Retail"
+        ]
+      },
+      "item_details": [
+        {
+          "category": "Food",
+          "description": "Boti Borod (Loun) PCS",
+          "quantity": 6.0,
+          "unit_price": 70.0,
+          "total": 420.0
+        },
+        {
+          "category": "Food",
+          "description": "Gucchat ar (Shoshin)kg",
+          "quantity": 2.01,
+          "unit_price": 55.0,
+          "total": 110.55
+        },
+        {
+          "category": "Food",
+          "description": "Green Chili (Kachha Morich)",
+          "quantity": 0.57,
+          "unit_price": 100.0,
+          "total": 56.5
+        },
+        {
+          "category": "Food",
+          "description": "Horive Frs oc sat cul RT",
+          "quantity": 0.54,
+          "unit_price": 850.0,
+          "total": 459.0
+        },
+        {
+          "category": "Food",
+          "description": "Itad EDBKJn 175g(b3 6126g)",
+          "quantity": 1.0,
+          "unit_price": 200.0,
+          "total": 200.0
+        },
+        {
+          "category": "Food",
+          "description": "KFV Brand Egg (12 Pcs)",
+          "quantity": 6.0,
+          "unit_price": 190.0,
+          "total": 1080.0
+        },
+        {
+          "category": "Food",
+          "description": "Lemon Long (Lotha Lebu) PC",
+          "quantity": 6.0,
+          "unit_price": 5.0,
+          "total": 30.0
+        },
+        {
+          "category": "Food",
+          "description": "Mintkat Rian Loose Piljires",
+          "quantity": 6.0,
+          "unit_price": 76.0,
+          "total": 456.0
+        },
+        {
+          "category": "Food",
+          "description": "Mushur Dal Loose (S) kg",
+          "quantity": 3.03,
+          "unit_price": 112.0,
+          "total": 338.8
+        },
+        {
+          "category": "Food",
+          "description": "P Vai DeshiHiloucesekg",
+          "quantity": 4.06,
+          "unit_price": 58.0,
+          "total": 235.46
+        },
+        {
+          "category": "Food",
+          "description": "Shonarika Dressed Classic",
+          "quantity": 6.6,
+          "unit_price": 570.0,
+          "total": 3793.15
+        },
+        {
+          "category": "Household",
+          "description": "Dhat a Kitchen Towel Doubl",
+          "quantity": 2.0,
+          "unit_price": 160.0,
+          "total": 320.0
+        },
+        {
+          "category": "Household",
+          "description": "Bestur dura a Paper Towel Dh",
+          "quantity": 6.0,
+          "unit_price": 105.0,
+          "total": 630.0
+        },
+        {
+          "category": "Food",
+          "description": "Fresh Soyabean Oil 5 ltr",
+          "quantity": 1.0,
+          "unit_price": 922.0,
+          "total": 922.0
+        },
+        {
+          "category": "Food",
+          "description": "Ispeknri Hirizone Tea Bag",
+          "quantity": 1.0,
+          "unit_price": 90.0,
+          "total": 90.0
+        },
+        {
+          "category": "Food",
+          "description": "Magsi Masala Family far fig",
+          "quantity": 1.0,
+          "unit_price": 340.0,
+          "total": 340.0
+        },
+        {
+          "category": "Food",
+          "description": "Pure Cumin Powder 200g",
+          "quantity": 1.0,
+          "unit_price": 310.0,
+          "total": 310.0
+        },
+        {
+          "category": "Food",
+          "description": "Rohuri Radani Chicken Ha",
+          "quantity": 1.0,
+          "unit_price": 95.0,
+          "total": 95.0
+        }
+      ],
+      "attachment": null,
+      "memo": null,
+      "totals": {
+        "sub_total": 8959.06,
+        "sales_tax": {
+          "is_percentage": true,
+          "tax": 300.26,
+          "amount": 8919.08
+        },
+        "discount": {
+          "is_percentage": false,
+          "discount": 0,
+          "calculated_amount": 0
+        },
+        "total_amount": 8919.08
+      }
+    },
+    "timestamp": "2025-09-02T14:45:16.703246"
+  },
+  {
+    "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_160949.jpg",
+    "model_used": "huggingface",
+    "success": true,
+    "structured_data": {
+      "payment_details": {
+        "supplier": "Megasolom Autogaj",
+        "payment_account": null,
+        "payment_date": "29/11/22",
+        "payment_method": "cash",
+        "ref_no": "243",
+        "tags": [
+          "gas",
+          "equipment",
+          "utilities"
+        ]
+      },
+      "item_details": [
+        {
+          "category": "Gas Cylinder",
+          "description": "GAS 30 KG",
+          "quantity": 1,
+          "unit_price": 8000,
+          "total": 8000
+        }
+      ],
+      "attachment": null,
+      "memo": null,
+      "totals": {
+        "sub_total": 8000,
+        "sales_tax": {
+          "is_percentage": false,
+          "tax": 0,
+          "amount": 0
+        },
+        "discount": {
+          "is_percentage": false,
+          "discount": 0,
+          "calculated_amount": 0
+        },
+        "total_amount": 8000
+      }
+    },
+    "timestamp": "2025-09-02T14:45:27.861687"
+  }
+]

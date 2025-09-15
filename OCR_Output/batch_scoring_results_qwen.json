@@ -1,0 +1,3420 @@
+{
+  "processed_count": 8,
+  "average_score": 0.588625,
+  "total_score": 4.709,
+  "image_scores": [
+    {
+      "image_name": "IMG_20250826_154308~2.jpg",
+      "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_154308~2.jpg",
+      "score": 0.815,
+      "breakdown": [
+        {
+          "path": "payment_details.supplier[0]",
+          "pred": "Star Tech Ltd.",
+          "actual": "Star Tech Ltd.",
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.payment_date[0]",
+          "pred": "2025-06-02",
+          "actual": "02-Jun-2025",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.payment_account[0]",
+          "pred": null,
+          "actual": null,
+          "comparator": "embedding",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.payment_method[0]",
+          "pred": "Online Sales",
+          "actual": "Online Sales",
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.ref_no[0]",
+          "pred": "INV-STLBB-2025-009417",
+          "actual": "INV-STLBB-2025-009417",
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.tags[0]",
+          "pred": "electronics",
+          "actual": "Electronics",
+          "comparator": "semantic",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.tags[1]",
+          "pred": "monitor",
+          "actual": "Computer Hardware",
+          "comparator": "semantic",
+          "score": 0.25,
+          "weight": 1,
+          "weighted": 0.25
+        },
+        {
+          "path": "payment_details.tags[2]",
+          "pred": "online-sales",
+          "actual": "Monitor",
+          "comparator": "semantic",
+          "score": 0.316,
+          "weight": 1,
+          "weighted": 0.316
+        },
+        {
+          "path": "item_details.category[0]",
+          "pred": "electronics",
+          "actual": "Computer Hardware",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.description[0]",
+          "pred": "MSI PRO MP225 21.5\" 100Hz IPS FHD Monitor(No Warranty For Adapter & Keep the BOX For Warranty)",
+          "actual": "MSI PRO MP225 21.5\" 100Hz IPS FHD Monitor (No Warranty For Adapter & Keep the BOX For Warranty) S/N - PC6M075104322, PC6M075100985",
+          "comparator": "embedding",
+          "score": 0.976,
+          "weight": 1,
+          "weighted": 0.976
+        },
+        {
+          "path": "item_details.quantity[0]",
+          "pred": 2,
+          "actual": 2,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[0]",
+          "pred": 10500,
+          "actual": 10500,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[0]",
+          "pred": 21000,
+          "actual": 21000,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "attachment[0]",
+          "pred": null,
+          "actual": null,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "memo[0]",
+          "pred": "S/N - PC6M075104322, PC6M075100905",
+          "actual": "Warranty Policy: 1. Please keep the full box for warranty purpose. 2. Goods once sold will not be refunded & changed. 3. The products under warranty will be repaired or replaced by the manufacturer company. 4. Timing for the warranty process will be controlled by the manufacturer company. 5. Manufacturer does not give warranty to Remote Control, Software, Data, Password/BIOS password, Cartridge, Toner, Head, Roller, Drum, Element Cover, Maintenance kit, Cable supplied with product, Gift/Free items, GPU used in data mining, if Sticker-removed, Serial tempered, Compatible Toner/Ink used, Fungus and damp, Up-to 3 display dots, Liquid spillage, Burnt and Physically-damaged etc. 6. Customers must record an unboxing video outside the store to report any damage issues with the product. Warranty Complain receiving hour: 11.00 AM to 6.00 PM.",
+          "comparator": "embedding",
+          "score": 0.609,
+          "weight": 1,
+          "weighted": 0.609
+        },
+        {
+          "path": "totals.sub_total[0]",
+          "pred": 21000,
+          "actual": 21000,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.sales_tax.is_percentage[0]",
+          "pred": false,
+          "actual": false,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.sales_tax.tax[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.sales_tax.amount[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.discount.is_percentage[0]",
+          "pred": false,
+          "actual": false,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.discount.discount[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.discount.calculated_amount[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.total_amount[0]",
+          "pred": 21000,
+          "actual": 21000,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        }
+      ]
+    },
+    {
+      "image_name": "IMG_20250826_155237.jpg",
+      "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_155237.jpg",
+      "score": 0.582,
+      "breakdown": [
+        {
+          "path": "payment_details.supplier[0]",
+          "pred": "RJ Logistics Limited",
+          "actual": "SHWAPNO",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.payment_date[0]",
+          "pred": "25/06/2025",
+          "actual": "2025-06-25",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.payment_account[0]",
+          "pred": null,
+          "actual": "DBBL Bank",
+          "comparator": "embedding",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.payment_method[0]",
+          "pred": "DBBL Bank",
+          "actual": "Bank Transfer/Card",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.ref_no[0]",
+          "pred": "L45443",
+          "actual": "D0612506250055",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.tags[0]",
+          "pred": "groceries",
+          "actual": "Groceries",
+          "comparator": "semantic",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.tags[1]",
+          "pred": "retail",
+          "actual": "Supermarket",
+          "comparator": "semantic",
+          "score": 0.353,
+          "weight": 1,
+          "weighted": 0.353
+        },
+        {
+          "path": "payment_details.tags[2]",
+          "pred": null,
+          "actual": "Retail",
+          "comparator": "semantic",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.tags[3]",
+          "pred": null,
+          "actual": "Food",
+          "comparator": "semantic",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[0]",
+          "pred": "groceries",
+          "actual": "Vegetables",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[1]",
+          "pred": "groceries",
+          "actual": "Meat",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[2]",
+          "pred": "groceries",
+          "actual": "Vegetables",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[3]",
+          "pred": "groceries",
+          "actual": "Vegetables",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[4]",
+          "pred": "groceries",
+          "actual": "Dairy & Eggs",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[5]",
+          "pred": "groceries",
+          "actual": "Fruits",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[6]",
+          "pred": "groceries",
+          "actual": "Vegetables",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[7]",
+          "pred": "groceries",
+          "actual": "Vegetables",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[8]",
+          "pred": "groceries",
+          "actual": "Vegetables",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[9]",
+          "pred": "groceries",
+          "actual": "Meat",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[10]",
+          "pred": "groceries",
+          "actual": "Vegetables",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[11]",
+          "pred": "groceries",
+          "actual": "Vegetables",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[12]",
+          "pred": "groceries",
+          "actual": "Vegetables",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[13]",
+          "pred": "groceries",
+          "actual": "Groceries",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.description[0]",
+          "pred": "Bottle Guard (Lau) PCS",
+          "actual": "Bottle Gourd (Lau)",
+          "comparator": "embedding",
+          "score": 0.738,
+          "weight": 1,
+          "weighted": 0.738
+        },
+        {
+          "path": "item_details.description[1]",
+          "pred": "Brother Chicken Keema Kg",
+          "actual": "Broiler Chicken Keema",
+          "comparator": "embedding",
+          "score": 0.844,
+          "weight": 1,
+          "weighted": 0.844
+        },
+        {
+          "path": "item_details.description[2]",
+          "pred": "Cucumber (Shoshni) kg",
+          "actual": "Cucumber (Shosha)",
+          "comparator": "embedding",
+          "score": 0.863,
+          "weight": 1,
+          "weighted": 0.863
+        },
+        {
+          "path": "item_details.description[3]",
+          "pred": "Green Papaya (Kachha Pepe)",
+          "actual": "Green Papaya (Kacha Pepe)",
+          "comparator": "embedding",
+          "score": 0.983,
+          "weight": 1,
+          "weighted": 0.983
+        },
+        {
+          "path": "item_details.description[4]",
+          "pred": "KFC Brandan Egg (12 Pcs)",
+          "actual": "KFK Branded Egg (12 Pcs)",
+          "comparator": "embedding",
+          "score": 0.91,
+          "weight": 1,
+          "weighted": 0.91
+        },
+        {
+          "path": "item_details.description[5]",
+          "pred": "Lemon Long (Lomba Lebu) PC",
+          "actual": "Lemon Long (Lomba Lebu)",
+          "comparator": "embedding",
+          "score": 0.92,
+          "weight": 1,
+          "weighted": 0.92
+        },
+        {
+          "path": "item_details.description[6]",
+          "pred": "Piyaji Deshilooseakg",
+          "actual": "Piyaj Deshi (Loose)",
+          "comparator": "embedding",
+          "score": 0.831,
+          "weight": 1,
+          "weighted": 0.831
+        },
+        {
+          "path": "item_details.description[7]",
+          "pred": "Pointed Guard (Potol) KG",
+          "actual": "Pointed Gourd (Potol)",
+          "comparator": "embedding",
+          "score": 0.78,
+          "weight": 1,
+          "weighted": 0.78
+        },
+        {
+          "path": "item_details.description[8]",
+          "pred": "Pumpkin Swatt (Misti Kumra)",
+          "actual": "Pumpkin Sweet (Misti Kumra)",
+          "comparator": "embedding",
+          "score": 0.923,
+          "weight": 1,
+          "weighted": 0.923
+        },
+        {
+          "path": "item_details.description[9]",
+          "pred": "Shorailka Dressed Classic",
+          "actual": "Shonalika Dressed Classic",
+          "comparator": "embedding",
+          "score": 0.915,
+          "weight": 1,
+          "weighted": 0.915
+        },
+        {
+          "path": "item_details.description[10]",
+          "pred": "Snake Guard (Chichinga) KG",
+          "actual": "Snake Gourd (Chichinga)",
+          "comparator": "embedding",
+          "score": 0.83,
+          "weight": 1,
+          "weighted": 0.83
+        },
+        {
+          "path": "item_details.description[11]",
+          "pred": "Tomato Red (Local) KG",
+          "actual": "Tomato Red (Local)",
+          "comparator": "embedding",
+          "score": 0.897,
+          "weight": 1,
+          "weighted": 0.897
+        },
+        {
+          "path": "item_details.description[12]",
+          "pred": "Water Spinach(Kolmisheak)PC",
+          "actual": "Water Spinach (Kolmishak)",
+          "comparator": "embedding",
+          "score": 0.909,
+          "weight": 1,
+          "weighted": 0.909
+        },
+        {
+          "path": "item_details.description[13]",
+          "pred": "Pran Hot Tomato Sauce Pet",
+          "actual": "Pran Hot Tomato Sauce Pet",
+          "comparator": "embedding",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[0]",
+          "pred": 1.0,
+          "actual": 1.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[1]",
+          "pred": 0.95,
+          "actual": 0.95,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[2]",
+          "pred": 2.37,
+          "actual": 2.37,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[3]",
+          "pred": 1.79,
+          "actual": 1.79,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[4]",
+          "pred": 1.0,
+          "actual": 1.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[5]",
+          "pred": 8.0,
+          "actual": 8.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[6]",
+          "pred": 2.21,
+          "actual": 2.21,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[7]",
+          "pred": 1.12,
+          "actual": 1.12,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[8]",
+          "pred": 2.63,
+          "actual": 2.63,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[9]",
+          "pred": 7.89,
+          "actual": 7.89,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[10]",
+          "pred": 1.55,
+          "actual": 1.55,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[11]",
+          "pred": 0.67,
+          "actual": 0.67,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[12]",
+          "pred": 3.0,
+          "actual": 3.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[13]",
+          "pred": 1.0,
+          "actual": 1.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[0]",
+          "pred": 80.0,
+          "actual": 80.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[1]",
+          "pred": 681.0,
+          "actual": 681.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[2]",
+          "pred": 55.0,
+          "actual": 55.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[3]",
+          "pred": 45.0,
+          "actual": 45.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[4]",
+          "pred": 190.0,
+          "actual": 190.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[5]",
+          "pred": 6.0,
+          "actual": 6.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[6]",
+          "pred": 58.0,
+          "actual": 58.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[7]",
+          "pred": 50.0,
+          "actual": 50.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[8]",
+          "pred": 35.0,
+          "actual": 35.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[9]",
+          "pred": 645.0,
+          "actual": 645.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[10]",
+          "pred": 60.0,
+          "actual": 60.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[11]",
+          "pred": 120.0,
+          "actual": 120.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[12]",
+          "pred": 15.0,
+          "actual": 15.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[13]",
+          "pred": 290.0,
+          "actual": 290.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[0]",
+          "pred": 80.0,
+          "actual": 80.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[1]",
+          "pred": 646.95,
+          "actual": 643.55,
+          "comparator": "numeric",
+          "score": 0.947,
+          "weight": 1,
+          "weighted": 0.947
+        },
+        {
+          "path": "item_details.total[2]",
+          "pred": 130.35,
+          "actual": 130.35,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[3]",
+          "pred": 80.55,
+          "actual": 80.55,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[4]",
+          "pred": 190.0,
+          "actual": 190.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[5]",
+          "pred": 48.0,
+          "actual": 48.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[6]",
+          "pred": 127.89,
+          "actual": 127.89,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[7]",
+          "pred": 56.0,
+          "actual": 56.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[8]",
+          "pred": 91.86,
+          "actual": 91.88,
+          "comparator": "numeric",
+          "score": 0.998,
+          "weight": 1,
+          "weighted": 0.998
+        },
+        {
+          "path": "item_details.total[9]",
+          "pred": 5089.05,
+          "actual": 5089.05,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[10]",
+          "pred": 93.0,
+          "actual": 93.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[11]",
+          "pred": 80.4,
+          "actual": 80.4,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[12]",
+          "pred": 45.0,
+          "actual": 45.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[13]",
+          "pred": 290.0,
+          "actual": 290.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "attachment[0]",
+          "pred": null,
+          "actual": null,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "memo[0]",
+          "pred": null,
+          "actual": "Loyalty Points (as on 2025-06-25 10:33) Previous Points: 7,252 This Invoice: 70 Balance Points: 7,322. Earned points will expire within 6 months from the date of the transaction if not redeemed. VAT against this challan is payable through central registration. Prices inclusive of standard VAT except exempted items. VAT Payable TK.:37.83. Join the DREAM FACTORY at: FACEBOOK.COM/GROUPS/SHWAPNOHELP. Thank you for shopping with SHWAPNO. Please visit www.shwapno.com for home delivery. Purchase of defected item must be exchanged by 24 hours with invoice. For any queries, suggestions or complaints, please call 16469 (9:00 AM - 6:00 PM). Powered by MISBACI Limited.",
+          "comparator": "embedding",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "totals.sub_total[0]",
+          "pred": 7045.67,
+          "actual": 7045.67,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.sales_tax.is_percentage[0]",
+          "pred": false,
+          "actual": false,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.sales_tax.tax[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.sales_tax.amount[0]",
+          "pred": 0,
+          "actual": 37.83,
+          "comparator": "numeric",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "totals.discount.is_percentage[0]",
+          "pred": false,
+          "actual": false,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.discount.discount[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.discount.calculated_amount[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.total_amount[0]",
+          "pred": 7046.0,
+          "actual": 7046.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        }
+      ]
+    },
+    {
+      "image_name": "IMG_20250826_155754.jpg",
+      "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_155754.jpg",
+      "score": 0.75,
+      "breakdown": [
+        {
+          "path": "payment_details.supplier[0]",
+          "pred": "RoBenDevs",
+          "actual": "RoBenDevs",
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.payment_date[0]",
+          "pred": "23.06.25",
+          "actual": "23-06-25",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.payment_account[0]",
+          "pred": null,
+          "actual": null,
+          "comparator": "embedding",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.payment_method[0]",
+          "pred": "Cash",
+          "actual": "Cash",
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.ref_no[0]",
+          "pred": null,
+          "actual": null,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.tags[0]",
+          "pred": "invoice",
+          "actual": "Groceries",
+          "comparator": "semantic",
+          "score": 0.375,
+          "weight": 1,
+          "weighted": 0.375
+        },
+        {
+          "path": "payment_details.tags[1]",
+          "pred": "cash-payment",
+          "actual": "Food",
+          "comparator": "semantic",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.tags[2]",
+          "pred": null,
+          "actual": "Snacks",
+          "comparator": "semantic",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.tags[3]",
+          "pred": null,
+          "actual": "Miscellaneous",
+          "comparator": "semantic",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[0]",
+          "pred": "General Expenses",
+          "actual": "Groceries",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[1]",
+          "pred": "General Expenses",
+          "actual": "Food",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[2]",
+          "pred": "General Expenses",
+          "actual": "Groceries",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[3]",
+          "pred": "General Expenses",
+          "actual": "Food",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[4]",
+          "pred": "General Expenses",
+          "actual": "Miscellaneous",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.description[0]",
+          "pred": "golgappa",
+          "actual": "bajar rickshaw",
+          "comparator": "embedding",
+          "score": 0.578,
+          "weight": 1,
+          "weighted": 0.578
+        },
+        {
+          "path": "item_details.description[1]",
+          "pred": "laddu",
+          "actual": "rickshaw",
+          "comparator": "embedding",
+          "score": 0.666,
+          "weight": 1,
+          "weighted": 0.666
+        },
+        {
+          "path": "item_details.description[2]",
+          "pred": "from room 22.06.25",
+          "actual": "bajar rickshaw 22.06.25",
+          "comparator": "embedding",
+          "score": 0.641,
+          "weight": 1,
+          "weighted": 0.641
+        },
+        {
+          "path": "item_details.description[3]",
+          "pred": "10 cmr 12.06.25",
+          "actual": "rickshaw 22.06.25",
+          "comparator": "embedding",
+          "score": 0.683,
+          "weight": 1,
+          "weighted": 0.683
+        },
+        {
+          "path": "item_details.description[4]",
+          "pred": "skrno kha + ronj + roj",
+          "actual": "sukna morich + shosha + lebu",
+          "comparator": "embedding",
+          "score": 0.728,
+          "weight": 1,
+          "weighted": 0.728
+        },
+        {
+          "path": "item_details.quantity[0]",
+          "pred": 1,
+          "actual": 1,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[1]",
+          "pred": 1,
+          "actual": 1,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[2]",
+          "pred": 1,
+          "actual": 1,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[3]",
+          "pred": 1,
+          "actual": 1,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[4]",
+          "pred": 1,
+          "actual": 1,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[0]",
+          "pred": 60,
+          "actual": 60,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[1]",
+          "pred": 80,
+          "actual": 80,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[2]",
+          "pred": 40,
+          "actual": 40,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[3]",
+          "pred": 120,
+          "actual": 120,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[4]",
+          "pred": 267,
+          "actual": 267,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[0]",
+          "pred": 60,
+          "actual": 60,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[1]",
+          "pred": 80,
+          "actual": 80,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[2]",
+          "pred": 40,
+          "actual": 40,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[3]",
+          "pred": 120,
+          "actual": 120,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[4]",
+          "pred": 267,
+          "actual": 267,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "attachment[0]",
+          "pred": null,
+          "actual": null,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "memo[0]",
+          "pred": null,
+          "actual": null,
+          "comparator": "embedding",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "totals.sub_total[0]",
+          "pred": 567,
+          "actual": 567,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.sales_tax.is_percentage[0]",
+          "pred": false,
+          "actual": false,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.sales_tax.tax[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.sales_tax.amount[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.discount.is_percentage[0]",
+          "pred": false,
+          "actual": false,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.discount.discount[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.discount.calculated_amount[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.total_amount[0]",
+          "pred": 567,
+          "actual": 567,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        }
+      ]
+    },
+    {
+      "image_name": "IMG_20250826_160041.jpg",
+      "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_160041.jpg",
+      "score": 0.549,
+      "breakdown": [
+        {
+          "path": "payment_details.supplier[0]",
+          "pred": "TULIP FLOWER CENTER",
+          "actual": "TULIP FLOWER CENTER",
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.payment_date[0]",
+          "pred": "20/1/20",
+          "actual": "23-3-25",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.payment_account[0]",
+          "pred": null,
+          "actual": null,
+          "comparator": "embedding",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.payment_method[0]",
+          "pred": "cash",
+          "actual": "Cash",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.ref_no[0]",
+          "pred": "373",
+          "actual": "373",
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.tags[0]",
+          "pred": "flowers",
+          "actual": "flowers",
+          "comparator": "semantic",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.tags[1]",
+          "pred": "decoration",
+          "actual": "decoration",
+          "comparator": "semantic",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.tags[2]",
+          "pred": "event management",
+          "actual": "event management",
+          "comparator": "semantic",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.category[0]",
+          "pred": "flowers",
+          "actual": "Flowers",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.description[0]",
+          "pred": "Flower arrangement",
+          "actual": "fuler buket",
+          "comparator": "embedding",
+          "score": 0.533,
+          "weight": 1,
+          "weighted": 0.533
+        },
+        {
+          "path": "item_details.quantity[0]",
+          "pred": 1,
+          "actual": 1,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[0]",
+          "pred": 250,
+          "actual": 280,
+          "comparator": "numeric",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.total[0]",
+          "pred": 250,
+          "actual": 280,
+          "comparator": "numeric",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "attachment[0]",
+          "pred": null,
+          "actual": null,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "memo[0]",
+          "pred": null,
+          "actual": null,
+          "comparator": "embedding",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "totals.sub_total[0]",
+          "pred": 250,
+          "actual": 280,
+          "comparator": "numeric",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "totals.sales_tax.is_percentage[0]",
+          "pred": false,
+          "actual": false,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.sales_tax.tax[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.sales_tax.amount[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.discount.is_percentage[0]",
+          "pred": false,
+          "actual": false,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.discount.discount[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.discount.calculated_amount[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.total_amount[0]",
+          "pred": 250,
+          "actual": 280,
+          "comparator": "numeric",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        }
+      ]
+    },
+    {
+      "image_name": "IMG_20250826_160529.jpg",
+      "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_160529.jpg",
+      "score": 0.495,
+      "breakdown": [
+        {
+          "path": "payment_details.supplier[0]",
+          "pred": "ACI Logistics Limited",
+          "actual": "SHWAPNO",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.payment_date[0]",
+          "pred": "2023-06-19",
+          "actual": "2025-06-19",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.payment_account[0]",
+          "pred": null,
+          "actual": "City Bank",
+          "comparator": "embedding",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.payment_method[0]",
+          "pred": "card",
+          "actual": "Card",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.ref_no[0]",
+          "pred": "D06IP0S3N",
+          "actual": "D0612506190006",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.tags[0]",
+          "pred": "retail",
+          "actual": "Grocery",
+          "comparator": "semantic",
+          "score": 0.308,
+          "weight": 1,
+          "weighted": 0.308
+        },
+        {
+          "path": "payment_details.tags[1]",
+          "pred": "grocery",
+          "actual": "Retail",
+          "comparator": "semantic",
+          "score": 0.308,
+          "weight": 1,
+          "weighted": 0.308
+        },
+        {
+          "path": "payment_details.tags[2]",
+          "pred": "food",
+          "actual": "Supermarket",
+          "comparator": "semantic",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.tags[3]",
+          "pred": null,
+          "actual": "Food",
+          "comparator": "semantic",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[0]",
+          "pred": "grocery",
+          "actual": "Produce",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[1]",
+          "pred": "grocery",
+          "actual": "Packaged Food",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[2]",
+          "pred": "grocery",
+          "actual": "Packaged Food",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.description[0]",
+          "pred": "Green Chili (Kacha Murich)",
+          "actual": "Green Chili (Kacha Morich)",
+          "comparator": "embedding",
+          "score": 0.954,
+          "weight": 1,
+          "weighted": 0.954
+        },
+        {
+          "path": "item_details.description[1]",
+          "pred": "Pran FII Fine White Sandwi",
+          "actual": "Pran Fill Time White Sandwi",
+          "comparator": "embedding",
+          "score": 0.872,
+          "weight": 1,
+          "weighted": 0.872
+        },
+        {
+          "path": "item_details.description[2]",
+          "pred": "Pran Triabatic Orange Jelly",
+          "actual": "Pran Diabetic Orange Jelly",
+          "comparator": "embedding",
+          "score": 0.898,
+          "weight": 1,
+          "weighted": 0.898
+        },
+        {
+          "path": "item_details.quantity[0]",
+          "pred": 0.33,
+          "actual": 0.33,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[1]",
+          "pred": 5.0,
+          "actual": 5.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[2]",
+          "pred": 1.0,
+          "actual": 1.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[0]",
+          "pred": 300.0,
+          "actual": 100.0,
+          "comparator": "numeric",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.unit_price[1]",
+          "pred": 80.0,
+          "actual": 80.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[2]",
+          "pred": 270.0,
+          "actual": 270.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[0]",
+          "pred": 100.0,
+          "actual": 32.5,
+          "comparator": "numeric",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.total[1]",
+          "pred": 400.0,
+          "actual": 400.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[2]",
+          "pred": 270.0,
+          "actual": 270.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "attachment[0]",
+          "pred": null,
+          "actual": null,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "memo[0]",
+          "pred": null,
+          "actual": "Loyalty points as on 2025-06-19: Previous 7,026, This Invoice 7, Balance 7,033. Earned points will expire within 6 months from the date of the transaction if not redeemed. VAT against this challan is payable through central registration. Prices inclusive of standard VAT except exempted items. For home delivery visit www.shwapno.com. Purchase of defected item must be exchanged by 24 hours with invoice. For any queries, suggestions or complaints, please call 16469 (9:00 AM - 6:00 PM). Powered by MISAACI Limited.",
+          "comparator": "embedding",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "totals.sub_total[0]",
+          "pred": 702.5,
+          "actual": 702.5,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.sales_tax.is_percentage[0]",
+          "pred": true,
+          "actual": false,
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "totals.sales_tax.tax[0]",
+          "pred": 5.0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "totals.sales_tax.amount[0]",
+          "pred": 35.22,
+          "actual": 35.22,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.discount.is_percentage[0]",
+          "pred": false,
+          "actual": false,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.discount.discount[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.discount.calculated_amount[0]",
+          "pred": 0.0,
+          "actual": 0.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.total_amount[0]",
+          "pred": 702.5,
+          "actual": 702.5,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        }
+      ]
+    },
+    {
+      "image_name": "IMG_20250826_160644.jpg",
+      "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_160644.jpg",
+      "score": 0.588,
+      "breakdown": [
+        {
+          "path": "payment_details.supplier[0]",
+          "pred": "Maa Fruits & Departmental Store",
+          "actual": "Maa Fruits & Departmental Store",
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.payment_date[0]",
+          "pred": "2023-06-25",
+          "actual": null,
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.payment_account[0]",
+          "pred": null,
+          "actual": null,
+          "comparator": "embedding",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.payment_method[0]",
+          "pred": "cash",
+          "actual": null,
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.ref_no[0]",
+          "pred": null,
+          "actual": null,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.tags[0]",
+          "pred": "fruits",
+          "actual": "Fruits",
+          "comparator": "semantic",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.tags[1]",
+          "pred": "retail",
+          "actual": "Retail",
+          "comparator": "semantic",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.tags[2]",
+          "pred": "wholesale",
+          "actual": "Wholesale",
+          "comparator": "semantic",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.category[0]",
+          "pred": "fruits",
+          "actual": "Fruits",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[1]",
+          "pred": "fruits",
+          "actual": null,
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.description[0]",
+          "pred": "Pomegranate",
+          "actual": "Guava",
+          "comparator": "embedding",
+          "score": 0.68,
+          "weight": 1,
+          "weighted": 0.68
+        },
+        {
+          "path": "item_details.description[1]",
+          "pred": "Guava",
+          "actual": null,
+          "comparator": "embedding",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.quantity[0]",
+          "pred": 2,
+          "actual": 2.2005,
+          "comparator": "numeric",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.quantity[1]",
+          "pred": 2,
+          "actual": null,
+          "comparator": "numeric",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.unit_price[0]",
+          "pred": 60,
+          "actual": 120,
+          "comparator": "numeric",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.unit_price[1]",
+          "pred": 70,
+          "actual": null,
+          "comparator": "numeric",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.total[0]",
+          "pred": 120,
+          "actual": 260,
+          "comparator": "numeric",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.total[1]",
+          "pred": 140,
+          "actual": null,
+          "comparator": "numeric",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "attachment[0]",
+          "pred": null,
+          "actual": null,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "memo[0]",
+          "pred": null,
+          "actual": null,
+          "comparator": "embedding",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "totals.sub_total[0]",
+          "pred": 260,
+          "actual": 260,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.sales_tax.is_percentage[0]",
+          "pred": false,
+          "actual": false,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.sales_tax.tax[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.sales_tax.amount[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.discount.is_percentage[0]",
+          "pred": false,
+          "actual": false,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.discount.discount[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.discount.calculated_amount[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.total_amount[0]",
+          "pred": 260,
+          "actual": 260,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        }
+      ]
+    },
+    {
+      "image_name": "IMG_20250826_160928.jpg",
+      "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_160928.jpg",
+      "score": 0.438,
+      "breakdown": [
+        {
+          "path": "payment_details.supplier[0]",
+          "pred": "a2i Logistics Limited",
+          "actual": "SHWAPNO",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.payment_date[0]",
+          "pred": "16/06/2025",
+          "actual": "2025-06-16",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.payment_account[0]",
+          "pred": null,
+          "actual": "City Bank",
+          "comparator": "embedding",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.payment_method[0]",
+          "pred": "Cash",
+          "actual": "Card",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.ref_no[0]",
+          "pred": "14343",
+          "actual": "D0612506160034",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.tags[0]",
+          "pred": "Groceries",
+          "actual": "Grocery",
+          "comparator": "semantic",
+          "score": 0.75,
+          "weight": 1,
+          "weighted": 0.75
+        },
+        {
+          "path": "payment_details.tags[1]",
+          "pred": "Retail",
+          "actual": "Supermarket",
+          "comparator": "semantic",
+          "score": 0.353,
+          "weight": 1,
+          "weighted": 0.353
+        },
+        {
+          "path": "payment_details.tags[2]",
+          "pred": null,
+          "actual": "Retail",
+          "comparator": "semantic",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.tags[3]",
+          "pred": null,
+          "actual": "Food",
+          "comparator": "semantic",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[0]",
+          "pred": "Food",
+          "actual": "Produce",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[1]",
+          "pred": "Food",
+          "actual": "Produce",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[2]",
+          "pred": "Food",
+          "actual": "Produce",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[3]",
+          "pred": "Food",
+          "actual": "Snacks",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[4]",
+          "pred": "Food",
+          "actual": "Food",
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.category[5]",
+          "pred": "Food",
+          "actual": "Dairy & Eggs",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[6]",
+          "pred": "Food",
+          "actual": "Produce",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[7]",
+          "pred": "Food",
+          "actual": "Grains & Pulses",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[8]",
+          "pred": "Food",
+          "actual": "Grains & Pulses",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[9]",
+          "pred": "Food",
+          "actual": "Grains & Pulses",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[10]",
+          "pred": "Food",
+          "actual": "Meat & Poultry",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[11]",
+          "pred": "Household",
+          "actual": "Household",
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.category[12]",
+          "pred": "Household",
+          "actual": "Household",
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.category[13]",
+          "pred": "Food",
+          "actual": "Cooking Oil",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[14]",
+          "pred": "Food",
+          "actual": "Beverages",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[15]",
+          "pred": "Food",
+          "actual": "Spices",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[16]",
+          "pred": "Food",
+          "actual": "Spices",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[17]",
+          "pred": "Food",
+          "actual": "Spices",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.description[0]",
+          "pred": "Boti Borod (Loun) PCS",
+          "actual": "Bottle Gourd (Lau) PCS",
+          "comparator": "embedding",
+          "score": 0.656,
+          "weight": 1,
+          "weighted": 0.656
+        },
+        {
+          "path": "item_details.description[1]",
+          "pred": "Gucchat ar (Shoshin)kg",
+          "actual": "Cucumber (Shosha)kg",
+          "comparator": "embedding",
+          "score": 0.787,
+          "weight": 1,
+          "weighted": 0.787
+        },
+        {
+          "path": "item_details.description[2]",
+          "pred": "Green Chili (Kachha Morich)",
+          "actual": "Green Chili (Kacha Morich)",
+          "comparator": "embedding",
+          "score": 0.976,
+          "weight": 1,
+          "weighted": 0.976
+        },
+        {
+          "path": "item_details.description[3]",
+          "pred": "Horive Frs oc sat cul RT",
+          "actual": "Horina loc sat cul RC",
+          "comparator": "embedding",
+          "score": 0.825,
+          "weight": 1,
+          "weighted": 0.825
+        },
+        {
+          "path": "item_details.description[4]",
+          "pred": "Itad EDBKJn 175g(b3 6126g)",
+          "actual": "Ifad ED&Kaju 175g(B3 G120g",
+          "comparator": "embedding",
+          "score": 0.809,
+          "weight": 1,
+          "weighted": 0.809
+        },
+        {
+          "path": "item_details.description[5]",
+          "pred": "KFV Brand Egg (12 Pcs)",
+          "actual": "KFK Branded Egg (12 Pcs)",
+          "comparator": "embedding",
+          "score": 0.907,
+          "weight": 1,
+          "weighted": 0.907
+        },
+        {
+          "path": "item_details.description[6]",
+          "pred": "Lemon Long (Lotha Lebu) PC",
+          "actual": "Lemon Long (Lomba Lebu) PC",
+          "comparator": "embedding",
+          "score": 0.96,
+          "weight": 1,
+          "weighted": 0.96
+        },
+        {
+          "path": "item_details.description[7]",
+          "pred": "Mintkat Rian Loose Piljires",
+          "actual": "Miniket Rice Loose-P(Jiras",
+          "comparator": "embedding",
+          "score": 0.703,
+          "weight": 1,
+          "weighted": 0.703
+        },
+        {
+          "path": "item_details.description[8]",
+          "pred": "Mushur Dal Loose (S) kg",
+          "actual": "Moshur Dal Loose (S)kg",
+          "comparator": "embedding",
+          "score": 0.974,
+          "weight": 1,
+          "weighted": 0.974
+        },
+        {
+          "path": "item_details.description[9]",
+          "pred": "P Vai DeshiHiloucesekg",
+          "actual": "Piyaj DeshiaLoosekg",
+          "comparator": "embedding",
+          "score": 0.778,
+          "weight": 1,
+          "weighted": 0.778
+        },
+        {
+          "path": "item_details.description[10]",
+          "pred": "Shonarika Dressed Classic",
+          "actual": "Shonalika Dressed Classic(",
+          "comparator": "embedding",
+          "score": 0.958,
+          "weight": 1,
+          "weighted": 0.958
+        },
+        {
+          "path": "item_details.description[11]",
+          "pred": "Dhat a Kitchen Towel Doubl",
+          "actual": "B. Badhara Kitchen Towel Doub",
+          "comparator": "embedding",
+          "score": 0.865,
+          "weight": 1,
+          "weighted": 0.865
+        },
+        {
+          "path": "item_details.description[12]",
+          "pred": "Bestur dura a Paper Towel Dh",
+          "actual": "Bashundhara Paper Towel Wh",
+          "comparator": "embedding",
+          "score": 0.801,
+          "weight": 1,
+          "weighted": 0.801
+        },
+        {
+          "path": "item_details.description[13]",
+          "pred": "Fresh Soyabean Oil 5 ltr",
+          "actual": "Fresh Soyabean Oil 5 Ltr",
+          "comparator": "embedding",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.description[14]",
+          "pred": "Ispeknri Hirizone Tea Bag",
+          "actual": "Ispahani Mirzapore Tea Bag",
+          "comparator": "embedding",
+          "score": 0.891,
+          "weight": 1,
+          "weighted": 0.891
+        },
+        {
+          "path": "item_details.description[15]",
+          "pred": "Magsi Masala Family far fig",
+          "actual": "Maggi Masala Family Fan Pa",
+          "comparator": "embedding",
+          "score": 0.843,
+          "weight": 1,
+          "weighted": 0.843
+        },
+        {
+          "path": "item_details.description[16]",
+          "pred": "Pure Cumin Powder 200g",
+          "actual": "Pure Cumin Powder 200g",
+          "comparator": "embedding",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.description[17]",
+          "pred": "Rohuri Radani Chicken Ha",
+          "actual": "Radhuni Rademix Chicken Ma",
+          "comparator": "embedding",
+          "score": 0.884,
+          "weight": 1,
+          "weighted": 0.884
+        },
+        {
+          "path": "item_details.quantity[0]",
+          "pred": 6.0,
+          "actual": 6.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[1]",
+          "pred": 2.01,
+          "actual": 2.01,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[2]",
+          "pred": 0.57,
+          "actual": 0.57,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[3]",
+          "pred": 0.54,
+          "actual": 0.54,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[4]",
+          "pred": 1.0,
+          "actual": 1.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[5]",
+          "pred": 6.0,
+          "actual": 1.0,
+          "comparator": "numeric",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.quantity[6]",
+          "pred": 6.0,
+          "actual": 6.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[7]",
+          "pred": 6.0,
+          "actual": 6.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[8]",
+          "pred": 3.03,
+          "actual": 3.03,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[9]",
+          "pred": 4.06,
+          "actual": 4.06,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[10]",
+          "pred": 6.6,
+          "actual": 6.6,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[11]",
+          "pred": 2.0,
+          "actual": 2.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[12]",
+          "pred": 6.0,
+          "actual": 6.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[13]",
+          "pred": 1.0,
+          "actual": 1.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[14]",
+          "pred": 1.0,
+          "actual": 1.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[15]",
+          "pred": 1.0,
+          "actual": 1.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[16]",
+          "pred": 1.0,
+          "actual": 1.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.quantity[17]",
+          "pred": 1.0,
+          "actual": 1.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[0]",
+          "pred": 70.0,
+          "actual": 70.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[1]",
+          "pred": 55.0,
+          "actual": 55.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[2]",
+          "pred": 100.0,
+          "actual": 100.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[3]",
+          "pred": 850.0,
+          "actual": 850.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[4]",
+          "pred": 200.0,
+          "actual": 200.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[5]",
+          "pred": 190.0,
+          "actual": 190.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[6]",
+          "pred": 5.0,
+          "actual": 5.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[7]",
+          "pred": 76.0,
+          "actual": 76.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[8]",
+          "pred": 112.0,
+          "actual": 112,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[9]",
+          "pred": 58.0,
+          "actual": 58,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[10]",
+          "pred": 570.0,
+          "actual": 570.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[11]",
+          "pred": 160.0,
+          "actual": 160.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[12]",
+          "pred": 105.0,
+          "actual": 105.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[13]",
+          "pred": 922.0,
+          "actual": 922.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[14]",
+          "pred": 90.0,
+          "actual": 90.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[15]",
+          "pred": 340.0,
+          "actual": 340.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[16]",
+          "pred": 310.0,
+          "actual": 310.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[17]",
+          "pred": 95.0,
+          "actual": 95.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[0]",
+          "pred": 420.0,
+          "actual": 420.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[1]",
+          "pred": 110.55,
+          "actual": 110.55,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[2]",
+          "pred": 56.5,
+          "actual": 56.5,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[3]",
+          "pred": 459.0,
+          "actual": 455.6,
+          "comparator": "numeric",
+          "score": 0.925,
+          "weight": 1,
+          "weighted": 0.925
+        },
+        {
+          "path": "item_details.total[4]",
+          "pred": 200.0,
+          "actual": 200.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[5]",
+          "pred": 1080.0,
+          "actual": 190.0,
+          "comparator": "numeric",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.total[6]",
+          "pred": 30.0,
+          "actual": 30.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[7]",
+          "pred": 456.0,
+          "actual": 456.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[8]",
+          "pred": 338.8,
+          "actual": 338.8,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[9]",
+          "pred": 235.46,
+          "actual": 235.48,
+          "comparator": "numeric",
+          "score": 0.999,
+          "weight": 1,
+          "weighted": 0.999
+        },
+        {
+          "path": "item_details.total[10]",
+          "pred": 3793.15,
+          "actual": 3759.15,
+          "comparator": "numeric",
+          "score": 0.91,
+          "weight": 1,
+          "weighted": 0.91
+        },
+        {
+          "path": "item_details.total[11]",
+          "pred": 320.0,
+          "actual": 320.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[12]",
+          "pred": 630.0,
+          "actual": 630.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[13]",
+          "pred": 922.0,
+          "actual": 922.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[14]",
+          "pred": 90.0,
+          "actual": 90.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[15]",
+          "pred": 340.0,
+          "actual": 340.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[16]",
+          "pred": 310.0,
+          "actual": 310.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.total[17]",
+          "pred": 95.0,
+          "actual": 95.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "attachment[0]",
+          "pred": null,
+          "actual": null,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "memo[0]",
+          "pred": null,
+          "actual": "VAT against this challan is payable through central registration. Prices inclusive of standard VAT except exempted items. VAT Payable TK.: 300.26. Join the DREAM FACTORY at: FACEBOOK.COM/GROUPS/SHWAPNOHELP. Thank you for shopping with SHWAPNO. Please visit www.shwapno.com for home delivery. Purchase of defected item must be exchanged by 24 hours with invoice. For any queries, suggestions or complaints, please call 16469 (9:00 AM - 6:00 PM).",
+          "comparator": "embedding",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "totals.sub_total[0]",
+          "pred": 8959.06,
+          "actual": 8959.08,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.sales_tax.is_percentage[0]",
+          "pred": true,
+          "actual": false,
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "totals.sales_tax.tax[0]",
+          "pred": 300.26,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "totals.sales_tax.amount[0]",
+          "pred": 8919.08,
+          "actual": 300.26,
+          "comparator": "numeric",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "totals.discount.is_percentage[0]",
+          "pred": false,
+          "actual": false,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.discount.discount[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.discount.calculated_amount[0]",
+          "pred": 0,
+          "actual": 40.0,
+          "comparator": "numeric",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "totals.total_amount[0]",
+          "pred": 8919.08,
+          "actual": 8919.0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        }
+      ]
+    },
+    {
+      "image_name": "IMG_20250826_160949.jpg",
+      "image_path": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark/IMG_20250826_160949.jpg",
+      "score": 0.492,
+      "breakdown": [
+        {
+          "path": "payment_details.supplier[0]",
+          "pred": "Megasolom Autogaj",
+          "actual": "Messars Salam Enterprise",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.payment_date[0]",
+          "pred": "29/11/22",
+          "actual": "6/6/25",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.payment_account[0]",
+          "pred": null,
+          "actual": null,
+          "comparator": "embedding",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.payment_method[0]",
+          "pred": "cash",
+          "actual": null,
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "payment_details.ref_no[0]",
+          "pred": "243",
+          "actual": "243",
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.tags[0]",
+          "pred": "gas",
+          "actual": "gas",
+          "comparator": "semantic",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "payment_details.tags[1]",
+          "pred": "equipment",
+          "actual": "LPG",
+          "comparator": "semantic",
+          "score": 0.167,
+          "weight": 1,
+          "weighted": 0.167
+        },
+        {
+          "path": "payment_details.tags[2]",
+          "pred": "utilities",
+          "actual": null,
+          "comparator": "semantic",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.category[0]",
+          "pred": "Gas Cylinder",
+          "actual": "Gas",
+          "comparator": "exact",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.description[0]",
+          "pred": "GAS 30 KG",
+          "actual": "GAS 35 KG",
+          "comparator": "embedding",
+          "score": 0.951,
+          "weight": 1,
+          "weighted": 0.951
+        },
+        {
+          "path": "item_details.quantity[0]",
+          "pred": 1,
+          "actual": 1,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "item_details.unit_price[0]",
+          "pred": 8000,
+          "actual": 4300,
+          "comparator": "numeric",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "item_details.total[0]",
+          "pred": 8000,
+          "actual": 4300,
+          "comparator": "numeric",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "attachment[0]",
+          "pred": null,
+          "actual": null,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "memo[0]",
+          "pred": null,
+          "actual": null,
+          "comparator": "embedding",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "totals.sub_total[0]",
+          "pred": 8000,
+          "actual": 4300,
+          "comparator": "numeric",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        },
+        {
+          "path": "totals.sales_tax.is_percentage[0]",
+          "pred": false,
+          "actual": false,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.sales_tax.tax[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.sales_tax.amount[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.discount.is_percentage[0]",
+          "pred": false,
+          "actual": false,
+          "comparator": "exact",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.discount.discount[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.discount.calculated_amount[0]",
+          "pred": 0,
+          "actual": 0,
+          "comparator": "numeric",
+          "score": 1.0,
+          "weight": 1,
+          "weighted": 1.0
+        },
+        {
+          "path": "totals.total_amount[0]",
+          "pred": 8000,
+          "actual": 4300,
+          "comparator": "numeric",
+          "score": 0.0,
+          "weight": 1,
+          "weighted": 0.0
+        }
+      ]
+    }
+  ]
+}

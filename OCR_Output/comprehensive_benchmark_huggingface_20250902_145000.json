@@ -1,0 +1,36 @@
+{
+  "benchmark_metadata": {
+    "model_name": "huggingface",
+    "image_directory": "/home/tanjim_noor/Work/AI OCR BenchMark/For benchmark",
+    "ground_truth_file": "/home/tanjim_noor/Work/AI OCR BenchMark/OCR_Output/ocr_actual_1_structured_only.json",
+    "timestamp": "2025-09-02T14:50:00.212975",
+    "total_prompts_tested": 4,
+    "successful_prompts": 0,
+    "total_images": 10
+  },
+  "prompt_results": {
+    "cash_expense_v1": {
+      "error": "name 'score_all_images' is not defined",
+      "ocr_results": []
+    },
+    "cash_expense_v2": {
+      "error": "name 'score_all_images' is not defined",
+      "ocr_results": []
+    },
+    "cash_expense_v3": {
+      "error": "name 'score_all_images' is not defined",
+      "ocr_results": []
+    },
+    "cash_expense_v4": {
+      "error": "name 'score_all_images' is not defined",
+      "ocr_results": []
+    }
+  },
+  "performance_ranking": [],
+  "best_prompt": null,
+  "summary_statistics": {
+    "prompt_scores": {},
+    "average_score_across_prompts": 0,
+    "score_std_deviation": 0
+  }
+}
